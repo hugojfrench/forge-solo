@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_03_10_174441) do
+ActiveRecord::Schema[7.2].define(version: 2025_03_10_174533) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,6 +31,15 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_10_174441) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_ideas_on_user_id"
+  end
+
+  create_table "post_sections", force: :cascade do |t|
+    t.string "heading"
+    t.text "content"
+    t.bigint "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_post_sections_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -60,5 +69,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_10_174441) do
 
   add_foreign_key "idea_sections", "ideas"
   add_foreign_key "ideas", "users"
+  add_foreign_key "post_sections", "posts"
   add_foreign_key "posts", "ideas"
 end

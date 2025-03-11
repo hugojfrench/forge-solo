@@ -16,5 +16,10 @@ Rails.application.routes.draw do
 
   # Defines the route for the posts index ("/posts")
   get "/posts", to: "posts#index"
+
+  # Defines the route for the posts show ("/posts/:id")
+  get "/posts/:id", to: "posts#show"
+
+  # Define route for the UI Kit page
   get "ui_kit", to: "pages#ui_kit", as: :ui_kit
 end

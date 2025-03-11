@@ -18,6 +18,7 @@
   <div class="post-show-right">
     <div class="right-column-content">
       <!-- Avatar -->
+      <!-- TODO: Replace placeholder image with user-provided image -->
       <%= image_tag "Avatar_placeholder.png", class: "avatar-large" %>
 
       <!-- Upvote -->
@@ -30,27 +31,28 @@
         </div>
       </div>
 
-      <!-- Placeholder image -->
+      <!-- TODO: Replace placeholder image with AI-generated or user-provided image -->
       <%= image_tag "image.png", class: "post-image" %>
     </div>
   </div>
 
 </div>
 
-
+<!-- Feedback section -->
 <div class="feedback-section">
   <h3>Feedback</h3>
+
+  <!-- TODO: Add a form to submit feedback -->
+
 
   <% @post.feedbacks.each do |feedback| %>
     <div class="feedback-card">
       <div class="content-with-upvote">
-        <!-- Upvote block -->
         <div class="upvote-block">
           <button class="upvote-btn">👍</button>
+          <!-- TODO: Add feedback upvotes when seed file has them-->
           <div class="upvote-count"><%= 12 %></div>
         </div>
-
-        <!-- Feedback content -->
         <p class="feedback-content"><strong><%= feedback.user.first_name %>:</strong> <%= feedback.content %></p>
       </div>
 
@@ -58,15 +60,14 @@
       <% feedback.replies.each do |reply| %>
         <div class="feedback-reply">
           <div class="content-with-upvote">
-            <!-- Upvote block -->
             <div class="upvote-block">
               <button class="upvote-btn">👍</button>
+              <!-- TODO: Add reply upvotes when seed file has them-->
               <div class="upvote-count"><%= 12 %></div>
             </div>
-
-            <!-- Reply content -->
             <p><strong><%= reply.user.first_name %>:</strong> <%= reply.content %></p>
           </div>
+          <!-- TODO: Add a form to submit reply -->
         </div>
       <% end %>
     </div>

@@ -1,32 +1,28 @@
-<div class="container mt-4">
-  <h1>Posts#index</h1>
+<h1>Posts#index</h1>
+<% @posts.each do |post| %>
+  <%= link_to "#", class: "post-card-link" do %> <!-- Make whole card clickable -->
+    <div class="post-card">
 
-  <% @posts.each do |post| %>
-    <%= link_to "#", class: "post-card-link" do %> <!-- Make whole card clickable -->
-      <div class="post-card">
-
-        <!-- left side of card (upvotes + title + tagline) -->
-        <div class="post-card-left">
-          <div class="post-upvote">
-            <div class="upvote-btn">
-              👍
-            </div>
-            <div class="upvote-count"><%= post.upvotes %></div>
+      <!-- left side of card (upvotes + title + tagline) -->
+      <div class="post-card-left">
+        <div class="post-upvote">
+          <div class="upvote-btn">
+            👍
           </div>
-          <div class="post-info">
-            <h5 class="post-title"><%= post.title %></h5>
-            <p class="post-tagline"><%= post.tagline %></p>
-          </div>
+          <div class="upvote-count"><%= post.upvotes %></div>
         </div>
-
-        <!-- right side of card (avatar) -->
-        <div class="post-card-avatars">
-          <!-- Placeholder avatars for now -->
-          <%= image_tag "Avatar_placeholder.png", class: "avatar" %>
+        <div class="post-info">
+          <h5 class="post-title"><%= post.title %></h5>
+          <p class="post-tagline"><%= post.tagline %></p>
         </div>
-
       </div>
-    <% end %>
-  <% end %>
 
-</div>
+      <!-- right side of card (avatar) -->
+      <div class="post-card-avatars">
+        <!-- Placeholder avatars for now -->
+        <%= image_tag "Avatar_placeholder.png", class: "avatar" %>
+      </div>
+
+    </div>
+  <% end %>
+<% end %>

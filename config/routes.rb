@@ -13,4 +13,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  resources :initial_questions, only: [:show, :create, :new]
+  resources :expanded_questions, only: [:show, :create, :new]
 end

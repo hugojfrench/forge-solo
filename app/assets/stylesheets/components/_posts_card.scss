@@ -1,3 +1,11 @@
+// app/assets/stylesheets/components/_post_card.scss
+
+.post-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 .post-card {
   display: flex;
   justify-content: space-between;
@@ -7,4 +15,10 @@
   border: 1px solid $success;
   border-radius: 12px;
   background-color: $secondary;
+}
+
+// LEFT SIDE (Upvote + Info)
+.post-card-left {
+  display: flex;
+  align-items: center;
 }

@@ -10,6 +10,7 @@
     border: 8px solid $success;
     display: flex; // ✅ Make it flex
     align-items: top;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
     input,
     select,

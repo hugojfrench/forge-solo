@@ -78,3 +78,34 @@ ideas.each do |idea|
   end
 end
 end
+
+puts "Created #{Post.count} posts"
+
+# Select a random post for feedback
+post_with_feedback = Post.order("RANDOM()").first
+
+# Create 5 Feedbacks on one of the posts
+feedbacks = []
+5.times do
+  feedbacks << Feedback.create!(
+    content: Faker::Lorem.sentence,
+    user: users.sample,
+    post: post_with_feedback
+  )
+end
+
+puts "Created #{Feedback.count} feedbacks on post '#{post_with_feedback.title}'"
+
+# Select one feedback for replies
+feedback_with_replies = feedbacks.sample
+
+# Create 3 Replies on one of the feedbacks
+3.times do
+  Reply.create!(
+    content: Faker::Lorem.sentence,
+    user: users.sample,
+    feedback: feedback_with_replies
+  )
+end
+
+puts "Created #{Reply.count} replies to feedback '#{feedback_with_replies.content}'"

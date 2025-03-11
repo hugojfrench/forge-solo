@@ -60,4 +60,21 @@ users.each do |user|
 
     ])
   end
+
+puts "Created #{Idea.count} ideas"
+
+# Create Posts for each user
+
+puts "Created #{ideas.count} ideas for user #{user.first_name}"
+
+# Create 3-5 Posts per user using ideas as content
+ideas.each do |idea|
+  rand(3).times do
+    Post.create!(
+      title: idea.title,
+      content: "#{idea.summary}\n\n#{idea.section_1}\n\n#{idea.section_2}\n\n#{idea.section_3}", # Use all idea sections as post content
+      user: user
+    )
+  end
+end
 end

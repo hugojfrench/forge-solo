@@ -20,6 +20,8 @@
       border: none;
       border-radius: 8px;
       padding: 0px 8px;
+      color: $body-color;
+      font-weight: 400; // Normal weight
 
       &::placeholder {
         color: mix($body-color, white, 70%);
@@ -35,6 +37,10 @@
     select {
       color: mix($body-color, white, 70%); // Light color until option is selected
       font-weight: 300;
+      option {
+        color: $body-color;
+        font-weight: 400; // Normal weight for real options
+      }
     }
   }
 }

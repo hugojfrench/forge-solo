@@ -9,7 +9,6 @@
     background: $primary;
     border-radius: 16px;
     border: 8px solid $success;
-    padding-left: 8px;
     display: flex; // ✅ Make it flex
     align-items: top;
 
@@ -20,6 +19,10 @@
       background: $secondary;
       border: none;
       border-radius: 8px;
+      padding: 0px 8px;
+    }
+
+    label {
       padding: 0px 8px;
     }
   }

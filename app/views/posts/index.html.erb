@@ -3,8 +3,8 @@
   <% @posts.each do |post| %>
     <!-- clickable card -->
     <%= link_to "#" do %>
+      <!-- left side of card -->
       <div class = "card justify-content-between">
-        <%# left side div %>
         <div class="d-flex flex-column align-items-center">
           <div>
             <%= post.upvotes %>
@@ -14,8 +14,13 @@
             <p><%= post.tagline %></p>
           </div>
         </div>
-
       </div>
+      <!-- right side of card -->
+      <div class="card">
+        <div class="d-flex flex-column align-items-center">
+          <!-- placeholder avatar -->
+          <img src="https://www.gravatar.com/avatar/>
+        </div>
     <% end %> <!-- end clickable card -->
   <% end %>
 </div>

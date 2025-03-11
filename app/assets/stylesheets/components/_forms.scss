@@ -7,15 +7,17 @@
 
   .form-bubble {
     background: $primary;
-    padding: 1rem;
     border-radius: 16px;
     border: 8px solid $success;
+    padding-left: 8px;
+    padding-right: 8px;
 
     input,
     select,
     textarea {
       background: $secondary;
       border: none;
+      border-radius: 8px;
     }
   }
 }

@@ -1,0 +1,36 @@
+.upvote-block {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .upvote-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  .upvote-count {
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  &.vertical {
+    flex-direction: column;
+  }
+
+  &.large {
+    .upvote-btn {
+      font-size: 32px;
+    }
+
+    .upvote-count {
+      font-size: 18px;
+    }
+  }
+}

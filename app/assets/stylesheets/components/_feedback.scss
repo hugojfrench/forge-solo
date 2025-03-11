@@ -16,3 +16,14 @@
     border-left: 2px solid $gray-300;
   }
 }
+
+.content-with-upvote {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.feedback-content, .feedback-reply p {
+  margin: 0;
+  line-height: 1.5;
+}

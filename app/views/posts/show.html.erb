@@ -43,13 +43,30 @@
 
   <% @post.feedbacks.each do |feedback| %>
     <div class="feedback-card">
-      <!-- Feedback content -->
-      <p class="feedback-content"><strong><%= feedback.user.first_name %>:</strong> <%= feedback.content %></p>
+      <div class="content-with-upvote">
+        <!-- Upvote block -->
+        <div class="upvote-block">
+          <button class="upvote-btn">👍</button>
+          <div class="upvote-count"><%= 12 %></div>
+        </div>
 
-      <!-- Replies to the feedback -->
+        <!-- Feedback content -->
+        <p class="feedback-content"><strong><%= feedback.user.first_name %>:</strong> <%= feedback.content %></p>
+      </div>
+
+      <!-- Replies -->
       <% feedback.replies.each do |reply| %>
         <div class="feedback-reply">
-          <p><em><%= reply.user.first_name %>:</em> <%= reply.content %></p>
+          <div class="content-with-upvote">
+            <!-- Upvote block -->
+            <div class="upvote-block">
+              <button class="upvote-btn">👍</button>
+              <div class="upvote-count"><%= 12 %></div>
+            </div>
+
+            <!-- Reply content -->
+            <p><strong><%= reply.user.first_name %>:</strong> <%= reply.content %></p>
+          </div>
         </div>
       <% end %>
     </div>

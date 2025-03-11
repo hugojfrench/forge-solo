@@ -35,6 +35,8 @@
       font-weight: 500; // Bold label
     }
 
+    // TODO: Fix select dropdown so selected item has normal weight and color
+
     select {
       color: mix($body-color, white, 70%); // Light color until option is selected
       font-weight: 300;

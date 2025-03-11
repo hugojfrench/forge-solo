@@ -77,7 +77,6 @@ ideas.each do |idea|
     )
   end
 end
-end
 
 puts "Created #{Post.count} posts"
 

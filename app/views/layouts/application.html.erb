@@ -17,14 +17,16 @@
     <%= javascript_importmap_tags %>
   </head>
 
- <body>
+  <body>
     <% unless current_page?(root_path) %>
       <%= render "shared/navbar" %>
     <% end %>
 
     <%= render "shared/flashes" %>
 
-    <%= yield %>
+    <div class="container mt-4">
+      <%= yield %>
+    </div>
 
     <% unless current_page?(root_path) %>
       <%= render "shared/footer" %>

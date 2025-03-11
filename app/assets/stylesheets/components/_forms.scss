@@ -28,6 +28,10 @@
         font-weight: 300; // Light placeholder
         opacity: 0.7;
       }
+
+      &:focus {
+        outline: none;
+      }
     }
 
     label {

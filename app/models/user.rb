@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :ideas
+  has_many :posts, through: :ideas
+  has_many :feedbacks
+  has_many :replies
 end

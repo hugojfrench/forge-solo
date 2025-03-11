@@ -2,7 +2,7 @@
 
 
 
-<%= form_with do |form| %>
+<%= form_with(url: "/initial_questions", method: "post") do |form| %>
   <div>
     <%= form.label :i_am_a, "I am a:" %>
     <%= form.text_field :i_am_a %>
@@ -30,11 +30,10 @@
 
   <div>
     <%= form.label :additional_info, "Additional info:" %>
-    <%= form.text_field :additional_info %>
+    <%= form.text_area :additional_info %>
   </div>
 
   <div>
     <%= form.submit "Generate" %>
   </div>
 <% end %>
-

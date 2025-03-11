@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_03_11_115235) do
+ActiveRecord::Schema[7.2].define(version: 2025_03_11_115445) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "expanded_questions", force: :cascade do |t|
+    t.text "user_question"
+    t.text "ai_answer"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_expanded_questions_on_user_id"
+  end
 
   create_table "feedbacks", force: :cascade do |t|
     t.text "content"
@@ -244,6 +253,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_11_115235) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "expanded_questions", "users"
   add_foreign_key "feedbacks", "posts"
   add_foreign_key "feedbacks", "users"
   add_foreign_key "idea_sections", "ideas"

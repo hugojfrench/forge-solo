@@ -7,7 +7,6 @@ class InitialQuestionsController < ApplicationController
   end
 
   def create
-    raise
   end
 
   private

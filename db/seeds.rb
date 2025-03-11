@@ -18,8 +18,6 @@ Reply.destroy_all
 
 # Create Users
 users = User.create!([
-  { name: "Alice", email: "alice@example.com", password: "password" },
-  { name: "Bob", email: "bob@example.com", password: "password" }
+  { id: "1", first_name: "Alice", last_name:"coder", email: "alice@example.com", password: "password" },
+  { id: "2", first_name: "Bob", last_name: "peters", email: "bob@example.com", password: "password" }
 ])
-
-puts "Created #{User.count} users"

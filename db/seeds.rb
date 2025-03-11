@@ -7,3 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require 'faker'
+
+# Destroy existing data
+User.destroy_all
+Idea.destroy_all
+Post.destroy_all
+Feedback.destroy_all
+Reply.destroy_all

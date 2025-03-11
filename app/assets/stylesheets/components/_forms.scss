@@ -38,9 +38,11 @@
     select {
       color: mix($body-color, white, 70%); // Light color until option is selected
       font-weight: 300;
+      opacity: 0.7;
       option {
         color: $body-color;
-        font-weight: 400; // Normal weight for real options
+        font-weight: 400;
+        opacity: 1; // Normal weight for real options
       }
     }
   }

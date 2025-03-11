@@ -29,6 +29,9 @@ gem "jbuilder"
 #openai
 gem "ruby-openai"
 
+#solid cable
+gem "solid_cable"
+
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 

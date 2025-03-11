@@ -1,4 +1,6 @@
 .custom-card {
   border-radius: 16px;
-  background-color: $primary;
+  background-color: mix(white, $primary, 50%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid mix(white, $secondary, 50%);
 }

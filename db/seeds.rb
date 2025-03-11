@@ -21,3 +21,43 @@ users = User.create!([
   { id: "1", first_name: "Alice", last_name:"coder", email: "alice@example.com", password: "password" },
   { id: "2", first_name: "Bob", last_name: "peters", email: "bob@example.com", password: "password" }
 ])
+
+puts "Created #{User.count} users"
+# Create Ideas for each user
+users.each do |user|
+    Idea.create!([
+      {
+      id: "1",
+      title: "",
+      tagline: "",
+      summary: "",
+      section_1: "",
+      section_2: "",
+      section_3: "",
+      user: user },
+
+      {
+        id: "2",
+        title: "",
+        tagline: "",
+        summary: "",
+        section_1: "",
+        section_2: "",
+        section_3: "",
+        user: user },
+
+        {
+          id: "3",
+          title: "",
+          tagline: "",
+          summary: "",
+          section_1: "",
+          section_2: "",
+          section_3: "",
+          user: user },
+
+
+
+    ])
+  end
+end

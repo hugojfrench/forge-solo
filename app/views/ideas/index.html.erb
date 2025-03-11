@@ -1,1 +1,13 @@
 <h1>My Ideas</h1>
+
+<ul>
+  <% @ideas.each do |idea| %>
+    <li>
+      <%= idea.title %>
+      <ul>
+        <li><%= idea.tagline %></li>
+        <li><%= idea.summary %></li>
+      </ul>
+    </li>
+  <% end %>
+</ul>

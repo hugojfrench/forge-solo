@@ -6,6 +6,13 @@
   gap: 1.5rem;
 
   .form-bubble {
-    background: mix(white, $secondary, 50%);
+    background: $primary;
+    padding: 1rem;
+    border-radius: 16px;
+    border: 8px solid $success;
+
+    input {
+      background: $secondary;
+    }
   }
 }

@@ -1,8 +1,9 @@
 <h1>Posts#index</h1>
 <div class="container">
-<ul>
   <% @posts.each do |post| %>
-    <li><%= post.upvotes %><%= post.title %><%= post.tagline %></li>
+    <div class = "card">
+      <%= post.upvotes %><%= post.title %><%= post.tagline %></li>
+
+    </div>
   <% end %>
-</ul>
 </div>

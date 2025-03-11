@@ -32,5 +32,9 @@
       padding: 0px 8px;
     }
 
+    select {
+      color: mix($body-color, white, 70%); // Light color until option is selected
+      font-weight: 300;
+    }
   }
 }

@@ -15,3 +15,11 @@ Idea.destroy_all
 Post.destroy_all
 Feedback.destroy_all
 Reply.destroy_all
+
+# Create Users
+users = User.create!([
+  { name: "Alice", email: "alice@example.com", password: "password" },
+  { name: "Bob", email: "bob@example.com", password: "password" }
+])
+
+puts "Created #{User.count} users"

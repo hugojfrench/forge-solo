@@ -13,4 +13,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # Defines the route for the posts index ("/posts")
+  get "/posts", to: "posts#index"
 end

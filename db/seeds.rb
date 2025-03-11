@@ -7,104 +7,88 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-require 'faker'
-
-# Destroy existing data
 User.destroy_all
 Idea.destroy_all
 Post.destroy_all
 Feedback.destroy_all
 Reply.destroy_all
+Tag.destroy_all
+PostTag.destroy_all
 
-# Create Users
-users = User.create!([
-  { id: "1", first_name: "Alice", last_name:"coder", email: "alice@example.com", password: "password" },
-  { id: "2", first_name: "Bob", last_name: "peters", email: "bob@example.com", password: "password" }
-])
+# Creating Users
+users = []
+users << User.create!(email: "john.doe@example.com", password: "password", first_name: "John", last_name: "Doe")
+users << User.create!(email: "jane.smith@example.com", password: "password", first_name: "Jane", last_name: "Smith")
+users << User.create!(email: "michael.johnson@example.com", password: "password", first_name: "Michael", last_name: "Johnson")
+users << User.create!(email: "emily.davis@example.com", password: "password", first_name: "Emily", last_name: "Davis")
+users << User.create!(email: "david.wilson@example.com", password: "password", first_name: "David", last_name: "Wilson")
 
-puts "Created #{User.count} users"
-# Create Ideas for each user
-users.each do |user|
-    Idea.create!([
-      {
-      id: "1",
-      title: "GreenTech Hub",
-      tagline: "Innovating for a Sustainable Future",
-      summary: "A platform connecting green tech startups, investors, and eco-conscious consumers to drive sustainability in technology",
-      section_1: "Many promising green tech startups struggle to find investors and customers who prioritize sustainability, slowing down innovation.",
-      section_2: "GreenTech Hub serves as a marketplace and networking space where green startups showcase their innovations, connect with investors, and gain exposure to sustainability-driven consumers",
-      section_3: "With the green technology sector projected to be worth over $74 billion by 2027, GreenTech Hub taps into a rapidly growing market, facilitating impact-driven investments",
-      user: user },
+# Creating Ideas
+ideas = []
+ideas << Idea.create!(title: "Revolutionary AI Assistant", tagline: "AI that understands you", summary: "An advanced AI assistant that learns and adapts to user needs.", user: users.sample)
+ideas << Idea.create!(title: "Sustainable Energy Solutions", tagline: "Powering the future sustainably", summary: "Innovative renewable energy solutions for homes and businesses.", user: users.sample)
+ideas << Idea.create!(title: "Smart Home Automation", tagline: "Your home, smarter and safer", summary: "A fully integrated smart home automation system.", user: users.sample)
+ideas << Idea.create!(title: "Personal Finance Tracker", tagline: "Take control of your finances", summary: "An app that helps users budget and track their expenses efficiently.", user: users.sample)
+ideas << Idea.create!(title: "Eco-Friendly Packaging", tagline: "Sustainable packaging for a greener future", summary: "Biodegradable and compostable packaging solutions.", user: users.sample)
 
-      {
-        id: "2",
-        title: "MindSync",
-        tagline: "AI-Powered Mental Health Support",
-        summary: "An AI-driven chatbot and self-care platform providing mental wellness exercises, mindfulness techniques, and therapy matching.",
-        section_1: "Millions struggle with mental health, but stigma, cost, and accessibility prevent them from seeking professional help",
-        section_2: "MindSync offers AI-powered conversational support, personalized wellness plans, and connects users with certified therapists when needed",
-        section_3: "The global mental health apps market is expected to surpass $17 billion by 2030, making MindSync a scalable and impactful solution",
-        user: user },
+# Creating Posts
+posts = []
+posts << Post.create!(title: "AI Assistant: The Future of Productivity", tagline: "How AI is changing the workplace", summary: "A deep dive into the benefits and applications of AI assistants.", upvotes: rand(10..100), idea: ideas.sample)
+posts << Post.create!(title: "Renewable Energy: The Next Big Thing", tagline: "Why green energy is the future", summary: "Exploring the latest innovations in sustainable energy.", upvotes: rand(10..100), idea: ideas.sample)
+posts << Post.create!(title: "Smart Homes: Convenience & Security", tagline: "Why smart homes are the future", summary: "An overview of the benefits and challenges of smart home tech.", upvotes: rand(10..100), idea: ideas.sample)
+posts << Post.create!(title: "Managing Your Finances: Tips & Tricks", tagline: "Simple ways to save money", summary: "A guide to effective personal finance management.", upvotes: rand(10..100), idea: ideas.sample)
+posts << Post.create!(title: "Eco-Friendly Packaging: A Necessity", tagline: "Reducing waste for a better world", summary: "How sustainable packaging can help the environment.", upvotes: rand(10..100), idea: ideas.sample)
 
-        {
-          id: "3",
-          title: "SkillBridge",
-          tagline: "Bridging the Gap Between Learning and Earning",
-          summary: "A skill-based learning platform that connects learners with real-world freelance projects to gain hands-on experience",
-          section_1: "Many students and professionals struggle to gain practical experience despite having theoretical knowledge, making it hard to land jobs",
-          section_2: "SkillBridge partners with businesses to offer micro-internships and real-world projects, allowing learners to apply their skills while earning.",
-          section_3: "With the rise of the gig economy and skill-based hiring, SkillBridge targets a $300 billion online learning industry by providing work-integrated learning solutions",
-          user: user },
-
-
-
-    ])
-  end
-
-puts "Created #{Idea.count} ideas"
-
-# Create Posts for each user
-
-puts "Created #{ideas.count} ideas for user #{user.first_name}"
-
-# Create 3-5 Posts per user using ideas as content
-ideas.each do |idea|
-  rand(3).times do
-    Post.create!(
-      title: idea.title,
-      content: "#{idea.summary}\n\n#{idea.section_1}\n\n#{idea.section_2}\n\n#{idea.section_3}", # Use all idea sections as post content
-      user: user
-    )
-  end
-end
-
-puts "Created #{Post.count} posts"
-
-# Select a random post for feedback
-post_with_feedback = Post.order("RANDOM()").first
-
-# Create 5 Feedbacks on one of the posts
+# Creating Feedbacks
 feedbacks = []
+feedbacks << Feedback.create!(content: "This is an insightful post. I learned a lot!", upvotes: rand(5..30), user: users.sample, post: posts.sample)
+feedbacks << Feedback.create!(content: "Great perspective on renewable energy. Very informative!", upvotes: rand(5..30), user: users.sample, post: posts.sample)
+feedbacks << Feedback.create!(content: "I love smart home automation! Thanks for the details.", upvotes: rand(5..30), user: users.sample, post: posts.sample)
+feedbacks << Feedback.create!(content: "Managing finances can be tough, but this post really helps.", upvotes: rand(5..30), user: users.sample, post: posts.sample)
+feedbacks << Feedback.create!(content: "Sustainable packaging is the way forward. Great insights!", upvotes: rand(5..30), user: users.sample, post: posts.sample)
+
+# Creating Replies
 5.times do
-  feedbacks << Feedback.create!(
-    content: Faker::Lorem.sentence,
-    user: users.sample,
-    post: post_with_feedback
-  )
-end
-
-puts "Created #{Feedback.count} feedbacks on post '#{post_with_feedback.title}'"
-
-# Select one feedback for replies
-feedback_with_replies = feedbacks.sample
-
-# Create 3 Replies on one of the feedbacks
-3.times do
   Reply.create!(
-    content: Faker::Lorem.sentence,
+    content: "I completely agree with this feedback!",
+    upvotes: rand(2..15),
     user: users.sample,
-    feedback: feedback_with_replies
+    feedback: feedbacks.sample
   )
 end
 
-puts "Created #{Reply.count} replies to feedback '#{feedback_with_replies.content}'"
+# Creating Idea Sections
+5.times do |i|
+  IdeaSection.create!(
+    heading: "Key Benefits",
+    content: "Here are the main advantages of this idea.",
+    idea: ideas.sample
+  )
+end
+
+# Creating Post Sections
+5.times do |i|
+  PostSection.create!(
+    heading: "Important Takeaways",
+    content: "These are the most important points from this post.",
+    post: posts.sample
+  )
+end
+
+# Creating Tags
+tags = []
+tags << Tag.create!(name: "Technology")
+tags << Tag.create!(name: "Sustainability")
+tags << Tag.create!(name: "Finance")
+tags << Tag.create!(name: "Smart Home")
+tags << Tag.create!(name: "Innovation")
+
+# Assigning Tags to Posts
+10.times do
+  PostTag.create!(
+    post: posts.sample,
+    tag: tags.sample
+  )
+end
+
+puts "Database seeded successfully with realistic data!"

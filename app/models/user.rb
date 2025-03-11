@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :posts, through: :ideas
   has_many :feedbacks
   has_many :replies
+  has_many :initial_questions
 end

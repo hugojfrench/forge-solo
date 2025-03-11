@@ -1,12 +1,38 @@
-<div class="post-card-large">
-  <h1><%= @post.title %></h1>
-  <h2><%= @post.tagline %></h2>
-  <p><%= @post.summary %></p>
+<div class="post-card">
+  <div class="post-info">
+    <h1><%= @post.title %></h1>
+    <h2><%= @post.tagline %></h2>
+    <p><%= @post.summary %></p>
 
-  <% @post.post_sections.each do |section| %>
-    <div>
-      <h3><%= section.heading %></h3>
-      <p><%= section.content %></p>
+    <% @post.post_sections.each do |section| %>
+      <div>
+        <h3><%= section.heading %></h3>
+        <p><%= section.content %></p>
+      </div>
+    <% end %>
+  </div>
+  <div class="post-card-avatar">
+    <!-- Avatar top-right -->
+    <div class="post-avatar">
+      <%= image_tag "Avatar_placeholder.png", class: "avatar" %>
+    </div>
+  </div>
+</div>
+
+<div class="feedback-section">
+  <h3>Feedback</h3>
+
+  <% @post.feedbacks.each do |feedback| %>
+    <div class="feedback-card">
+      <!-- Feedback content -->
+      <p class="feedback-content"><strong><%= feedback.user.first_name %>:</strong> <%= feedback.content %></p>
+
+      <!-- Replies to the feedback -->
+      <% feedback.replies.each do |reply| %>
+        <div class="feedback-reply">
+          <p><strong><%= reply.user.first_name %>:</strong> <%= reply.content %></p>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>

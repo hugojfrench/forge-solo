@@ -1,1 +1,40 @@
 <h1>New page</h1>
+
+
+
+<%= form_with do |form| %>
+  <div>
+    <%= form.label :i_am_a, "I am a:" %>
+    <%= form.text_field :i_am_a %>
+  </div>
+
+  <div>
+    <%= form.label :ideation_framework, "Ideation Framework:" %>
+    <%= form.select :ideation_framework, options_for_select([
+      ['Standard Ideation', 'standard_ideation'],
+      ['Business Startup', 'business_startup'],
+      ['Creative Project', 'creative_project'],
+      ['Scientific Research', 'scientific_research']
+    ], 'business_startup') %>
+  </div>
+
+  <div>
+    <%= form.label :i_am_interested_in, "I am interested in:" %>
+    <%= form.text_field :i_am_interested_in %>
+  </div>
+
+  <div>
+    <%= form.label :seeking_inspiration_for, "Seeking inspiration for:" %>
+    <%= form.text_field :seeking_inspiration_for %>
+  </div>
+
+  <div>
+    <%= form.label :additional_info, "Additional info:" %>
+    <%= form.text_field :additional_info %>
+  </div>
+
+  <div>
+    <%= form.submit "Generate" %>
+  </div>
+<% end %>
+

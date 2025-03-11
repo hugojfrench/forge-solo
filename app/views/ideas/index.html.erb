@@ -1,13 +1,18 @@
 <h1>My Ideas</h1>
 
-<ul>
-  <% @ideas.each do |idea| %>
-    <li>
-      <%= idea.title %>
-      <ul>
-        <li><%= idea.tagline %></li>
-        <li><%= idea.summary %></li>
-      </ul>
-    </li>
+<div class="custom-card-container">
+  <%= link_to '#', class: "custom-card-link" do %>
+    <div class="custom-card new-idea">
+      <p><i class="fa-solid fa-plus"></i></p>
+    </div>
   <% end %>
-</ul>
+  <% @ideas.each do |idea| %>
+    <%= link_to '#', class: "custom-card-link" do %>
+      <div class="custom-card">
+        <p class="custom-card-title"><%= idea.title %></p>
+        <p class="custom-card-tagline"><%= idea.tagline %></p>
+        <p  class="custom-card-summary"><%= idea.summary %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>

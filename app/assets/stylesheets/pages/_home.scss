@@ -21,4 +21,9 @@
   margin-bottom: 0.5rem;  // mb-2
 }
 
-
+.login-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem; // Replicates Bootstrap's m-3
+}

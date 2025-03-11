@@ -1,0 +1,2 @@
+class ExpandedQuestionsController < ApplicationController
+end

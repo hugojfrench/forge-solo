@@ -1,18 +1,18 @@
 <h1>Choose your favorite:</h1>
 
 <div class="card-container">
-  <div class="custom-card">
+  <a href="/expandedidea/new?id=1" class="custom-card ideas-card"  onclick="selectCard(event, this, 1)">
     <h2>Idea 1</h2>
     <p><%= @initial_question.ai_answer1 %></p>
-  </div>
+  </a>
 
-  <div class="custom-card">
+  <a href="/expandedidea/new?id=2" class="custom-card ideas-card" onclick="selectCard(event, this, 2)">
     <h2>Idea 2</h2>
     <p><%= @initial_question.ai_answer2 %></p>
-  </div>
+  </a>
 
-  <div class="custom-card">
+  <a href="/expandedidea/new?id=3" class="custom-card ideas-card" onclick="selectCard(event, this, 3)">
     <h2>Idea 3</h2>
     <p><%= @initial_question.ai_answer3 %></p>
-  </div>
+  </a>
 </div>

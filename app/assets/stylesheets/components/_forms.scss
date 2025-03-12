@@ -53,3 +53,38 @@
     }
   }
 }
+
+
+// Form for Ideas#edit
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  border: 1cm;
+}
+
+.edit-form-input {
+  border: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.edit-form-title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.edit-form-heading {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.edit-form-tagline {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.edit-form-summary {
+  font-size: 14px;
+}

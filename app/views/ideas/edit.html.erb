@@ -5,14 +5,16 @@
   <%= form_idea.text_field :title, class: "edit-form-input edit-form-title" %>
   <%= form_idea.text_field :tagline, class: "edit-form-input edit-form-tagline" %>
   <%= form_idea.text_area :summary, class: "edit-form-input edit-form-summary" %>
+
   <%# Take every section associated with the idea %>
   <% @idea.idea_sections.each do |idea_section| %>
     <%# Display the fields from IdeaSections model %>
-    <%= form_idea.fields_for :idea_section, idea_section do |idea_section_fields| %>
+    <%= form_idea.fields_for "#{idea_section.id}", idea_section do |idea_section_fields| %>
       <%= idea_section_fields.text_field :heading, class: "edit-form-input edit-form-heading" %>
       <%= idea_section_fields.text_area :content, class: "edit-form-input edit-form-summary" %>
     <% end %>
   <% end %>
+
   <%# Add submit button %>
   <%= form_idea.button "<i class='fa-solid fa-floppy-disk'></i>".html_safe, type: "submit" %>
   <%= form_idea.button "<i class='fa-solid fa-share-from-square'></i>".html_safe %>

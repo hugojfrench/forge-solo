@@ -1,22 +1,22 @@
 class RepliesController < ApplicationController
   def create
     @feedback = Feedback.find(params[:feedback_id])
-    @feedback = Feedback.new(feedback_params)
-    @feedback.feedback = @feedback
-    @feedback.user = current_user
-    if @feedback.save
+    @reply = Reply.new(reply_params)
+    @reply.feedback = @feedback
+    @reply.user = current_user
+    if @reply.save
       respond_to do |format|
         format.turbo_stream
-        format.html { redirect_to feedback_path(@feedback) }
+        format.html { redirect_to post_path(@feedback.post) }
       end
     else
-      render "feedbacks/show", status: :unprocessable_entity
+      render "posts/show", status: :unprocessable_entity
     end
   end
 
   private
 
-  def feedback_params
-    params.require(:feedback).permit(:content, :user)
+  def reply_params
+    params.require(:reply).permit(:content, :user)
   end
 end

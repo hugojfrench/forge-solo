@@ -16,9 +16,11 @@ Rails.application.routes.draw do
 
   # Defines the route for the posts index and show
   resources :posts, only: [:index, :show] do
-    resources :feedbacks, only: [:create] do
-      resources :replies, only: [:create]
-    end
+    resources :feedbacks, only: [:create]
+  end
+
+  resources :feedbacks, except: [:create] do
+    resources :replies, only: [:create]
   end
 
   # Define route for the UI Kit page

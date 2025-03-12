@@ -1,0 +1,20 @@
+    <div class="feedback-reply">
+      <div class="content-with-upvote">
+        <div class="upvote-block">
+          <button class="upvote-btn">👍</button>
+          <!-- TODO: Add reply upvotes when seed file has them-->
+          <div class="upvote-count"><%= 12 %></div>
+        </div>
+        <p><strong><%= reply.user.first_name %>:</strong> <%= reply.content %></p>
+      </div>
+      <!-- TODO: Add a form to submit reply -->
+        <%= simple_form_for [@feedback, @post], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |f| %>
+          <div class="form-group">
+            <%= f.input :content, label: false, placeholder: "Leave reply here..." %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Add reply", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+
+    </div>

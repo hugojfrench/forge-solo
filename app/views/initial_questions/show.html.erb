@@ -11,3 +11,13 @@
 <p>
   <%= @initial_question.ai_answer3 %>
 </p>
+
+
+<%= form_with(url: "/initial_questions", method: "post") do |form| %>
+  <div class="custom-form">
+    <div class="custom-form-bubble">
+      <%= form.label :changes, "Any Changes" %>
+      <%= form.text_field :changes, placeholder: "I'm really looking to do something which has some interesting challenges to tackle on the backend of development, can you give me some more complex ideas?" %>
+    </div>
+  </div>
+ <% end %>

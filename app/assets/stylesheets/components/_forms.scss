@@ -37,7 +37,7 @@
     textarea {
       min-height: 100px;
     }
-    
+
     label {
       padding: 0px 8px;
       font-weight: 500; // Bold label
@@ -55,5 +55,9 @@
         opacity: 1; // Normal weight for real options
       }
     }
+  }
+
+  .btn {
+    min-width: 100%;
   }
 }

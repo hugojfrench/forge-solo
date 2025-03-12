@@ -4,6 +4,8 @@ class InitialQuestionsController < ApplicationController
   end
 
   def show
+    @initial_question = InitialQuestion.find(params[:id])
+    @initial_question.content
   end
 
   def create
@@ -12,7 +14,7 @@ class InitialQuestionsController < ApplicationController
     @initial_question = InitialQuestion.new(user_question: text)
     @initial_question.user = current_user
     if @initial_question.save
-      redirect_to "/initial_questions/#{@initial_question.id}"  #redirect to the initial questions show page
+      redirect_to initial_question_path(@initial_question)  #redirect to the initial questions show page
     else
       render :index, status: :unprocessable_entity
     end

@@ -6,7 +6,8 @@ class IdeasController < ApplicationController
   end
 
   def edit
-    @last_section = @idea.idea_sections.order(:id).last
+    # use last section to add a css class for rounded corners
+    @last_section = @idea.sections.last
   end
 
   def update

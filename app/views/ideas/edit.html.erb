@@ -8,7 +8,7 @@
     <%= form_idea.text_area :summary, class: "edit-form-input edit-form-summary", rows: 5 %>
 
     <%# Display the fields from IdeaSections model %>
-    <%= form_idea.fields_for :idea_sections, @idea.idea_sections.order(:id) do |idea_section_fields| %>
+    <%= form_idea.fields_for :idea_sections, @idea.sections do |idea_section_fields| %>
       <% last_input = idea_section_fields.object == @last_section %>
       <%= idea_section_fields.text_field :heading, class: "edit-form-input edit-form-heading" %>
       <%= idea_section_fields.text_area :content, class: "edit-form-input edit-form-summary #{'edit-form-last' if last_input}", rows: 5 %>

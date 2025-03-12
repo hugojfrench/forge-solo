@@ -21,6 +21,16 @@
   color: inherit;
 }
 
+.custom-card-top {
+  display: grid;
+  grid-template-columns: 80% 20%;
+}
+
+.custom-card-top .post-upvote {
+  justify-self: end;
+  margin: 0;
+}
+
 .new-idea {
   font-size: 120px;
   display: flex;

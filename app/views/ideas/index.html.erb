@@ -9,8 +9,16 @@
   <% @ideas.each do |idea| %>
     <%= link_to '#', class: "custom-card-link" do %>
       <div class="custom-card">
-        <p class="custom-card-title"><%= idea.title %></p>
-        <p class="custom-card-tagline"><%= idea.tagline %></p>
+        <div class="custom-card-top">
+          <div class="custom-card-top-left">
+            <p class="custom-card-title"><%= idea.title %></p>
+            <p class="custom-card-tagline"><%= idea.tagline %></p>
+          </div>
+          <div class="post-upvote">
+            <div class="upvote">👍</div>
+            <div class="upvote-count">7</div>
+          </div>
+        </div>
         <p  class="custom-card-summary"><%= idea.summary %></p>
       </div>
     <% end %>

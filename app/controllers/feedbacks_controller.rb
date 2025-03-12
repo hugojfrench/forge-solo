@@ -6,11 +6,7 @@ class FeedbacksController < ApplicationController
     @feedback.user = current_user
     if @feedback.save
       respond_to do |format|
-        format.turbo_stream do
-          render turbo_stream: turbo_stream.append(:feedbacks, partial: "feedbacks/feedback",
-            target: "feedbacks",
-            locals: { feedback: @feedback })
-        end
+        format.turbo_stream
         format.html { redirect_to post_path(@post) }
       end
     else

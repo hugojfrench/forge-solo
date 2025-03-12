@@ -1,0 +1,58 @@
+// app/assets/stylesheets/components/_post_card.scss
+
+.post-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.post-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid $success;
+  border-radius: 12px;
+  background-color: mix(white, $secondary, 30%);
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+// LEFT SIDE (Upvote + Info)
+.post-card-left {
+  display: flex;
+  align-items: center;
+}
+
+.post-upvote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 16px;
+
+  .upvote-btn {
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+
+  .upvote-count {
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+
+.post-info {
+  h5.post-title {
+    font-size: 18px;
+    margin: 0 0 4px;
+    font-weight: 600;
+  }
+
+  p.post-tagline {
+    margin: 0;
+  }
+}

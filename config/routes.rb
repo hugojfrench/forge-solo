@@ -15,4 +15,8 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :initial_questions, only: [:show, :create, :new]
   resources :expanded_questions, only: [:show, :create, :new]
+
+  # Defines the route for the posts index ("/posts")
+  get "/posts", to: "posts#index"
+  get "ui_kit", to: "pages#ui_kit", as: :ui_kit
 end

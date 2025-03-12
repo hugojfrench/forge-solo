@@ -1,0 +1,55 @@
+.custom-form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .custom-form-bubble {
+    background: $primary;
+    border-radius: 16px;
+    border: 8px solid $success;
+    display: flex; // ✅ Make it flex
+    align-items: top;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    input,
+    select,
+    textarea {
+      flex: 1;
+      background: $secondary;
+      border: none;
+      border-radius: 8px;
+      padding: 0px 8px;
+      color: $body-color;
+      font-weight: 400; // Normal weight
+
+      &::placeholder {
+        color: mix($body-color, white, 70%);
+        font-weight: 300; // Light placeholder
+        opacity: 0.7;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    label {
+      padding: 0px 8px;
+      font-weight: 500; // Bold label
+    }
+
+    // TODO: Fix select dropdown so selected item has normal weight and color
+
+    select {
+      color: mix($body-color, white, 70%); // Light color until option is selected
+      font-weight: 300;
+      opacity: 0.7;
+      option {
+        color: $body-color;
+        font-weight: 400;
+        opacity: 1; // Normal weight for real options
+      }
+    }
+  }
+}

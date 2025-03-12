@@ -8,7 +8,7 @@ class Feedback < ApplicationRecord
   private
 
   def broadcast_feedback
-    broadcast_append_to "post_#{post.id}_feedbacks",
+    broadcast_prepend_to "post_#{post.id}_feedbacks",
                         partial: "feedbacks/feedback",
                         target: "feedbacks",
                         locals: { feedback: self }

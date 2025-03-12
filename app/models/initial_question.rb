@@ -13,9 +13,9 @@ class InitialQuestion < ApplicationRecord
 
     array_new_content = new_content.split("\n\n")
 
-    update(ai_answer1: array_new_content)
-    # update(ai_answer2: array_new_content[3])
-    # update(ai_answer3: array_new_content[4])
+    update(ai_answer1: array_new_content[1])
+    update(ai_answer2: array_new_content[2])
+    update(ai_answer3: array_new_content[3])
 
     return self
 

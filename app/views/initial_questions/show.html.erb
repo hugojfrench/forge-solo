@@ -17,7 +17,10 @@
   <div class="custom-form">
     <div class="custom-form-bubble">
       <%= form.label :changes, "Any Changes" %>
-      <%= form.text_field :changes, placeholder: "I'm really looking to do something which has some interesting challenges to tackle on the backend of development, can you give me some more complex ideas?" %>
+      <%= form.text_field :changes, placeholder: "I'm really looking to do something which has some interesting challenges to tackle on the backend of development..." %>
+    </div>
+    <div>
+      <%= form.submit "Generate", class: "btn btn-primary"%>
     </div>
   </div>
  <% end %>

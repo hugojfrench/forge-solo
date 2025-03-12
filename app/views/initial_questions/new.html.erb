@@ -3,37 +3,42 @@
 
 
 <%= form_with(url: "/initial_questions", method: "post") do |form| %>
-  <div>
-    <%= form.label :i_am_a, "I am a:" %>
-    <%= form.text_field :i_am_a %>
-  </div>
+  <div class="custom-form">
+    <div class="custom-form-bubble">
+      <%= form.label :i_am_a, "I am a..." %>
+      <%= form.text_field :i_am_a, placeholder: "Web Developer, street photographer, student journalist" %>
+    </div>
 
-  <div>
-    <%= form.label :ideation_framework, "Ideation Framework:" %>
-    <%= form.select :ideation_framework, options_for_select([
-      ['Standard Ideation', 'standard_ideation'],
-      ['Business Startup', 'business_startup'],
-      ['Creative Project', 'creative_project'],
-      ['Scientific Research', 'scientific_research']
-    ], 'business_startup') %>
-  </div>
+    <div class="custom-form-bubble">
+      <%= form.label :ideation_framework, "Ideation Framework:" %>
+      <%= form.select :ideation_framework, options_for_select([
+        ['Standard Ideation', 'standard_ideation'],
+        ['Business Startup', 'business_startup'],
+        ['Creative Project', 'creative_project'],
+        ['Scientific Research', 'scientific_research']
+      ], 'business_startup') %>
+    </div>
 
-  <div>
-    <%= form.label :i_am_interested_in, "I am interested in:" %>
-    <%= form.text_field :i_am_interested_in %>
-  </div>
+    <div class="custom-form-bubble">
+      <%= form.label :i_am_interested_in, "I am interested in:" %>
+      <%= form.text_field :i_am_interested_in, placeholder: "Webapp, photo project, long form article..." %>
+    </div>
 
-  <div>
-    <%= form.label :seeking_inspiration_for, "Seeking inspiration for:" %>
-    <%= form.text_field :seeking_inspiration_for %>
-  </div>
+    <div class="custom-form-bubble">
+      <%= form.label :seeking_inspiration_for, "Seeking inspiration for:" %>
+      <%= form.text_field :seeking_inspiration_for, placeholder: "Tech, food, community driven platforms, London at night, student politics... " %>
+    </div>
 
-  <div>
-    <%= form.label :additional_info, "Additional info:" %>
-    <%= form.text_area :additional_info %>
-  </div>
+    <div class="custom-form-bubble">
+      <%= form.label :additional_info, "Additional info:" %>
+      <%= form.text_area :additional_info, placeholder: "My project needs to be completed in X weeks
+I am working in a team of X
+I am an experienced professional, student, complete noviceksslsllslslslsls
+I will be using a film camera, Figma, Ruby on Rails..." %>
+    </div>
 
-  <div>
-    <%= form.submit "Generate" %>
+    <div class="btn btn-primary">
+      <%= form.submit "Generate" %>
+    </div>
   </div>
 <% end %>

@@ -44,7 +44,7 @@
 
   <!-- TODO: Add a form to submit feedback -->
   <h5>Add your feedback: </h5>
-    <%= simple_form_for([@post, Feedback.new]) do |f| %>
+    <%= simple_form_for [@post, @feedback], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |f| %>
       <div class="form-group">
         <%= f.input :content, label: false, placeholder: "Leave feedback here..." %>
       </div>

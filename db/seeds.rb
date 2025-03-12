@@ -8,6 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+puts "Cleaning up the database"
 Tag.destroy_all
 PostTag.destroy_all
 Reply.destroy_all
@@ -15,10 +16,6 @@ Feedback.destroy_all
 Post.destroy_all
 Idea.destroy_all
 User.destroy_all
-
-
-
-
 
 # Creating Users
 users = []
@@ -40,9 +37,7 @@ ideas << Idea.create!(title: "Eco-Friendly Packaging", tagline: "Sustainable pac
 
 puts "#{Idea.count} ideas created"
 
-
 # Creating Replies
-
 posts = []
 
 # Creating Idea Sections
@@ -62,7 +57,7 @@ ideas.each do |i|
     content: "Here are the main advantages of this idea.",
     idea: i
   )
-  puts "#{IdeaSection.count} sections created for one idea."
+
   posts << Post.create!(title: "AI Assistant: The Future of Productivity", tagline: "How AI is changing the workplace", summary: "A deep dive into the benefits and applications of AI assistants.", upvotes: rand(10..100), idea: i)
   posts << Post.create!(title: "Renewable Energy: The Next Big Thing", tagline: "Why green energy is the future", summary: "Exploring the latest innovations in sustainable energy.", upvotes: rand(10..100), idea: i)
   posts << Post.create!(title: "Smart Homes: Convenience & Security", tagline: "Why smart homes are the future", summary: "An overview of the benefits and challenges of smart home tech.", upvotes: rand(10..100), idea: i)
@@ -71,6 +66,7 @@ ideas.each do |i|
   puts "#{Post.count} posts created for one idea."
 end
 
+puts "#{IdeaSection.count} sections created."
 puts "total posts created: #{Post.count}"
 
 feedbacks = []
@@ -92,7 +88,7 @@ posts.each do |i|
     content: "These are the most important points from this post.",
     post: i
   )
-  puts "sections created: #{PostSection.count}"
+
   feedbacks << Feedback.create!(content: "This is an insightful post. I learned a lot!", upvotes: rand(5..30), user: users.sample, post: i)
   feedbacks << Feedback.create!(content: "Great perspective on renewable energy. Very informative!", upvotes: rand(5..30), user: users.sample, post: i)
   feedbacks << Feedback.create!(content: "I love smart home automation! Thanks for the details.", upvotes: rand(5..30), user: users.sample, post: i)
@@ -100,7 +96,11 @@ posts.each do |i|
   feedbacks << Feedback.create!(content: "Sustainable packaging is the way forward. Great insights!", upvotes: rand(5..30), user: users.sample, post: i)
 end
 
-5.times do
+
+puts "#{PostSection.count} sections created."
+puts "#{Feedback.count} feedbacks created."
+
+500.times do
   Reply.create!(
     content: "I completely agree with this feedback!",
     upvotes: rand(2..15),
@@ -108,6 +108,8 @@ end
     feedback: feedbacks.sample
   )
 end
+
+puts "#{Reply.count} replies created and assigned randomly."
 
 # Creating Tags
 tags = []
@@ -118,11 +120,13 @@ tags << Tag.create!(name: "Smart Home")
 tags << Tag.create!(name: "Innovation")
 
 # Assigning Tags to Posts
-10.times do
+300.times do
   PostTag.create!(
     post: posts.sample,
     tag: tags.sample
   )
 end
+
+puts "#{PostTag.count} post tags created and assigned randomly."
 
 puts "Database seeded successfully with realistic data!"

@@ -7,13 +7,13 @@ class FeedbacksController < ApplicationController
     if @feedback.save
       redirect_to @post
     else
-      render "posts/show"
+      raise
     end
   end
 
   private
 
   def feedback_params
-    params.require(:feedback).permit(:date)
+    params.require(:feedback).permit(:content, :user)
   end
 end

@@ -44,10 +44,14 @@
 
   <!-- TODO: Add a form to submit feedback -->
   <h5>Add your feedback: </h5>
-  <%= simple_form_for [@post, @feedback] do |f| %>
-    <%= f.input :content %>
-    <%= f.submit %>
-  <% end %>
+    <%= simple_form_for([@post, Feedback.new]) do |f| %>
+      <div class="form-group">
+        <%= f.input :content, label: false, placeholder: "Leave feedback here..." %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Add Feedback", class: "btn btn-primary" %>
+      </div>
+    <% end %>
 
   <% @post.feedbacks.each do |feedback| %>
     <div class="feedback-card">

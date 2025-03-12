@@ -57,7 +57,7 @@
   <%= turbo_stream_from "post_#{@post.id}_feedbacks" %>
   <div id="feedbacks">
     <% @post.feedbacks.each do |feedback| %>
-      <%= render 'feedbacks/feedback', feedback: feedback, reply: @reply %>
+      <%= render 'feedbacks/feedback', feedback: feedback %>
     <% end %>
   </div>
 

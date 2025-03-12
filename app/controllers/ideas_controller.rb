@@ -6,6 +6,7 @@ class IdeasController < ApplicationController
   end
 
   def edit
+    @last_section = @idea.idea_sections.order(:id).last
   end
 
   def update

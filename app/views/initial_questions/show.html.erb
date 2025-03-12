@@ -1,13 +1,18 @@
 <h1>Show page</h1>
 
-<p>
-  <%= @initial_question.ai_answer1 %>
-</p>
+<div class="card-container">
+  <div class="custom-card">
+    <h2>Idea 1</h2>
+    <p><%= @initial_question.ai_answer1 %></p>
+  </div>
 
-<p>
-  <%= @initial_question.ai_answer2 %>
-</p>
+  <div class="custom-card">
+    <h2>Idea 2</h2>
+    <p><%= @initial_question.ai_answer2 %></p>
+  </div>
 
-<p>
-  <%= @initial_question.ai_answer3 %>
-</p>
+  <div class="custom-card">
+    <h2>Idea 3</h2>
+    <p><%= @initial_question.ai_answer3 %></p>
+  </div>
+</div>

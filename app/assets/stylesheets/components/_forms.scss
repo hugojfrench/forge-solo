@@ -127,6 +127,7 @@
   border-bottom-left-radius: 8px;
 }
 
+// ---- POSTS#NEW ----
 .new-form-input {
   border: 0;
   background-color: mix($success, white, 50%);
@@ -134,5 +135,31 @@
 
   &:focus {
     outline: none;
+  }
+}
+
+.post-section-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.post-section-wrapper.excluded {
+  opacity: 0.4; // greyed out look
+}
+
+.remove-section {
+  margin-left: auto;
+  position: absolute;
+  right: 5px;
+  top: 0;
+}
+
+.remove-section-switch {
+  min-width: 60px;
+  min-height: 30px;
+
+  &:checked {
+  border-color: $danger;
   }
 }

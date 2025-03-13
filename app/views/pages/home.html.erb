@@ -1,13 +1,13 @@
 <div class="home">
   <!-- Absolutely-positioned Login button in top-right -->
   <div class="login-container">
-    <button class="btn btn-primary">Login</button>
+     <%= link_to "Login", "/users/sign_in", class: "btn btn-primary" %>
   </div>
 
   <h1>Welcome to Forge</h1>
   <h3>THE place for breaking through YOUR creative block!</h3>
 
   <div>
-    <button class="btn btn-primary">Get Started Now</button>
+    <%= link_to "Get Started Now", "/users/sign_up", class: "btn btn-primary" %>
   </div>
 </div>

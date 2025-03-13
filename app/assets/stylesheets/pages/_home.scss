@@ -1,1 +1,29 @@
 // Specific CSS for your home-page
+.home {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -3rem; // This replaces mt-n5 (negative top margin)
+}
+
+.home h1 {
+  font-size: 4.5rem;      // Similar to display-3
+  font-weight: 700;       // fw-bold
+  margin-bottom: 1.5rem;  // mb-4
+}
+
+.home h3 {
+  font-weight: 700;       // fw-bold
+  margin-bottom: 0.5rem;  // mb-2
+}
+
+.login-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem; // Replicates Bootstrap's m-3
+}

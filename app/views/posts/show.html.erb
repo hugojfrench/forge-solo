@@ -23,9 +23,9 @@
 
       <!-- Upvote -->
       <div class="upvote-block large" data-controller="upvote">
-        <div class="upvote-btn">
+        <button class="upvote-btn" data-action="click->upvote#upvote">
           <i class="fa-regular fa-circle-up"></i>
-        </div>
+        </button>
         <div class="upvote-count">
           <%= @post.upvotes %>
         </div>

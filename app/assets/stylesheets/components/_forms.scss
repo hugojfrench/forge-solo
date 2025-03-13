@@ -127,6 +127,7 @@
   border-bottom-left-radius: 8px;
 }
 
+// ---- POSTS#NEW ----
 .new-form-input {
   border: 0;
   background-color: mix($success, white, 50%);
@@ -135,6 +136,12 @@
   &:focus {
     outline: none;
   }
+}
+
+.post-section-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .post-section-wrapper.excluded {
@@ -149,6 +156,9 @@
   cursor: pointer;
   margin-left: auto;
   padding: 4px;
+  position: absolute;
+  right: 0;
+  top: 0;
 
   &:hover {
     color: darken($danger, 10%);

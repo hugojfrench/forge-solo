@@ -9,4 +9,10 @@ class PostsController < ApplicationController
     @feedback = Feedback.new # This is for the form on the show page
     @reply = Reply.new # This is for the form on the show page
   end
+
+  def upvote
+    @post = Post.find(params[:id])
+    @post.increment!(:upvotes)
+    render json: { upvotes: @post.upvotes }
+  end
 end

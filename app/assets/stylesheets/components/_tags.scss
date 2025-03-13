@@ -1,0 +1,28 @@
+.tag {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 30px;  // Creates the pill shape
+  background-color: $primary;
+  color: inherit;  // Inherit the text color from the parent
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 4px solid $success;
+  min-width: 120px;
+
+  // Active state to make the pill look pressed down when clicked
+  &:active {
+    box-shadow: inset 0 6px 6px rgba(0, 0, 0, 0.4); // Adds a shadow to simulate depth
+  }
+}
+
+.tag.pressed {
+  box-shadow: inset 0 6px 6px rgba(0, 0, 0, 0.4); // Adds a shadow to simulate depth
+}
+
+.tag.small {
+  padding: 5px 10px;
+  font-size: 16px;
+  min-width: 80px;
+}

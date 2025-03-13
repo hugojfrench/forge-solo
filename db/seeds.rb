@@ -30,11 +30,102 @@ puts "#{User.count} users created"
 
 # Creating Ideas
 ideas = []
-ideas << Idea.create!(title: "Revolutionary AI Assistant", tagline: "AI that understands you", summary: "An advanced AI assistant that learns and adapts to user needs.", user: users.sample)
-ideas << Idea.create!(title: "Sustainable Energy Solutions", tagline: "Powering the future sustainably", summary: "Innovative renewable energy solutions for homes and businesses.", user: users.sample)
-ideas << Idea.create!(title: "Smart Home Automation", tagline: "Your home, smarter and safer", summary: "A fully integrated smart home automation system.", user: users.sample)
-ideas << Idea.create!(title: "Personal Finance Tracker", tagline: "Take control of your finances", summary: "An app that helps users budget and track their expenses efficiently.", user: users.sample)
-ideas << Idea.create!(title: "Eco-Friendly Packaging", tagline: "Sustainable packaging for a greener future", summary: "Biodegradable and compostable packaging solutions.", user: users.sample)
+ideas << Idea.create!(
+  title: "Revolutionary AI Assistant",
+  tagline: "AI that understands you",
+  summary: "An advanced AI assistant that learns and adapts to user needs.",
+  user: users.sample
+)
+ideas << Idea.create!(
+  title: "Sustainable Energy Solutions",
+  tagline: "Powering the future sustainably",
+  summary: "Innovative renewable energy solutions for homes and businesses.",
+  user: users.sample
+)
+ideas << Idea.create!(
+  title: "Smart Home Automation",
+  tagline: "Your home, smarter and safer",
+  summary: "A fully integrated smart home automation system.",
+  user: users.sample
+)
+ideas << Idea.create!(
+  title: "Personal Finance Tracker",
+  tagline: "Take control of your finances",
+  summary: "An app that helps users budget and track their expenses efficiently.",
+  user: users.sample
+)
+ideas << Idea.create!(
+  title: "Eco-Friendly Packaging",
+  tagline: "Sustainable packaging for a greener future",
+  summary: "Biodegradable and compostable packaging solutions.",
+  user: users.sample
+)
+ideas << Idea.create!(
+  title: "AI-Powered Personalized Education Platform",
+  tagline: "Learning tailored to you",
+  summary: "This platform leverages advanced artificial intelligence to create a truly personalized learning experience.By analyzing a student's strengths, weaknesses, and learning style, the AI dynamically adjusts the curriculum, pace, and delivery of educational content. It provides real-time feedback and adaptive assessments, ensuring that each student receives the optimal support to achieve their learning goals. The platform also includes collaborative tools and resources, fostering a dynamic and engaging learning environment.",
+  user: users.sample
+)
+ideas << Idea.create!(
+  title: "Decentralized Social Network",
+  tagline: "Own your social experience",
+  summary: "A revolutionary social network built on blockchain technology, empowering users with complete control over their data and content. Unlike traditional social media platforms, this decentralized network eliminates centralized control and censorship. Users own their profiles and data, ensuring privacy and security. The network fosters a transparent and democratic environment, where content creators are fairly compensated and users can participate in governance decisions. This platform promotes a more equitable and user-centric social experience.",
+  user: users.sample
+)
+ideas << Idea.create!(
+  title: "Smart Waste Management System",
+  tagline: "Reducing waste, one bin at a time",
+  summary: "This innovative system employs a network of smart sensors and AI-powered analytics to optimize waste collection and recycling processes. Sensors placed in waste bins monitor fill levels and waste composition, providing real-time data to waste management operators. AI algorithms analyze this data to predict waste generation patterns and optimize collection routes, reducing fuel consumption and emissions. The system also promotes recycling by providing users with personalized feedback and incentives. This comprehensive approach to waste management contributes to a more sustainable and efficient urban environment.",
+  user: users.sample
+)
+ideas << Idea.create!(
+  title: "Revolutionary AI Assistant",
+  tagline: "AI that understands you",
+  summary: "An advanced AI assistant that learns and adapts to user needs.",
+  user: users.sample
+)
+ideas << Idea.create!(
+  title: "Sustainable Energy Solutions",
+  tagline: "Powering the future sustainably",
+  summary: "Innovative renewable energy solutions for homes and businesses.",
+  user: users.sample
+)
+ideas << Idea.create!(
+  title: "Smart Home Automation",
+  tagline: "Your home, smarter and safer",
+  summary: "A fully integrated smart home automation system.",
+  user: users.sample
+)
+ideas << Idea.create!(
+  title: "Personal Finance Tracker",
+  tagline: "Take control of your finances",
+  summary: "An app that helps users budget and track their expenses efficiently.",
+  user: users.sample
+)
+ideas << Idea.create!(
+  title: "Eco-Friendly Packaging",
+  tagline: "Sustainable packaging for a greener future",
+  summary: "Biodegradable and compostable packaging solutions.",
+  user: users.sample
+)
+ideas << Idea.create!(
+  title: "AI-Powered Personalized Education Platform",
+  tagline: "Learning tailored to you",
+  summary: "This platform leverages advanced artificial intelligence to create a truly personalized learning experience.By analyzing a student's strengths, weaknesses, and learning style, the AI dynamically adjusts the curriculum, pace, and delivery of educational content. It provides real-time feedback and adaptive assessments, ensuring that each student receives the optimal support to achieve their learning goals. The platform also includes collaborative tools and resources, fostering a dynamic and engaging learning environment.",
+  user: users.sample
+)
+ideas << Idea.create!(
+  title: "Decentralized Social Network",
+  tagline: "Own your social experience",
+  summary: "A revolutionary social network built on blockchain technology, empowering users with complete control over their data and content. Unlike traditional social media platforms, this decentralized network eliminates centralized control and censorship. Users own their profiles and data, ensuring privacy and security. The network fosters a transparent and democratic environment, where content creators are fairly compensated and users can participate in governance decisions. This platform promotes a more equitable and user-centric social experience.",
+  user: users.sample
+)
+ideas << Idea.create!(
+  title: "Smart Waste Management System",
+  tagline: "Reducing waste, one bin at a time",
+  summary: "This innovative system employs a network of smart sensors and AI-powered analytics to optimize waste collection and recycling processes. Sensors placed in waste bins monitor fill levels and waste composition, providing real-time data to waste management operators. AI algorithms analyze this data to predict waste generation patterns and optimize collection routes, reducing fuel consumption and emissions. The system also promotes recycling by providing users with personalized feedback and incentives. This comprehensive approach to waste management contributes to a more sustainable and efficient urban environment.",
+  user: users.sample
+)
 
 puts "#{Idea.count} ideas created"
 

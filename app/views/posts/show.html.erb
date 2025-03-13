@@ -22,11 +22,11 @@
       <%= image_tag "Avatar_placeholder.png", class: "avatar-large" %>
 
       <!-- Upvote -->
-      <div class="upvote-block large" data-controller="upvote">
+      <div class="upvote-block large" data-controller="upvote" data-upvote-url-value="<%= upvote_post_path(@post) %>">
         <button class="upvote-btn" data-action="click->upvote#upvote">
           <i class="fa-regular fa-circle-up"></i>
         </button>
-        <div class="upvote-count">
+        <div class="upvote-count" data-upvote-target="count">
           <%= @post.upvotes %>
         </div>
       </div>

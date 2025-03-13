@@ -5,6 +5,14 @@
   <%= f.input :tagline %>
   <%= f.input :summary %>
 
+  <h2>Sections</h2>
+  <%= f.simple_fields_for :post_sections do |section_fields| %>
+    <div class="post-section">
+      <%= section_fields.input :heading, label: "Section Heading" %>
+      <%= section_fields.input :content, label: "Section Content" %>
+    </div>
+  <% end %>
+
   <%= f.button :submit, "Create Post" %>
 <% end %>
 

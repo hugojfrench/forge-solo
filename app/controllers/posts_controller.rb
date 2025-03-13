@@ -17,6 +17,12 @@ class PostsController < ApplicationController
       tagline: @idea.tagline,
       summary: @idea.summary
     )
+    @idea.idea_sections.each do |idea_section|
+      @post.post_sections.build(
+        heading: idea_section.heading,
+        content: idea_section.content
+      )
+    end
   end
 
   def create
@@ -35,6 +41,11 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :tagline, :summary)
+    params.require(:post).permit(
+      :title,
+      :tagline,
+      :summary,
+      post_sections_attributes: [:id, :heading, :content, :_destroy] # add _destroy for later toggling/deletion
+    )
   end
 end

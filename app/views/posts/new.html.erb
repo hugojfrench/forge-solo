@@ -1,19 +1,25 @@
-<h1>New Post for "<%= @idea.title %>"</h1>
+<h1>Create your post</h1>
 
-<%= simple_form_for [@idea, @post] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :tagline %>
-  <%= f.input :summary %>
+<%= form_with model: [@idea, @post], class: "edit-form" do |form_post| %>
+  <div class="flex-column edit-form-inputs">
+    <%# Display the fields from Post model %>
+    <%= form_post.text_field :title, class: "edit-form-input edit-form-title" %>
+    <%= form_post.text_field :tagline, class: "edit-form-input edit-form-tagline" %>
+    <%= form_post.text_area :summary, class: "edit-form-input edit-form-summary", rows: 5 %>
 
-  <h2>Sections</h2>
-  <%= f.simple_fields_for :post_sections do |section_fields| %>
-    <div class="post-section">
-      <%= section_fields.input :heading, label: "Section Heading" %>
-      <%= section_fields.input :content, label: "Section Content" %>
-    </div>
-  <% end %>
+    <%# Display the fields from PostSections model (copied from IdeaSections) %>
+    <%= form_post.fields_for :post_sections do |post_section_fields| %>
+      <% last_input = post_section_fields.object == @post.post_sections.last %>
+      <%= post_section_fields.text_field :heading, class: "edit-form-input edit-form-heading" %>
+      <%= post_section_fields.text_area :content, class: "edit-form-input edit-form-summary #{'edit-form-last' if last_input}", rows: 5 %>
+    <% end %>
+  </div>
 
-  <%= f.button :submit, "Create Post" %>
+  <%# Add submit button %>
+  <div class="flex-column edit-form-buttons">
+    <%= form_post.button "<i class='fa-solid fa-floppy-disk'></i>".html_safe, type: "submit" %>
+    <%= form_post.button "<i class='fa-solid fa-share-from-square'></i>".html_safe %>
+  </div>
 <% end %>
 
 <%= link_to "Back to idea", edit_idea_path(@idea) %>

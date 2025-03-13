@@ -2,11 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   authenticated :user do
-    root to: "ideas#index", as: :authenticated_root
+    root to: "ideas#index", as: :authenticated_root      # if a user is logged in it takes them to ideas
   end
 
   unauthenticated do
-    root to: "pages#home", as: :unauthenticated_root
+    root to: "pages#home", as: :unauthenticated_root    # if a user is not logged in it to them to home
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

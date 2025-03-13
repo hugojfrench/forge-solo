@@ -1,24 +1,29 @@
 // Specific CSS for your home-page
 .home {
-  position: relative;
+  /* Fill the entire viewport, no scrolling */
+  position: fixed;   /* fixes the container to the viewport */
+  top: 0;
+  left: 0;
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
+  overflow: hidden;  /* hide any overflow to remove scrollbars */
+  background-image: linear-gradient(to bottom right, $primary, $secondary, $success);
+  /* Center all content within this container */
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: -3rem; // This replaces mt-n5 (negative top margin)
-}
+  justify-content: center; /* vertical centering */
+  align-items: center;     /* horizontal centering */
 
+}
 .home h1 {
   font-size: 4.5rem;      // Similar to display-3
   font-weight: 700;       // fw-bold
-  margin-bottom: 1.5rem;  // mb-4
+  margin-bottom: 1.0rem;  // mb-4
 }
 
 .home h3 {
   font-weight: 700;       // fw-bold
-  margin-bottom: 0.5rem;  // mb-2
+  margin-bottom: 2.0rem;  // mb-2
 }
 
 .login-container {

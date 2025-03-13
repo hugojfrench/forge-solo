@@ -1,6 +1,6 @@
 <h1>Create your post</h1>
 
-<%= form_with model: [@idea, @post], class: "edit-form" do |form_post| %>
+<%= form_with model: [@idea, @post], class: "edit-form", data: { controller: "form-filter", action: "submit->form-filter#prepare" } do |form_post| %>
   <div class="flex-column edit-form-inputs">
     <%# Display the fields from Post model (copied from Idea) %>
     <%= form_post.text_field :title, class: "new-form-input edit-form-title", readonly: true %>

@@ -2,7 +2,7 @@
 
 <%= form_with model: [@idea, @post], class: "edit-form" do |form_post| %>
   <div class="flex-column edit-form-inputs">
-    <%# Display the fields from Post model %>
+    <%# Display the fields from Post model (copied from Idea) %>
     <%= form_post.text_field :title, class: "new-form-input edit-form-title", readonly: true %>
     <%= form_post.text_field :tagline, class: "new-form-input edit-form-tagline", readonly: true %>
     <%= form_post.text_area :summary, class: "new-form-input edit-form-summary", rows: 5, readonly: true %>
@@ -15,7 +15,7 @@
     <% end %>
   </div>
 
-  <%# Add submit button %>
+  <%# Add share button %>
   <div class="flex-column edit-form-buttons">
     <%= form_post.button "<i class='fa-solid fa-paper-plane'></i>".html_safe, type: "submit" %>
   </div>

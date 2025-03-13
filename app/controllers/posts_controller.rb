@@ -9,4 +9,19 @@ class PostsController < ApplicationController
     @feedback = Feedback.new # This is for the form on the show page
     @reply = Reply.new # This is for the form on the show page
   end
+
+  def new
+    @post = Post.new
+  end
+
+  def create
+    @post = Post.new(post_params)
+
+    # This is the part where we save the post to the database
+    if @post.save
+      redirect_to @post
+    else
+      render :new
+    end
+  end
 end

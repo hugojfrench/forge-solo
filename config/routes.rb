@@ -16,10 +16,14 @@ Rails.application.routes.draw do
   resources :initial_questions, only: [:show, :create, :new]
   resources :expanded_questions, only: [:show, :create, :new]
 
+  # Needs to be above the posts resources to avoid conflicts
+  resources :posts, only: [:new, :create]
+
   # Defines the route for the posts index and show
   resources :posts, only: [:index, :show] do
     resources :feedbacks, only: [:create]
   end
+
 
   resources :feedbacks, except: [:create] do
     resources :replies, only: [:create]

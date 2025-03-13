@@ -13,3 +13,17 @@ class Idea < ApplicationRecord
     idea_sections.order(:id)
   end
 end
+
+
+def create
+
+end
+# initial idea is broken up into title, tagline, summmary - done
+# the initial idea is being sent to the AI with a prompt to "expand" - currently on this
+# AI returns the expanded idea seperated into sections
+# the "expanded" idea is created
+# idea instance is created but only has title, tagline, and summary
+# idea_sections are created and associated with the idea
+# both are saved to the database
+# user is brought to idea#edit page
+# destroy all of the previous initial questions

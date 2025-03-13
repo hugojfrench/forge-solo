@@ -2,24 +2,27 @@
 
 <div class="card-container">
 
-  <%= button_to expanded_questions_path, action: "create", params: {idea_summary: @initial_question.ai_answer1 } do %>
+  <%= button_to ideas_path, action: "create", params: {idea_details: [@initial_question.title1, @initial_question.tagline1, @initial_question.summary1] } do %>
    <div class="ideas-card">
-   <h2>Idea 1</h2>
-    <p><%= @initial_question.ai_answer1 %></p>
+    <h3><%= @initial_question.title1 %></h3>
+    <h5><%= @initial_question.tagline1 %></h5>
+    <p><%= @initial_question.summary1 %></p>
    </div>
    <% end %>
 
-  <%= button_to expanded_questions_path, action: "create", params: {idea_summary: @initial_question.ai_answer2 } do %>
+  <%= button_to ideas_path, action: "create", params: {idea_details: [@initial_question.title2, @initial_question.tagline2, @initial_question.summary2] } do %>
     <div class="ideas-card" >
-    <h2>Idea 2</h2>
-      <p><%= @initial_question.ai_answer2 %></p>
+    <h3><%= @initial_question.title2 %></h3>
+    <h5><%= @initial_question.tagline2 %></h5>
+    <p><%= @initial_question.summary2 %></p>
     </div>
     <% end %>
 
-  <%= button_to expanded_questions_path, action: "create", params: {idea_summary: @initial_question.ai_answer3 } do %>
+  <%= button_to ideas_path, action: "create", params: {idea_details: [@initial_question.title3, @initial_question.tagline3, @initial_question.summary3] } do %>
    <div class="ideas-card">
-   <h2>Idea 3</h2>
-    <p><%= @initial_question.ai_answer3 %></p>
+    <h3><%= @initial_question.title3 %></h3>
+    <h5><%= @initial_question.tagline3 %></h5>
+    <p><%= @initial_question.summary3%></p>
    </div>
    <% end %>
   </div>

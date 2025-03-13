@@ -1,0 +1,28 @@
+.feedback-section {
+  margin-top: 8px;
+  padding: 16px 0;
+
+  .feedback-card {
+    background-color: mix(white, $secondary, 30%);
+    border: 1px solid $success;
+    border-radius: 12px;
+    padding: 8px;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  .feedback-reply {
+    margin-left: 24px;
+    padding-left: 12px;
+    border-left: 2px solid $gray-300;
+  }
+  p {
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+.content-with-upvote {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

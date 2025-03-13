@@ -1,0 +1,27 @@
+<div class="feedback-card">
+  <div class="content-with-upvote">
+    <div class="upvote-block">
+      <button class="upvote-btn">👍</button>
+      <!-- TODO: Add feedback upvotes when seed file has them-->
+      <div class="upvote-count"><%= 12 %></div>
+    </div>
+    <p><strong><%= feedback.user.first_name %>:</strong> <%= feedback.content %></p>
+  </div>
+
+  <!-- Replies -->
+  <%= turbo_stream_from "feedback_#{feedback.id}_replies" %>
+  <div id="replies-<%= feedback.id %>">
+    <% feedback.replies.each do |reply| %>
+      <%= render 'replies/reply', reply: reply %>
+    <% end %>
+  </div>
+    <!-- Form to add a reply -->
+    <%= simple_form_for [feedback, Reply.new], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |f| %>
+      <div class="form-group">
+        <%= f.input :content, label: false, placeholder: "Leave reply here..." %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Add Reply", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+</div>

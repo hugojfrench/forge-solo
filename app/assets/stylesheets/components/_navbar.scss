@@ -1,12 +1,58 @@
 .navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+  position: fixed; /* Makes the navbar stick to the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffe8cf;
+  padding: 1.5rem 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds shadow for better visibility */
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4F000B;
+  margin: 0;
+}
+
+.navbar-brand{
+  flex-grow: 1;
+}
+
+body {
+  padding-top: 100px; /* Prevents content from hiding behind the navbar */
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.flex-box {
+  display: flex;
+}
+
+.btn_nav {
+  align-items: right;
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 515;
+  font-size: 1rem;
+  background-color: #f7b267;
+  color: #4F000B;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+  margin-right: 10px;
+  display: inline-block;
+
+  transform: translateX(-2px) translateY(-2px);
+}
+
+.btn_nav:hover {
+  background-color: #f28e62; /* Slightly darker shade */
+  transform: translateY(-4px); /* Moves the button slightly up */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Adds a more pronounced shadow */
 }

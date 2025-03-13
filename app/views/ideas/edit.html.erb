@@ -1,0 +1,23 @@
+<h1>Edit your idea</h1>
+
+<%= form_with model: @idea, class: "edit-form" do |form_idea| %>
+  <div class="flex-column edit-form-inputs">
+    <%# Display the fields from Idea model %>
+    <%= form_idea.text_field :title, class: "edit-form-input edit-form-title" %>
+    <%= form_idea.text_field :tagline, class: "edit-form-input edit-form-tagline" %>
+    <%= form_idea.text_area :summary, class: "edit-form-input edit-form-summary", rows: 5 %>
+
+    <%# Display the fields from IdeaSections model %>
+    <%= form_idea.fields_for :idea_sections, @idea.sections do |idea_section_fields| %>
+      <% last_input = idea_section_fields.object == @last_section %>
+      <%= idea_section_fields.text_field :heading, class: "edit-form-input edit-form-heading" %>
+      <%= idea_section_fields.text_area :content, class: "edit-form-input edit-form-summary #{'edit-form-last' if last_input}", rows: 5 %>
+    <% end %>
+  </div>
+
+  <%# Add submit button %>
+  <div class="flex-column edit-form-buttons">
+    <%= form_idea.button "<i class='fa-solid fa-floppy-disk'></i>".html_safe, type: "submit" %>
+    <%= form_idea.button "<i class='fa-solid fa-share-from-square'></i>".html_safe %>
+  </div>
+<% end %>

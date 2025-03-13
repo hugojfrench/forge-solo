@@ -1,0 +1,26 @@
+<h1>My Ideas</h1>
+
+<div class="custom-card-container">
+  <%= link_to '#', class: "custom-card-link" do %>
+    <div class="custom-card new-idea">
+      <p><i class="fa-solid fa-plus"></i></p>
+    </div>
+  <% end %>
+  <% @ideas.each do |idea| %>
+    <%= link_to '#', class: "custom-card-link" do %>
+      <div class="custom-card">
+        <div class="custom-card-top">
+          <div class="custom-card-top-left">
+            <p class="custom-card-title"><%= idea.title %></p>
+            <p class="custom-card-tagline"><%= idea.tagline %></p>
+          </div>
+          <div class="post-upvote">
+            <div class="upvote">👍</div>
+            <div class="upvote-count"><%= idea.upvotes %></div>
+          </div>
+        </div>
+        <p  class="custom-card-summary"><%= idea.summary %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>

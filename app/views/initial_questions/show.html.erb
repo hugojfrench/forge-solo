@@ -16,15 +16,15 @@
     <p><%= @initial_question.ai_answer3 %></p>
   </a>
 
-
-<%= form_with(url: "/initial_questions", method: "post") do |form| %>
-  <div class="custom-form">
-    <div class="custom-form-bubble">
-      <%= form.label :changes, "Any Changes" %>
-      <%= form.text_field :changes, placeholder: "I'm really looking to do something which has some interesting challenges to tackle on the backend of development..." %>
-    </div>
-    <div>
-      <%= form.submit "Generate", class: "btn btn-primary"%>
-    </div>
   </div>
+
+   <%= form_with(url: "/initial_questions", method: "post") do |form| %>
+   <div class="custom-form">
+      <div class="custom-form-bubble">
+        <%= form.label :changes, "Any Changes" %>
+        <%= form.text_field :changes, placeholder: "I'm really looking to do something which has some interesting challenges to tackle on the backend of development..." %>
+      </div>
+      <div>
+        <%= form.submit "Re-generate", class: "btn btn-primary"%>
+    </div>
  <% end %>

@@ -126,3 +126,13 @@
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
 }
+
+.new-form-input {
+  border: 0;
+  background-color: mix($success, white, 50%);
+  padding-left: 8px;
+
+  &:focus {
+    outline: none;
+  }
+}

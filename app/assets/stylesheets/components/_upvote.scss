@@ -21,6 +21,17 @@
     }
   }
 
+  // Static variant for ideas index
+  &.static {
+    .upvote-btn {
+      pointer-events: none;
+
+      &:hover, &:active {
+        transform: none;
+      }
+    }
+  }
+
   // Button styling
   .upvote-btn {
     background: none;

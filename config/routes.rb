@@ -15,7 +15,13 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   # Defines the route for the posts index and show
-  resources :posts, only: [:index, :show]
+  resources :posts, only: [:index, :show] do
+    resources :feedbacks, only: [:create]
+  end
+
+  resources :feedbacks, except: [:create] do
+    resources :replies, only: [:create]
+  end
 
   # Define route for the UI Kit page
   get "ui_kit", to: "pages#ui_kit", as: :ui_kit

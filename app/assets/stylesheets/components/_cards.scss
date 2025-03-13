@@ -29,10 +29,14 @@
 .custom-card-top {
   display: grid;
   grid-template-columns: 80% 20%;
+  position: relative;
 
   .post-upvote {
     justify-self: end;
     margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
 
   }
 }

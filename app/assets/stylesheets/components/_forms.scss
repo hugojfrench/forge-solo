@@ -34,6 +34,10 @@
       }
     }
 
+    textarea {
+      min-height: 100px;
+    }
+
     label {
       padding: 0px 8px;
       font-weight: 500; // Bold label
@@ -52,4 +56,73 @@
       }
     }
   }
+
+  .btn {
+    min-width: 100%;
+  }
+}
+
+
+// Form for Ideas#edit
+.edit-form {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-form-inputs {
+  flex-grow: 1;
+}
+
+.edit-form-input {
+  border: 0;
+  background-color: $primary;
+  padding-left: 8px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.edit-form-title {
+  font-size: 32px;
+  font-weight: bold;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.edit-form-heading {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.edit-form-tagline {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.edit-form-summary {
+  font-size: 14px;
+}
+
+.edit-form-buttons {
+  height: 100%;
+  position: sticky;
+  top: 100px; // account for the navbar being sticky as well
+}
+
+.edit-form button {
+  border: 0;
+  background-color: inherit;
+  font-size: xx-large;
+}
+
+.edit-form-last {
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
 }

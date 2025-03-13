@@ -43,7 +43,11 @@ Rails.application.routes.draw do
     end
   end
 
-  
+  resources :replies do
+    member do
+      post 'upvote'
+    end
+  end
 
   resources :feedbacks, except: [:create] do
     resources :replies, only: [:create]

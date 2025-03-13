@@ -14,6 +14,12 @@ class RepliesController < ApplicationController
     end
   end
 
+  def upvote
+    @reply = Reply.find(params[:id])
+    @reply.increment!(:upvotes)
+    render json: { upvotes: @reply.upvotes }
+  end
+
   private
 
   def reply_params

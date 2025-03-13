@@ -1,9 +1,11 @@
 <div class="feedback-reply">
   <div class="content-with-upvote">
-    <div class="upvote-block">
-      <button class="upvote-btn"> <i class="fa-regular fa-circle-up"></i></button>
+    <div class="upvote-block"
+         data-controller="upvote"
+         data-upvote-url-value="<%= upvote_reply_path(reply) %>">
+      <button class="upvote-btn" data-action="click->upvote#upvote"><i class="fa-regular fa-circle-up"></i></button>
       <!-- TODO: Add reply upvotes when seed file has them-->
-      <div class="upvote-count"><%= reply.upvotes %></div>
+      <div class="upvote-count" data-upvote-target="count"><%= reply.upvotes %></div>
     </div>
     <p><strong><%= reply.user.first_name %>:</strong> <%= reply.content %></p>
   </div>

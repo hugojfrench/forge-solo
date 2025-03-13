@@ -14,6 +14,12 @@ class FeedbacksController < ApplicationController
     end
   end
 
+  def upvote
+    @feedback = Feedback.find(params[:id])
+    @feedback.increment!(:upvotes)
+    render json: { upvotes: @feedback.upvotes }
+  end
+
   private
 
   def feedback_params

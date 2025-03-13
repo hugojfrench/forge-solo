@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_idea, only: [:new, :create]
-  
+
   def index
     @posts = Post.all
   end
@@ -12,7 +12,11 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = @idea.posts.build(
+      title: @idea.title,
+      tagline: @idea.tagline,
+      summary: @idea.summary
+    )
   end
 
   def create

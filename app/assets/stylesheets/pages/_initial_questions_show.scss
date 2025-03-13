@@ -6,4 +6,9 @@
   align-items: stretch;
   padding: 20px;
   flex-wrap: nowrap; /* Ensures they stay in a row */
+
+  button {
+    border: none;
+    background-color: $light-gray;
+  }
 }

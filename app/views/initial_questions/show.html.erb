@@ -1,22 +1,29 @@
 <h1>Choose your favorite:</h1>
 
 <div class="card-container">
-  <a href="/expandedidea/new?id=1" class="custom-card ideas-card"  onclick="selectCard(event, this, 1)">
-    <h2>Idea 1</h2>
+
+  <%= button_to expanded_questions_path, action: "create", params: {idea_summary: @initial_question.ai_answer1 } do %>
+   <div class="ideas-card">
+   <h2>Idea 1</h2>
     <p><%= @initial_question.ai_answer1 %></p>
-  </a>
+   </div>
+   <% end %>
 
-  <a href="/expandedidea/new?id=2" class="custom-card ideas-card" onclick="selectCard(event, this, 2)">
+  <%= button_to expanded_questions_path, action: "create", params: {idea_summary: @initial_question.ai_answer2 } do %>
+    <div class="ideas-card" >
     <h2>Idea 2</h2>
-    <p><%= @initial_question.ai_answer2 %></p>
-  </a>
+      <p><%= @initial_question.ai_answer2 %></p>
+    </div>
+    <% end %>
 
-  <a href="/expandedidea/new?id=3" class="custom-card ideas-card" onclick="selectCard(event, this, 3)">
-  <h2>Idea 3</h2>
+  <%= button_to expanded_questions_path, action: "create", params: {idea_summary: @initial_question.ai_answer3 } do %>
+   <div class="ideas-card">
+   <h2>Idea 3</h2>
     <p><%= @initial_question.ai_answer3 %></p>
-  </a>
-
+   </div>
+   <% end %>
   </div>
+
 
    <%= form_with(url: "/initial_questions", method: "post") do |form| %>
    <div class="custom-form">

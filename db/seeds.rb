@@ -15,6 +15,7 @@ Reply.destroy_all
 Feedback.destroy_all
 Post.destroy_all
 Idea.destroy_all
+InitialQuestion.destroy_all
 User.destroy_all
 
 # Creating Users

@@ -140,3 +140,17 @@
 .post-section-wrapper.excluded {
   opacity: 0.4; // greyed out look
 }
+
+.remove-section-btn {
+  background: none;
+  border: none;
+  color: $danger; // red or whatever danger color you defined
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: auto; // push to right if section-header is flex
+  padding: 4px;
+
+  &:hover {
+    color: darken($danger, 10%);
+  }
+}

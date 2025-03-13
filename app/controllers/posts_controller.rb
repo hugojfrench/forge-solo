@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-
+  before_action :set_idea, only: [:new, :create]
+  
   def index
     @posts = Post.all
   end
@@ -15,17 +16,19 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-
-    # This is the part where we save the post to the database
+    @post = @idea.posts.build(post_params) # associate idea directly
     if @post.save
-      redirect_to @post
+      redirect_to @post, notice: 'Post was successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   private
+
+  def set_idea
+    @idea = Idea.find(params[:idea_id])
+  end
 
   def post_params
     params.require(:post).permit(:title, :tagline, :summary)

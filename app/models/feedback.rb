@@ -1,7 +1,7 @@
 class Feedback < ApplicationRecord
   belongs_to :user
   belongs_to :post
-  has_many :replies, dependent: :destroy
+  has_many :replies, -> { order(upvotes: :desc) }, dependent: :destroy
 
   after_create_commit :broadcast_feedback
 

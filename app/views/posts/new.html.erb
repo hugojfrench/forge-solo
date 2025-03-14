@@ -1,0 +1,46 @@
+<h1>Create your post</h1>
+
+<%= form_with model: [@idea, @post], class: "edit-form", data: { controller: "form-filter", action: "submit->form-filter#prepare" } do |form_post| %>
+  <div class="flex-column edit-form-inputs">
+    <%# Display the fields from Post model (copied from Idea) %>
+    <%= form_post.text_field :title, class: "new-form-input edit-form-title", readonly: true %>
+    <%= form_post.text_field :tagline, class: "new-form-input edit-form-tagline", readonly: true %>
+    <%= form_post.text_area :summary, class: "new-form-input edit-form-summary", rows: 5, readonly: true %>
+
+    <%# Display the fields from PostSections model (copied from IdeaSections) %>
+    <%= form_post.fields_for :post_sections do |post_section_fields| %>
+      <% last_input = post_section_fields.object == @post.post_sections.last %>
+      <div class="post-section-wrapper"
+          data-controller="section-remove"
+          data-section-remove-target="wrapper"
+          data-form-filter-target="section">
+          <%# Not part of form, just using as button!! %>
+          <div class="form-check form-switch remove-section">
+            <input class="form-check-input remove-section-switch" type="checkbox" id="flexSwitchCheckDefault" checked data-action="section-remove#toggle">
+          </div>
+
+        <%= post_section_fields.text_field :heading, class: "new-form-input edit-form-input edit-form-heading", readonly: true %>
+        <%= post_section_fields.text_area :content, class: "new-form-input edit-form-input edit-form-summary #{'edit-form-last' if last_input}", rows: 5, readonly: true %>
+      </div>
+
+    <% end %>
+
+    <%# Add image upload %>
+    <div class="custom-file-upload-wrapper">
+      <%= form_post.file_field :image, id: "file-upload", class: "hidden-file-input" %>
+      <label for="file-upload" class="custom-file-upload-button">
+        <i class="fa-solid fa-upload"></i> Upload Image
+      </label>
+    </div>
+    
+  </div>
+
+  <%# Add share button %>
+  <div class="flex-column edit-form-buttons">
+    <%= form_post.button "<i class='fa-solid fa-paper-plane'></i>".html_safe, type: "submit" %>
+  </div>
+
+<% end %>
+
+
+<%= link_to "Back to idea", edit_idea_path(@idea) %>

@@ -26,16 +26,17 @@
 
       <!-- Upvote -->
       <div class="upvote-block large">
-        <div class="upvote-btn">
-          <i class="fa-regular fa-circle-up"></i>
-        </div>
+        <button class="upvote-btn">
+          <i class="fa-solid fa-circle-up"></i>
+        </button>
         <div class="upvote-count">
           <%= @post.upvotes %>
         </div>
       </div>
 
-      <!-- TODO: Replace placeholder image with AI-generated or user-provided image -->
-      <%= image_tag "image.png", class: "post-image" %>
+      <% if @post.image.attached? %>
+        <%= cl_image_tag @post.image.key, width: 300, height: 300, class: "post-image", alt: "#{@post.title} image" %>
+      <% end %>
     </div>
   </div>
 

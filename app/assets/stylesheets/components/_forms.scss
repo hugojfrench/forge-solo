@@ -122,7 +122,52 @@
   font-size: xx-large;
 }
 
+.edit-form a   {
+  border: 0;
+  background-color: inherit;
+  font-size: xx-large;
+  padding: 1px 6px; // to have the same padding as the button above it
+  color: black; // to have the same colour as the button above it
+}
+
 .edit-form-last {
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
+}
+
+// ---- POSTS#NEW ----
+.new-form-input {
+  border: 0;
+  background-color: mix($success, white, 50%);
+  padding-left: 8px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.post-section-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.post-section-wrapper.excluded {
+  opacity: 0.4; // greyed out look
+}
+
+.remove-section {
+  margin-left: auto;
+  position: absolute;
+  right: 5px;
+  top: 0;
+}
+
+.remove-section-switch {
+  min-width: 60px;
+  min-height: 30px;
+
+  &:checked {
+  border-color: $danger;
+  }
 }

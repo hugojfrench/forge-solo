@@ -1,36 +1,59 @@
 .upvote-block {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 
+  // Vertical variant
+  &.vertical {
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  // Large variant
+  &.large {
+    gap: 8px;
+    .upvote-btn {
+      font-size: 48px;
+    }
+
+    .upvote-count {
+      font-size: 32px;
+    }
+  }
+
+  // Static variant for ideas index
+  &.static {
+    .upvote-btn {
+      pointer-events: none;
+
+      &:hover, &:active {
+        transform: none;
+      }
+    }
+  }
+
+  // Button styling
   .upvote-btn {
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: 24px;
     cursor: pointer;
     transition: transform 0.1s ease;
+    color: $danger;
+    padding: 0;
 
     &:hover {
       transform: translateY(-2px);
     }
+
+    &:active {
+      transform: translateY(0);
+    }
   }
 
+  // Count styling
   .upvote-count {
     font-weight: bold;
-    font-size: 14px;
-  }
-
-  &.vertical {
-    flex-direction: column;
-  }
-
-  &.large {
-    .upvote-btn {
-      font-size: 32px;
-    }
-
-    .upvote-count {
-      font-size: 18px;
-    }
+    font-size: 18px; // Base size
   }
 }

@@ -29,10 +29,14 @@
 .custom-card-top {
   display: grid;
   grid-template-columns: 80% 20%;
+  position: relative;
 
   .post-upvote {
     justify-self: end;
     margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
 
   }
 }
@@ -56,4 +60,26 @@
 
 .custom-card-summary {
   font-size: 12px;
+}
+
+
+// initial question show cards
+.ideas-card {
+  text-decoration: none;
+  color: $body-color;
+  border-radius: 16px;
+  background-color: mix(white, $primary, 50%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid mix(white, $secondary, 50%);
+  padding: 16px;
+}
+
+.ideas-card:hover {
+  transform: scale(1.02);
+  transition: transform 0.6s ease
+}
+
+
+.btn-no-border {
+  border: none;
 }

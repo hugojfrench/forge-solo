@@ -1,1 +1,40 @@
-<h1>Show page</h1>
+<h1>Choose your favorite:</h1>
+
+<div class="card-container">
+
+  <%= button_to ideas_path, action: "create", params: {idea_details: [@initial_question.title1, @initial_question.tagline1, @initial_question.summary1] } do %>
+   <div class="ideas-card">
+    <h3><%= @initial_question.title1 %></h3>
+    <h5><%= @initial_question.tagline1 %></h5>
+    <p><%= @initial_question.summary1 %></p>
+   </div>
+   <% end %>
+
+  <%= button_to ideas_path, action: "create", params: {idea_details: [@initial_question.title2, @initial_question.tagline2, @initial_question.summary2] } do %>
+    <div class="ideas-card" >
+    <h3><%= @initial_question.title2 %></h3>
+    <h5><%= @initial_question.tagline2 %></h5>
+    <p><%= @initial_question.summary2 %></p>
+    </div>
+    <% end %>
+
+  <%= button_to ideas_path, action: "create", params: {idea_details: [@initial_question.title3, @initial_question.tagline3, @initial_question.summary3] } do %>
+   <div class="ideas-card">
+    <h3><%= @initial_question.title3 %></h3>
+    <h5><%= @initial_question.tagline3 %></h5>
+    <p><%= @initial_question.summary3%></p>
+   </div>
+   <% end %>
+  </div>
+
+
+   <%= form_with(url: "/initial_questions", method: "post") do |form| %>
+   <div class="custom-form">
+      <div class="custom-form-bubble">
+        <%= form.label :changes, "Any Changes" %>
+        <%= form.text_field :changes, placeholder: "I'm really looking to do something which has some interesting challenges to tackle on the backend of development..." %>
+      </div>
+      <div>
+        <%= form.submit "Re-generate", class: "btn btn-primary"%>
+    </div>
+ <% end %>

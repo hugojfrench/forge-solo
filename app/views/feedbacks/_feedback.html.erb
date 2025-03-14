@@ -2,7 +2,6 @@
   <div class="content-with-upvote">
     <div class="upvote-block" data-controller="upvote" data-upvote-url-value="<%= upvote_feedback_path(feedback) %>">
       <button class="upvote-btn" data-action="click->upvote#upvote"> <i class="fa-regular fa-circle-up"></i></button>
-      <!-- TODO: Add feedback upvotes when seed file has them-->
       <div class="upvote-count" data-upvote-target="count"><%= feedback.upvotes %></div>
     </div>
     <p><strong><%= feedback.user.first_name %>:</strong> <%= feedback.content %></p>

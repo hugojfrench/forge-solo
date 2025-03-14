@@ -38,6 +38,8 @@ gem "solid_cable"
 #solid queue
 gem "solid_queue"
 
+# Cloudinary for image uploads [https://cloudinary.com/documentation/rails_integration]
+gem "cloudinary"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]

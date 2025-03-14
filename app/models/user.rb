@@ -10,4 +10,5 @@ class User < ApplicationRecord
   has_many :replies
   has_many :initial_questions
   has_many :expanded_questions
+  has_one_attached :avatar
 end

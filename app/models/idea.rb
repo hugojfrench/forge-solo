@@ -27,3 +27,4 @@ end
 # both are saved to the database
 # user is brought to idea#edit page
 # destroy all of the previous initial questions
+

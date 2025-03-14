@@ -1,16 +1,18 @@
 class InitialQuestion < ApplicationRecord
   belongs_to :user
   validates :user_question, presence: true
+  after_create :content
 
 
   def content
+    puts "in content method"
     client = OpenAI::Client.new
     initial_chatgpt_response = client.chat(parameters: {
       model: "gpt-4o-mini",
       messages: refreshed_question # pass the results array here - previous -> [{ role: "user", content: self.user_question }]
     })
     new_content = initial_chatgpt_response["choices"][0]["message"]["content"]
-
+    p new_content
     array_new_content = new_content.split("###").reject { |c| c == "" }  #split the new content into an array and remove empty strings
 
     update(title1: array_new_content[0])
@@ -34,6 +36,7 @@ class InitialQuestion < ApplicationRecord
 
   def refreshed_question
     initial_questions = user.initial_questions
+    p initial_questions
     results = []
     results << { role: "system", content: "You are an assistant for an idea generator platform. Generate exactly three ideas. For each idea, output a 2 word ### title, a ### tagline, and a two-sentence ### summary. Separate the title, tagline, and summary for each section using ### (three hash symbols) with no extra text or labels. Only include the content in your output. Make sure to seperate each section by ###" }
     initial_questions.each do |question|

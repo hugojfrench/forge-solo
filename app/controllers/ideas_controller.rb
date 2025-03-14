@@ -11,9 +11,7 @@ class IdeasController < ApplicationController
   end
 
   def create
-    @idea = current_user.idea # needed in case of validation error
-    text = "Please take the title, tagline, summary and expand these idea details into 3 key sections with each 3-5 sentences each. Idea: #{:idea_details}"  #prompt to expand the idea
-    @idea = Idea.new(user_question: text)
+    @idea = Idea.new(idea_params)  # have to set the params of title, tagline, and summary here
     @idea.user = current_user
     if @idea.save
       redirect_to edit_idea_path(@idea)  #redirect to the idea edit page

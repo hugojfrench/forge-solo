@@ -181,12 +181,12 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-size: 14px;
-}
 
-.custom-file-upload-button:hover {
-  background-color: mix($primary, black, 10%);
-}
+  &:hover {
+    background-color: mix($primary, black, 90%);
+  }
 
-.custom-file-upload-button i {
-  font-size: 16px;
+  i {
+    font-size: 16px;
+  }
 }

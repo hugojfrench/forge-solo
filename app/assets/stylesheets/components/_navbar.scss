@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: #ffe8cf;
+  background: $light-gray;
   padding: 1.5rem 1.5rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds shadow for better visibility */
   z-index: 1000; /* Makes the navbar appear above other elements */
@@ -12,10 +12,11 @@
 .navbar-title {
   position: absolute;
   left: 50%;
+  top: 25%;
   transform: translateX(-50%);
   font-size: 2rem;
   font-weight: bold;
-  color: #4F000B;
+  color: $maroon;
   margin: 0;
 }
 
@@ -41,8 +42,8 @@ body {
   padding: 0.75rem 1.5rem;
   font-weight: 515;
   font-size: 1rem;
-  background-color: #f7b267;
-  color: #4F000B;
+  background-color: $light-orange;
+  color: $maroon;
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
@@ -53,7 +54,7 @@ body {
 }
 
 .btn_nav:hover {
-  background-color: #f28e62; /* Slightly darker shade */
+  background-color: $orange; /* Slightly darker shade */
   transform: translateY(-4px); /* Moves the button slightly up */
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Adds a more pronounced shadow */
 }

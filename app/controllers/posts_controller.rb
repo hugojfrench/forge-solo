@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_idea, only: [:new, :create]
 
   def index
-    @posts = Post.all
+    @posts = Post.order(upvotes: :desc)
   end
 
   def show

@@ -23,6 +23,7 @@ class IdeasController < ApplicationController
 
   def update
     @idea.update(idea_params)
+    @idea.user.initial_questions.destroy_all
   end
 
   private

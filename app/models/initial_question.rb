@@ -12,7 +12,8 @@ class InitialQuestion < ApplicationRecord
     })
     new_content = initial_chatgpt_response["choices"][0]["message"]["content"]
     array_new_content = new_content.split("###").reject { |c| c == "" }  #split the new content into an array and remove empty strings
-
+    p new_content
+    p array_new_content
     update(title1: array_new_content[0])
     update(tagline1: array_new_content[1])
     update(summary1: array_new_content[2])
@@ -34,12 +35,9 @@ class InitialQuestion < ApplicationRecord
 
   def refreshed_question
     initial_questions = user.initial_questions
-    p initial_questions
     results = []
     results << { role: "system", content: "You are an assistant for an idea generator platform. Generate exactly three ideas. For each idea, output a 2 word ### title, a ### tagline, and a two-sentence ### summary. Separate the title, tagline, and summary for each section using ### (three hash symbols) with no extra text or labels. Only include the content in your output. Make sure to seperate each section by ###" }
     initial_questions.each do |question|
-      puts "here is the user question"
-      p question.user_question  # test
       results << { role: "user", content: question.user_question }
       results << { role: "assistant", content: self.title1 || "" }
       results << { role: "assistant", content: self.tagline1 || "" }

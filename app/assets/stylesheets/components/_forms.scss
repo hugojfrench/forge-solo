@@ -163,3 +163,30 @@
   border-color: $danger;
   }
 }
+
+.hidden-file-input {
+  display: none;
+}
+
+.custom-file-upload-button {
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: $primary;
+  color: $danger;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+}
+
+.custom-file-upload-button:hover {
+  background-color: mix($primary, black, 10%);
+}
+
+.custom-file-upload-button i {
+  font-size: 16px;
+}

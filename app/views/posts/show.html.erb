@@ -34,7 +34,6 @@
         </div>
       </div>
 
-      <!-- TODO: Replace placeholder image with AI-generated or user-provided image -->
       <% if @post.image.attached? %>
         <%= cl_image_tag @post.image.key, width: 300, height: 300, class: "post-image", alt: "#{@post.title} image" %>
       <% end %>

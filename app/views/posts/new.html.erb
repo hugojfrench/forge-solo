@@ -23,11 +23,17 @@
         <%= post_section_fields.text_area :content, class: "new-form-input edit-form-input edit-form-summary #{'edit-form-last' if last_input}", rows: 5, readonly: true %>
       </div>
     <% end %>
-    <div class="form-group">
-      <label>Add an image (optional)</label>
-      <%= form_post.file_field :image, class: "form-control-file" %>
+
+    <%# Add image upload %>
+    <div class="custom-file-upload-wrapper">
+      <%= form_post.file_field :image, id: "file-upload", class: "hidden-file-input" %>
+      <label for="file-upload" class="custom-file-upload-button">
+        <i class="fa-solid fa-upload"></i> Upload Image
+      </label>
     </div>
+
   </div>
+
   <%# Add share button %>
   <div class="flex-column edit-form-buttons">
     <%= form_post.button "<i class='fa-solid fa-paper-plane'></i>".html_safe, type: "submit" %>

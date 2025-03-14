@@ -1,0 +1,14 @@
+
+.card-container {
+  display: flex;
+  justify-content: space-around; /* Evenly spaces the cards */
+  gap: 20px; /* Adds spacing between cards */
+  align-items: stretch;
+  padding: 20px;
+  flex-wrap: nowrap; /* Ensures they stay in a row */
+
+  button {
+    border: none;
+    background-color: $light-gray;
+  }
+}

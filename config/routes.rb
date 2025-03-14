@@ -33,6 +33,25 @@ Rails.application.routes.draw do
     resources :feedbacks, only: [:create]
   end
 
+  # Defines the routes for the upvote action
+  resources :posts do
+    member do
+      post 'upvote'
+      get 'upvote'
+    end
+  end
+
+  resources :feedbacks do
+    member do
+      post 'upvote'
+    end
+  end
+
+  resources :replies do
+    member do
+      post 'upvote'
+    end
+  end
 
   resources :feedbacks, except: [:create] do
     resources :replies, only: [:create]

@@ -5,11 +5,13 @@
 
       <!-- left side of card (upvotes + title + tagline) -->
       <div class="post-card-left">
-        <div class="upvote-block vertical">
-          <button class="upvote-btn">
-            <i class="fa-solid fa-circle-up"></i>
+        <div class="upvote-block vertical"
+            data-controller="upvote"
+            data-upvote-url-value="<%= upvote_post_path(post) %>">
+          <button class="upvote-btn" data-action="click->upvote#upvote">
+            <i class="fa-regular fa-circle-up"></i>
           </button>
-          <div class="upvote-count"><%= post.upvotes %></div>
+          <div class="upvote-count" data-upvote-target="count"><%= post.upvotes %></div>
         </div>
         <div class="post-info">
           <h5 class="post-title"><%= post.title %></h5>

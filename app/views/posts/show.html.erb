@@ -18,8 +18,11 @@
   <div class="post-show-right">
     <div class="right-column-content">
       <!-- Avatar -->
-      <!-- TODO: Replace placeholder image with user-provided image -->
-      <%= image_tag "Avatar_placeholder.png", class: "avatar-large" %>
+      <% if @post.idea.user.avatar.attached? %>
+        <%= cl_image_tag @post.idea.user.avatar.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar-large", alt: "User avatar" %>
+      <% else %>
+        <%= image_tag "Avatar_placeholder.png", width: 150, height: 150, class: "avatar-large", alt: "User avatar placeholder" %>
+      <% end %>
 
       <!-- Upvote -->
       <div class="upvote-block large">
@@ -31,8 +34,9 @@
         </div>
       </div>
 
-      <!-- TODO: Replace placeholder image with AI-generated or user-provided image -->
-      <%= image_tag "image.png", class: "post-image" %>
+      <% if @post.image.attached? %>
+        <%= cl_image_tag @post.image.key, width: 300, height: 300, class: "post-image", alt: "#{@post.title} image" %>
+      <% end %>
     </div>
   </div>
 

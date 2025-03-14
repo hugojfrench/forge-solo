@@ -58,3 +58,7 @@ body {
   transform: translateY(-4px); /* Moves the button slightly up */
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Adds a more pronounced shadow */
 }
+
+a.avatar.dropdown-toggle::after {
+  display: none;
+}

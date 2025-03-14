@@ -25,12 +25,21 @@ class Idea < ApplicationRecord
     array_new_content = new_content.split("###").reject { |c| c == "" }  #split the new content into an array and remove empty strings
     # puts "here is the array"
     # p array_new_content
+    array_new_content
+    add_sections(array_new_content)
   end
 
+  def add_sections(array)
+     IdeaSection.create(heading: array[0], content: array[1], idea_id: self.id)
+     IdeaSection.create(heading: array[2], content: array[3], idea_id: self.id)
+     IdeaSection.create(heading: array[4], content: array[5], idea_id: self.id)
+     puts "here are the sections"
+     p self.idea_sections
+  end
 end
 # initial idea is broken up into title, tagline, summmary - done
 # the initial idea is being sent to the AI with a prompt to "expand" - done
-# AI returns the expanded idea seperated into sections - returns the idea with 3 sections but each section is not its own idea_section instance yet
+# AI returns the expanded idea seperated into sections - returns the idea with 3 sections but each section is not its own idea_section instance yet. Might be worth adding columns to the ideas table for the section headers and content.
 # idea_sections are created and associated with the idea
 # both are saved to the database
 # user is brought to idea#edit page - yes but the sections are not displayed yet

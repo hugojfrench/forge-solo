@@ -27,5 +27,5 @@ Rails.application.routes.draw do
 
   # Define route for the UI Kit page
   get "ui_kit", to: "pages#ui_kit", as: :ui_kit
-  resources :ideas, only: %i[index edit update]
+  resources :ideas, only: %i[index edit update create]
 end

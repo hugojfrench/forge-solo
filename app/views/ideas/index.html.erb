@@ -1,21 +1,23 @@
 <h1>My Ideas</h1>
 
 <div class="custom-card-container">
-  <%= link_to '#', class: "custom-card-link" do %>
+  <%= link_to new_initial_question_path, class: "custom-card-link" do %>
     <div class="custom-card new-idea">
       <p><i class="fa-solid fa-plus"></i></p>
     </div>
   <% end %>
   <% @ideas.each do |idea| %>
-    <%= link_to '#', class: "custom-card-link" do %>
+    <%= link_to edit_idea_path(idea), class: "custom-card-link" do %>
       <div class="custom-card">
         <div class="custom-card-top">
           <div class="custom-card-top-left">
             <p class="custom-card-title"><%= idea.title %></p>
             <p class="custom-card-tagline"><%= idea.tagline %></p>
           </div>
-          <div class="post-upvote">
-            <div class="upvote">👍</div>
+          <div class="upvote-block static post-upvote">
+            <button class="upvote-btn" disabled>
+              <i class="fa-regular fa-circle-up"></i>
+            </button>
             <div class="upvote-count"><%= idea.upvotes %></div>
           </div>
         </div>

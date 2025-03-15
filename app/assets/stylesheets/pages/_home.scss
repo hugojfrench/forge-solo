@@ -31,3 +31,21 @@
   right: 0;
   margin: 1rem; // Replicates Bootstrap's m-3
 }
+
+.steps-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  margin-bottom: 2rem;
+  max-width: 80%;
+  flex-wrap: wrap; // Wrap the steps if they overflow the container
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 250px;
+}

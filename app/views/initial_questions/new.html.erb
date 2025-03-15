@@ -20,13 +20,13 @@
     </div>
 
     <div class="custom-form-bubble">
-      <%= form.label :ideation_framework, "Ideation framework:" %>
+      <%= form.label :ideation_framework, "Project type:" %>
       <%= form.select :ideation_framework, options_for_select([
-        ['Standard Ideation', 'standard_ideation'],
-        ['Business Startup', 'business_startup'],
-        ['Creative Project', 'creative_project'],
-        ['Scientific Research', 'scientific_research']
-      ]), { prompt: "Select Options", required: true } %>
+        ['💡 Standard Idea', 'standard_ideation'],
+        ['💸 Business Startup', 'business_startup'],
+        ['🎨 Creative Project', 'creative_project'],
+        ['🧪 Scientific Research', 'scientific_research']
+      ]), { prompt: "Select your project type...", required: true } %>
     </div>
 
     <div class="custom-form-bubble">

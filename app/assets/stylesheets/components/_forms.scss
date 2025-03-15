@@ -23,18 +23,17 @@
     select,
     textarea {
       flex: 1;
-      background: $secondary;
+      background: mix($secondary, white, 95%);
       border: none;
       border-radius: 8px;
       padding: 0px 8px;
       color: $body-color;
-      font-weight: 400; // Normal weight
+      font-weight: 400; // Heavier weight weight
       padding: 8px 16px;
 
       &::placeholder {
-        color: mix($body-color, white, 70%);
-        font-weight: 400; // Light placeholder
-        opacity: 0.7;
+        color: $placeholder;
+        font-weight: 300; // Light placeholder
       }
 
       &:focus {
@@ -51,8 +50,8 @@
     // TODO: Fix select dropdown so selected item has normal weight and color
 
     select {
-      color: mix($body-color, white, 70%); // Light color until option is selected
-      font-weight: 400;
+      color: $placeholder; // Light color until option is selected
+      font-weight: 300;
       opacity: 0.7;
       option {
         color: $body-color;

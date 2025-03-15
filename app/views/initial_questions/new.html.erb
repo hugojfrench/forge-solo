@@ -10,6 +10,16 @@
     </div>
 
     <div class="custom-form-bubble">
+      <%= form.label :seeking_inspiration_for, "Seeking inspiration for..." %>
+      <%= form.text_field :seeking_inspiration_for, placeholder: "A webapp, photo project, long form article..." %>
+    </div>
+
+    <div class="custom-form-bubble">
+      <%= form.label :i_am_interested_in, "I am interested in..." %>
+      <%= form.text_field :i_am_interested_in, placeholder: "Tech, food, community driven platforms, London at night, student politics... " %>
+    </div>
+
+    <div class="custom-form-bubble">
       <%= form.label :ideation_framework, "Ideation framework:" %>
       <%= form.select :ideation_framework, options_for_select([
         ['Standard Ideation', 'standard_ideation'],
@@ -20,17 +30,7 @@
     </div>
 
     <div class="custom-form-bubble">
-      <%= form.label :i_am_interested_in, "I am interested in:" %>
-      <%= form.text_field :i_am_interested_in, placeholder: "Webapp, photo project, long form article..." %>
-    </div>
-
-    <div class="custom-form-bubble">
-      <%= form.label :seeking_inspiration_for, "Seeking inspiration for:" %>
-      <%= form.text_field :seeking_inspiration_for, placeholder: "Tech, food, community driven platforms, London at night, student politics... " %>
-    </div>
-
-    <div class="custom-form-bubble">
-      <%= form.label :additional_info, "Additional info:" %>
+      <%= form.label :additional_info, "Additional info..." %>
       <%= form.text_area :additional_info, placeholder: "My project needs to be completed in X weeks...
 I am working alone/in a team of X...
 I am an experienced professional, student, complete novice...

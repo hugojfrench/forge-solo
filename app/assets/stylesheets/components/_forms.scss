@@ -51,13 +51,25 @@
     // TODO: Fix select dropdown so selected item has normal weight and color
 
     select {
-      color: $placeholder; // Light color until option is selected
-      font-weight: 300;
-      opacity: 0.7;
+      appearance: none; // Normalize across browsers
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background: mix($secondary, white, 95%);
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: none;
+      color: $body-color; // Normal color when selected
+      font-weight: 400;
+      opacity: 1;
+
+      // Placeholder effect when nothing selected
+      &:invalid {
+        color: $placeholder;
+      }
+
       option {
         color: $body-color;
         font-weight: 400;
-        opacity: 1; // Normal weight for real options
       }
     }
   }

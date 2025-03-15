@@ -1,9 +1,7 @@
 <h1>Find your inspiration now</h1>
-
-
-
 <%= form_with(url: "/initial_questions", method: "post") do |form| %>
   <div class="custom-form">
+
     <div class="custom-form-bubble">
       <%= form.label :i_am_a, "I am a..." %>
       <%= form.text_field :i_am_a, placeholder: "Web Developer, street photographer, student journalist..." %>
@@ -14,6 +12,7 @@
       <%= form.text_field :seeking_inspiration_for, placeholder: "A webapp, photo project, long form article..." %>
     </div>
 
+    <%# TODO - Create an autocomplete of tags/options? %>
     <div class="custom-form-bubble">
       <%= form.label :i_am_interested_in, "I am interested in..." %>
       <%= form.text_field :i_am_interested_in, placeholder: "Tech, food, community driven platforms, London at night, student politics... " %>

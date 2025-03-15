@@ -29,6 +29,7 @@
       padding: 0px 8px;
       color: $body-color;
       font-weight: 400; // Normal weight
+      padding: 8px 16px;
 
       &::placeholder {
         color: mix($body-color, white, 70%);

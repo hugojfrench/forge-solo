@@ -1,3 +1,4 @@
+// Styling for idea generation form
 .custom-form {
   margin: 0 auto;
   display: flex;
@@ -28,7 +29,7 @@
       border-radius: 8px;
       padding: 0px 8px;
       color: $body-color;
-      font-weight: 400; // Heavier weight weight
+      font-weight: 400; // Heavier weight
       padding: 8px 16px;
 
       &::placeholder {

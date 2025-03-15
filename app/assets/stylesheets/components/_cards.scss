@@ -15,10 +15,24 @@
   height: 250px;
   overflow: hidden;
 
+  h3 {
+    font-weight: bold;
+  }
+
+  h5 {
+    font-style: italic;
+  }
+
+  p {
+    text-align:left;
+    margin: 0;
+  }
+
   &:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
   }
+
 }
 
 .custom-card-link {
@@ -47,21 +61,6 @@
   align-items: center;
   justify-content: center;
 }
-
-.custom-card-title {
-  font-weight: bold;
-  font-size: 16px;
-  margin: 0;
-}
-
-.custom-card-tagline {
-  font-size: 14px;
-}
-
-.custom-card-summary {
-  font-size: 12px;
-}
-
 
 // initial question show cards
 .ideas-card {

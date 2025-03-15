@@ -27,7 +27,6 @@
       background: mix($secondary, white, 95%);
       border: none;
       border-radius: 8px;
-      padding: 0px 8px;
       color: $body-color;
       font-weight: 400; // Heavier weight
       padding: 8px 16px;
@@ -54,13 +53,6 @@
       appearance: none; // Normalize across browsers
       -webkit-appearance: none;
       -moz-appearance: none;
-      background: mix($secondary, white, 95%);
-      padding: 8px 16px;
-      border-radius: 8px;
-      border: none;
-      color: $body-color; // Normal color when selected
-      font-weight: 400;
-      opacity: 1;
 
       // Placeholder effect when nothing selected
       &:invalid {

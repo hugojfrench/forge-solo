@@ -11,8 +11,8 @@
       <div class="custom-card">
         <div class="custom-card-top">
           <div class="custom-card-top-left">
-            <p class="custom-card-title"><%= idea.title %></p>
-            <p class="custom-card-tagline"><%= idea.tagline %></p>
+            <h3><%= idea.title %></h3>
+            <h5><%= idea.tagline %></h5>
           </div>
           <div class="upvote-block static post-upvote">
             <button class="upvote-btn" disabled>
@@ -21,7 +21,7 @@
             <div class="upvote-count"><%= idea.upvotes %></div>
           </div>
         </div>
-        <p  class="custom-card-summary"><%= idea.summary %></p>
+        <p><%= idea.summary %></p>
       </div>
     <% end %>
   <% end %>

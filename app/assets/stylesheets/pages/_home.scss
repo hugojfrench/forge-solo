@@ -49,3 +49,18 @@
   text-align: center;
   max-width: 250px;
 }
+
+// Circle styling for the step number
+.step-number {
+  background: $success;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}

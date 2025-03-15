@@ -47,8 +47,6 @@
       resize: none;
     }
 
-    // TODO: Fix select dropdown so selected item has normal weight and color
-
     select {
       appearance: none; // Normalize across browsers
       -webkit-appearance: none;
@@ -70,6 +68,7 @@
     align-self: center;
     font-size: 2rem;
   }
+  
   // Remove Chrome's autofill styling
   input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px mix($secondary, white, 95%) inset;

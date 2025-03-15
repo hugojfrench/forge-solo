@@ -32,7 +32,7 @@
 
       &::placeholder {
         color: mix($body-color, white, 70%);
-        font-weight: 300; // Light placeholder
+        font-weight: 400; // Light placeholder
         opacity: 0.7;
       }
 
@@ -51,7 +51,7 @@
 
     select {
       color: mix($body-color, white, 70%); // Light color until option is selected
-      font-weight: 300;
+      font-weight: 400;
       opacity: 0.7;
       option {
         color: $body-color;

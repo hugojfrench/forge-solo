@@ -2,15 +2,20 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.75rem;
 
   .custom-form-bubble {
     background: $primary;
     border-radius: 16px;
     border: 8px solid $success;
     display: flex; // ✅ Make it flex
-    align-items: top;
+    align-items: stretch;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    label {
+      padding: 8px;
+      font-weight: 500; // Bold label
+    }
 
     input,
     select,
@@ -34,13 +39,10 @@
       }
     }
 
+    // TODO: Add javascript to make the textarea auto-resize
     textarea {
-      min-height: 100px;
-    }
-
-    label {
-      padding: 0px 8px;
-      font-weight: 500; // Bold label
+      min-height: 150px;
+      resize: none;
     }
 
     // TODO: Fix select dropdown so selected item has normal weight and color

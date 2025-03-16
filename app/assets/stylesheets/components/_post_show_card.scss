@@ -36,15 +36,7 @@
     min-width: 220px;
     max-width: 300px;
 
-    .right-column-content {
-      position: sticky;
-      top: 32px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
 
-    }
   }
 }
 
@@ -66,4 +58,13 @@
   position: sticky;
   top: 32px;
   height: fit-content; // So it doesn't overflow if small
+
+  .right-column-content {
+    position: sticky;
+    top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+  }
 }

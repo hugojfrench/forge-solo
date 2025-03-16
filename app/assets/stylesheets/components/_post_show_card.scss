@@ -1,23 +1,21 @@
 .post-and-feedback-wrapper {
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  align-items: start;
   gap: 16px;
-  position: relative;
 
   // MOBILE responsive: Stack on mobile
   @media (max-width: 768px) {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 }
 
 .post-show-card {
-  flex: 3 1 0;
   min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 32px;
-  margin-bottom: 32px;
   border: 2px solid $secondary;
   border-radius: 16px;
   background: linear-gradient(135deg, $secondary, $success);
@@ -62,11 +60,9 @@
 }
 
 .feedback-sidebar {
-  flex: 2 1 0;
-  min-width: 0;
   position: sticky;
   top: 100px;
-  height: fit-content;
+  width: 100%;
 
   .avatar-and-upvote {
     display: flex;

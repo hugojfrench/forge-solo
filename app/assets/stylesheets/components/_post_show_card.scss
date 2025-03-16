@@ -6,7 +6,7 @@
   margin-bottom: 32px;
   border: 2px solid $secondary;
   border-radius: 16px;
-  background-color: mix(white, $secondary, 10%);
+  background: linear-gradient(135deg, $secondary, $success);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   gap: 32px;
 

@@ -17,9 +17,9 @@
 
   <%# Add submit button %>
   <div class="flex-column edit-form-buttons">
-    <%= form_idea.button "<i class='fa-solid fa-floppy-disk'></i>".html_safe, type: "submit" %>
-    <a href=<%= new_idea_post_path(@idea) %>>
-      <i class='fa-solid fa-share-from-square'></i>
-    </a>
+    <%= form_idea.button "<i class='fa-solid fa-floppy-disk'></i>".html_safe,
+      type: "submit", name: "pressed_button", value: "save" %>
+    <%= form_idea.button "<i class='fa-solid fa-share-from-square'></i>".html_safe,
+      type: "submit", name: "pressed_button", value: "share" %>
   </div>
 <% end %>

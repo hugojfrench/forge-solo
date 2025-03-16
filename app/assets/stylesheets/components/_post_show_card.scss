@@ -19,24 +19,6 @@
       text-align: start;
       padding: 0;
     }
-
-    .post-image {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      border-radius: 12px;
-      object-fit: cover;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-  }
-
-  // RIGHT SIDE
-  .post-show-right {
-    flex: 1; // Take smaller width
-    min-width: 220px;
-    max-width: 300px;
-
-
   }
 }
 
@@ -52,6 +34,27 @@
   }
 }
 
+.image-summary-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 16px 0;
+
+  .post-image {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  .post-summary {
+    flex: 1;
+    margin: 0;
+    line-height: 1.6;
+  }
+}
+
 .feedback-sidebar {
   flex: 1;
   max-width: 300px;
@@ -60,7 +63,7 @@
   height: fit-content;
 
 
-  .right-column-content {
+  .avatar-and-upvote {
     top: 32px;
     display: flex;
     align-items: center;

@@ -1,14 +1,15 @@
 <div class="post-and-feedback-wrapper">
   <div class="post-show-card">
 
-    <!-- Left column - text content -->
     <div class="post-show-left">
       <h1 class="post-title"><%= @post.title %></h1>
       <h2 class="post-tagline"><%= @post.tagline %></h2>
+      <div class="image-summary-wrapper">
         <% if @post.image.attached? %>
           <%= cl_image_tag @post.image.key, width: 400, height: 400, class: "post-image", alt: "#{@post.title} image" %>
         <% end %>
-      <p class="post-summary"><%= @post.summary %></p>
+        <p class="post-summary"><%= @post.summary %></p>
+      </div>
 
       <% @post.post_sections.each do |section| %>
         <div class="post-section">
@@ -22,7 +23,7 @@
 
   <!-- Feedback section -->
   <div class="feedback-sidebar">
-      <div class="right-column-content">
+      <div class="avatar-and-upvote">
         <!-- Avatar -->
         <% if @post.idea.user.avatar.attached? %>
           <%= cl_image_tag @post.idea.user.avatar.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar-large", alt: "User avatar" %>

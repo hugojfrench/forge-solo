@@ -56,11 +56,11 @@
   flex: 1;
   max-width: 300px;
   position: sticky;
-  top: 32px;
-  height: fit-content; // So it doesn't overflow if small
+  top: 100px;
+  height: fit-content;
+
 
   .right-column-content {
-    position: sticky;
     top: 32px;
     display: flex;
     align-items: center;

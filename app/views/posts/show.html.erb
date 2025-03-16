@@ -24,13 +24,7 @@
   <!-- Feedback section -->
   <div class="feedback-sidebar">
       <div class="avatar-and-upvote">
-        <!-- Avatar -->
-        <% if @post.idea.user.avatar.attached? %>
-          <%= cl_image_tag @post.idea.user.avatar.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar-large", alt: "User avatar" %>
-        <% else %>
-          <%= image_tag "Avatar_placeholder.png", width: 150, height: 150, class: "avatar-large", alt: "User avatar placeholder" %>
-        <% end %>
-
+      
         <!-- Upvote -->
         <div class="upvote-block large" data-controller="upvote" data-upvote-url-value="<%= upvote_post_path(@post) %>">
           <button class="upvote-btn" data-action="click->upvote#upvote">
@@ -41,6 +35,12 @@
           </div>
         </div>
 
+        <!-- Avatar -->
+        <% if @post.idea.user.avatar.attached? %>
+          <%= cl_image_tag @post.idea.user.avatar.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar-large", alt: "User avatar" %>
+        <% else %>
+          <%= image_tag "Avatar_placeholder.png", width: 150, height: 150, class: "avatar-large", alt: "User avatar placeholder" %>
+        <% end %>
       </div>
     <div class="feedback-section">
       <h3>Feedback</h3>

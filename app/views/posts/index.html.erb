@@ -22,9 +22,9 @@
       <!-- right side of card (avatar) -->
       <div>
         <% if post.idea.user.avatar.attached? %>
-          <%= cl_image_tag post.idea.user.avatar.key, width: 60, height: 60, crop: :thumb, gravity: :face, class: "avatar-med", alt: "User avatar" %>
+          <%= cl_image_tag post.idea.user.avatar.key, width: 50, height: 50, crop: :thumb, gravity: :face, class: "avatar-med", alt: "User avatar" %>
         <% else %>
-          <%= image_tag "Avatar_placeholder.png", width: 60, height: 60, class: "avatar-med", alt: "User avatar placeholder" %>
+          <%= image_tag "Avatar_placeholder.png", width: 50, height: 50, class: "avatar-med", alt: "User avatar placeholder" %>
         <% end %>
       </div>
 

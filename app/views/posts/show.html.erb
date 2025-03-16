@@ -3,6 +3,9 @@
   <!-- Left column - text content -->
   <div class="post-show-left">
     <h1 class="post-title"><%= @post.title %></h1>
+      <% if @post.image.attached? %>
+        <%= cl_image_tag @post.image.key, width: 300, height: 300, class: "post-image", alt: "#{@post.title} image" %>
+      <% end %>
     <h2 class="post-tagline"><%= @post.tagline %></h2>
     <p class="post-summary"><%= @post.summary %></p>
 
@@ -34,9 +37,6 @@
         </div>
       </div>
 
-      <% if @post.image.attached? %>
-        <%= cl_image_tag @post.image.key, width: 300, height: 300, class: "post-image", alt: "#{@post.title} image" %>
-      <% end %>
     </div>
   </div>
 

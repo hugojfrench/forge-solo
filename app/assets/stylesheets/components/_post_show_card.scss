@@ -14,6 +14,20 @@
   .post-show-left {
     flex: 4;
     min-width: 0;
+
+    h1 {
+      text-align: start;
+      padding: 0;
+    }
+
+    .post-image {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
   }
 
   // RIGHT SIDE
@@ -30,14 +44,26 @@
       align-items: center;
       gap: 24px;
 
-      .post-image {
-        width: 100%;
-        max-width: 200px;
-        height: auto;
-        border-radius: 12px;
-        object-fit: cover;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
     }
   }
+}
+
+.post-and-feedback-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  position: relative; // Safe default
+
+  // MOBILE responsive: Stack on mobile
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.feedback-sidebar {
+  flex: 1;
+  max-width: 300px;
+  position: sticky;
+  top: 32px;
+  height: fit-content; // So it doesn't overflow if small
 }

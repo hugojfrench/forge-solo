@@ -2,13 +2,15 @@
   <div class="post-show-card">
 
     <div class="post-show-left">
-      <h1 class="post-title"><%= @post.title %></h1>
-      <h2 class="post-tagline"><%= @post.tagline %></h2>
+      <h1><%= @post.title %></h1>
+      <h3><%= @post.tagline %></h3>
       <div class="image-summary-wrapper">
         <% if @post.image.attached? %>
-          <%= cl_image_tag @post.image.key, width: 400, height: 400, class: "post-image", alt: "#{@post.title} image" %>
+          <%= cl_image_tag @post.image.key, class: "post-image", alt: "#{@post.title} image" %>
         <% end %>
-        <p class="post-summary"><%= @post.summary %></p>
+        <div class="post-summary">
+          <p><%= @post.summary %></p>
+        </div>
       </div>
 
       <% @post.post_sections.each do |section| %>
@@ -24,7 +26,7 @@
   <!-- Feedback section -->
   <div class="feedback-sidebar">
       <div class="avatar-and-upvote">
-      
+
         <!-- Upvote -->
         <div class="upvote-block large" data-controller="upvote" data-upvote-url-value="<%= upvote_post_path(@post) %>">
           <button class="upvote-btn" data-action="click->upvote#upvote">

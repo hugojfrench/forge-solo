@@ -6,7 +6,7 @@ export default class extends Controller {
   static values = { url: String }
 
   connect() {
-    console.log("Upvote controller connected!");
+    // console.log("Upvote controller connected!");
   }
 
   upvote(event) {

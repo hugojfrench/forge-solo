@@ -12,6 +12,7 @@
     <p><strong><%= feedback.user.first_name %>:</strong> <%= feedback.content %></p>
   </div>
 
+
   <!-- Replies -->
   <%= turbo_stream_from "feedback_#{feedback.id}_replies" %>
   <div id="replies-<%= feedback.id %>">

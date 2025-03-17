@@ -62,7 +62,11 @@
 
       <!-- Add Feedback Form -->
       <div class="feedback-form">
-        <h3>Add feedback</h3>
+        <% if @post.feedbacks.count == 0 %>
+          <h3>Be the first to leave feedback</h3>
+        <% else %>
+          <h3>Leave feedback</h3>
+        <% end %>
         <%= simple_form_for [@post, @feedback], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |f| %>
           <div class="form-group">
             <%= f.input :content, label: false, placeholder: "Leave feedback here:
@@ -79,7 +83,9 @@
 
 
   <div class="feedbacks" data-scroll-target="feedbacks">
-    <h3>Feedbacks</h3>
+    <% if @post.feedbacks.any? %>
+      <h3>Feedbacks</h3>
+    <% end %>
     <%= turbo_stream_from "post_#{@post.id}_feedbacks" %>
     <div id="feedbacks">
       <% @post.feedbacks.each do |feedback| %>

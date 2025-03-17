@@ -31,7 +31,8 @@ p {
   border: none;
   color: $danger;
   cursor: pointer;
-  border-bottom: 1px solid $danger;
+  // border-bottom: 1px solid $danger;
+  text-decoration: underline;
 }
 
 .reply-form {

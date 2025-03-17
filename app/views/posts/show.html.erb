@@ -59,17 +59,9 @@
       </div>
     </div>
 
-    <!-- New Comment -->
-    <div class="upvote-block large">
-      <button class="upvote-btn">
-          <i class="fa-solid fa-comment-medical"></i>
-      </button>
-      <div class="upvote-count">
-        Add feedback
-      </div>
-    </div>
-
-    <div>
+    <!-- Add Feedback Form -->
+    <div class="feedback-form">
+      <h3>Add feedback</h3>
       <%= simple_form_for [@post, @feedback], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |f| %>
         <div class="form-group">
           <%= f.input :content, label: false, placeholder: "Leave feedback here..." %>

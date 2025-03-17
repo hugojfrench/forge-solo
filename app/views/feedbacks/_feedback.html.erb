@@ -1,4 +1,4 @@
-<div class="feedback-card">
+<div class="feedback-card" data-controller="toggle-replies">
   <div class="content-with-upvote">
     <div class="upvote-block" data-controller="upvote" data-upvote-url-value="<%= upvote_feedback_path(feedback) %>">
       <button class="upvote-btn" data-action="click->upvote#upvote"> <i class="fa-regular fa-circle-up"></i></button>
@@ -14,9 +14,9 @@
 
   <!-- Replies -->
   <%= turbo_stream_from "feedback_#{feedback.id}_replies" %>
-  <button class="btn btn-primary">Show Replies</button>
-  <div class="hidden">
-    <div id="replies-<%= feedback.id %>" class="hidden">
+  <button class="btn btn-primary" data-action="click->toggle-replies#toggle">Show Replies</button>
+  <div class="hidden" data-toggle-replies-target="replies">
+    <div id="replies-<%= feedback.id %>">
       <% feedback.replies.each do |reply| %>
         <%= render 'replies/reply', reply: reply %>
       <% end %>

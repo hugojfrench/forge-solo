@@ -97,7 +97,7 @@
 
 .edit-form-input {
   border: 0;
-  background-color: $primary;
+  background-color: color-mix(in oklab, $primary 5%, white);
   padding-left: 8px;
 
   &:focus {

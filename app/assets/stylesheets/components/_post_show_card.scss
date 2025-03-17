@@ -16,10 +16,17 @@
     gap: 8px;
   }
 
-
-  h1, h3 {
-    margin: 0;
+  h1 {
     text-align: center;
+  }
+
+  h3:first-of-type {
+    text-align: center;
+  }
+
+  h3 {
+    margin: 0;
+    text-align: start;
     padding: 0;
   }
 

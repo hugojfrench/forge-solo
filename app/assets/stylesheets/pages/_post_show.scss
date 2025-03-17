@@ -2,11 +2,6 @@
   display: flex;
   align-items: start;
   gap: 16px;
-
-  // MOBILE responsive: Stack on mobile
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
 }
 
 .upvote-and-comments {

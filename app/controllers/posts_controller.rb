@@ -8,7 +8,10 @@ class PostsController < ApplicationController
     # filter the @posts based on the tags selected
     tags_id = params[:tags_id]&.reject(&:blank?)
     if tags_id.present?
-      @posts = Post.joins(:tags).where(tags: { id: tags_id }).group('posts.id').having('COUNT(tags.id) = ?', tags_id.count)
+      @posts = Post.joins(:tags)
+                   .where(tags: { id: tags_id })
+                   .group('posts.id').having('COUNT(tags.id) = ?', tags_id.count)
+                   .order(upvotes: :desc)
     end
   end
 

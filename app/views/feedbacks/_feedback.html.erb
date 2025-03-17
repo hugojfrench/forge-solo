@@ -14,7 +14,7 @@
 
   <!-- Replies -->
   <%= turbo_stream_from "feedback_#{feedback.id}_replies" %>
-  <button class="btn btn-primary" data-action="click->toggle-replies#toggle">Show Replies</button>
+  <button class="btn btn-primary" data-action="click->toggle-replies#toggle" data-toggle-replies-target="button">Show Replies</button>
   <div class="hidden" data-toggle-replies-target="replies">
     <div id="replies-<%= feedback.id %>">
       <% feedback.replies.each do |reply| %>

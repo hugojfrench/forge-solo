@@ -25,11 +25,20 @@
     <!-- Form to add a reply -->
     <%= simple_form_for [feedback, Reply.new],
       html: { data: { toggle_replies_target: "form", controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } } do |f| %>
-      <div class="form-group">
-        <%= f.input :content, label: false, placeholder: "Leave reply here...", input_html: { data: { toggle_replies_target: "input", action: "keydown->toggle-replies#submitWithEnter" } } %>
-      </div>
-      <div class="form-actions">
-        <%= f.button :submit, "Add Reply", class: "btn btn-primary" %>
+      <div class="reply-form">
+        <% if feedback.user.avatar.attached? %>
+          <%= cl_image_tag current_user.avatar.key, width: 30, height: 30, crop: :thumb, gravity: :face, class: "avatar-mini", alt: "User avatar" %>
+        <% else %>
+          <%= image_tag "Avatar_placeholder.png", width: 30, height: 30, class: "avatar-mini", alt: "User avatar placeholder" %>
+        <% end %>
+        <div class="form-group">
+          <%= f.input :content, label: false, placeholder: "Leave reply here...", input_html: { data: { toggle_replies_target: "input", action: "keydown->toggle-replies#submitWithEnter" } } %>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-icon">
+            <i class="fa-solid fa-comment-medical"></i>
+          </button>
+        </div>
       </div>
     <% end %>
   </div>

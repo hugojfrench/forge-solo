@@ -39,12 +39,7 @@ class InitialQuestion < ApplicationRecord
     })
     p initial_chatgpt_response
     new_content = initial_chatgpt_response["choices"][0]["message"]["content"]
-
     parsed_content = JSON.parse(new_content)
-
-    puts "Parsed content:"
-    p parsed_content
-
     update(title1: parsed_content["title1"])
     update(tagline1: parsed_content["tagline1"])
     update(summary1: parsed_content["summary1"])
@@ -54,20 +49,10 @@ class InitialQuestion < ApplicationRecord
     update(title3: parsed_content["title3"])
     update(tagline3: parsed_content["tagline3"])
     update(summary3: parsed_content["summary3"])
-
-    #set title tagline summary for each generated idea 1-3
-
     return self
-
   end
 
   private
-
-# re-generate is still a bit buggy, sometimes when you request a change it will not make the change the 1st time you press regenerate but then it makes the desired change the 2nd time you press regenerate
-
-# format is fixed but the content is not always relevant to the user's input for refresh
-
-# it gets the desired change on the 2nd time you press regenerate
 
   def refreshed_question
     initial_questions = user.initial_questions
@@ -99,8 +84,6 @@ class InitialQuestion < ApplicationRecord
       results << { role: "assistant", content: "Previous idea: #{question.title2}" } if question.title2.present?
       results << { role: "assistant", content: "Previous idea: #{question.title3}" } if question.title3.present?
     end
-
-    p results
 
     return results
 

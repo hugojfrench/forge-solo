@@ -68,7 +68,7 @@
     align-self: center;
     font-size: 2rem;
   }
-  
+
   // Remove Chrome's autofill styling
   input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px mix($secondary, white, 95%) inset;
@@ -106,24 +106,29 @@
 }
 
 .edit-form-title {
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 56px;
+  font-weight: 900;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
 
 .edit-form-heading {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: bold;
 }
 
 .edit-form-tagline {
-  font-size: 20px;
+  font-size: 32px;
   font-weight: 600;
+  font-style: italic;
 }
 
 .edit-form-summary {
-  font-size: 14px;
+  font-size: 24px;
+}
+
+.edit-form-content {
+  font-size: 16px;
 }
 
 .edit-form-buttons {

@@ -40,13 +40,7 @@ class InitialQuestion < ApplicationRecord
     p initial_chatgpt_response
     new_content = initial_chatgpt_response["choices"][0]["message"]["content"]
 
-    begin
-      parsed_content = JSON.parse(new_content)
-    rescue JSON::ParserError => e
-      Rails.logger.error("JSON Parsing error: #{e}")
-      # Handle error (e.g., retry the request, log the error, etc.)
-      return
-    end
+    parsed_content = JSON.parse(new_content)
 
     puts "Parsed content:"
     p parsed_content
@@ -69,11 +63,18 @@ class InitialQuestion < ApplicationRecord
 
   private
 
+# re-generate is still a bit buggy, sometimes when you request a change it will not make the change the 1st time you press regenerate but then it makes the desired change the 2nd time you press regenerate
+
+# format is fixed but the content is not always relevant to the user's input for refresh
+
+# it gets the desired change on the 2nd time you press regenerate
 
   def refreshed_question
     initial_questions = user.initial_questions
     results = []
-    results << { role: "system", content: <<~INSTRUCTION.strip
+    results << { role: "system", content:
+    <<~INSTRUCTION.strip
+
     Generate three distinct ideas for an idea generator website.
     Your response must be a single JSON object matching this schema:
     {
@@ -88,16 +89,18 @@ class InitialQuestion < ApplicationRecord
       "summary3": "string"
     }
     Do not include any extra text or delimiters.
-  INSTRUCTION
+    INSTRUCTION
 }
 
     initial_questions.each do |question|
       results << { role: "user", content: question.user_question }
       # You can include past assistant responses if needed:
-      results << { role: "assistant", content: question.title1 || "" }
-      results << { role: "assistant", content: question.title2 || "" }
-      results << { role: "assistant", content: question.title3 || "" }
+      results << { role: "assistant", content: "Previous idea: #{question.title1}" } if question.title1.present?
+      results << { role: "assistant", content: "Previous idea: #{question.title2}" } if question.title2.present?
+      results << { role: "assistant", content: "Previous idea: #{question.title3}" } if question.title3.present?
     end
+
+    p results
 
     return results
 

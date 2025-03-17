@@ -103,11 +103,12 @@
 
 .edit-form-input {
   border: 0;
-  background-color: color-mix(in oklab, $primary 5%, white);
+  background-color: color-mix(in oklab, $primary 10%, white);
   padding-left: 8px;
 
   &:focus {
     outline: none;
+    background-color: color-mix(in oklab, $primary 1%, white);
   }
 }
 

@@ -12,16 +12,12 @@
 .navbar-title {
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -43%);
-  font-size: 54px;
-  font-weight: 900;
-  letter-spacing: 0.05em;
+  top: 25%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  font-weight: bold;
   color: $maroon;
   margin: 0;
-  font-family: $logo-font;
-  line-height: 1;
-  padding: 0;
 }
 
 .navbar-brand{
@@ -65,11 +61,4 @@ body {
 
 a.avatar.dropdown-toggle::after {
   display: none;
-}
-
-
-.logo-hover:hover {
-  opacity: 0.7; /* Example: Reduce opacity on hover */
-  transform: scale(1.1); /* Example: Slightly enlarge image */
-  transition: all 0.3s ease; /* Smooth transition */
 }

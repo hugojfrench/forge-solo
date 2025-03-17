@@ -1,4 +1,14 @@
 <h1>Posts</h1>
+
+<%# Show a search box for tags %>
+<%= form_with url: posts_path, method: :get do |form| %>
+  <%= form.label :tags_id, 'Filter by tags:' %>
+  <%= form.select :tags_id, options_from_collection_for_select(@tags, :id, :name),
+    {}, { multiple: true, include_blank: false, data: { controller: 'filter-tags' } } %>
+  <%= form.submit 'Filter' %>
+<% end %>
+
+<%# Displays the posts %>
 <% @posts.each do |post| %>
   <%= link_to post_path(post), class: "post-card-link" do %> <!-- Make whole card clickable -->
     <div class="post-card">

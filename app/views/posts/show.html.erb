@@ -49,7 +49,7 @@
 
     <!-- Comments -->
     <div class="upvote-block large">
-      <button class="upvote-btn">
+      <button class="upvote-btn" data-bs-toggle="offcanvas" data-bs-target="#feedbackSidebar" aria-controls="feedbackSidebar">
           <i class="fa-solid fa-comment"></i>
       </button>
       <div class="upvote-count">
@@ -60,7 +60,7 @@
   </div>
 
   <!-- Feedback Sidebar -->
-  <div class="feedback-sidebar">
+  <div class="feedback-sidebar offcanvas offcanvas-end" tabindex="-1" id="feedbackSidebar" aria-labelledby="feedbackSidebarLabel" data-bs-scroll="true" data-bs-backdrop="false">
     <div>
       <h3>Feedback</h3>
 

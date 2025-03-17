@@ -1,6 +1,22 @@
 <div class="post-and-feedback-wrapper">
+  <!-- Post Show Card -->
   <div class="post-show-card">
-      <h1><%= @post.title %></h1>
+      <div class="post-header">
+        <!-- Avatar and Name Wrapper -->
+        <div class="avatar-container">
+          <% if @post.idea.user.avatar.attached? %>
+            <%= cl_image_tag @post.idea.user.avatar.key, width: 50, height: 50, crop: :thumb, gravity: :face, class: "avatar-med", alt: "User avatar" %>
+          <% else %>
+            <%= image_tag "Avatar_placeholder.png", width: 50, height: 50, class: "avatar-med", alt: "User avatar placeholder" %>
+          <% end %>
+          <div class="avatar-name"><%= @post.idea.user.first_name %></div>
+        </div>
+
+        <div>
+          <!-- Post Title -->
+          <h1><%= @post.title %></h1>
+        </div>
+      </div>
       <h3><%= @post.tagline %></h3>
       <div class="image-summary-wrapper">
         <% if @post.image.attached? %>
@@ -20,7 +36,7 @@
 
   </div>
 
-  <!-- Feedback section -->
+  <!-- Feedback Sidebar -->
   <div class="feedback-sidebar">
       <div class="avatar-and-upvote">
 
@@ -34,12 +50,7 @@
           </div>
         </div>
 
-        <!-- Avatar -->
-        <% if @post.idea.user.avatar.attached? %>
-          <%= cl_image_tag @post.idea.user.avatar.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar-large", alt: "User avatar" %>
-        <% else %>
-          <%= image_tag "Avatar_placeholder.png", width: 150, height: 150, class: "avatar-large", alt: "User avatar placeholder" %>
-        <% end %>
+
       </div>
     <div>
       <h3>Feedback</h3>

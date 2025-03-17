@@ -9,17 +9,17 @@
   }
 }
 
-
 .upvote-and-comments {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: start;
   gap: 24px;
+  margin-bottom: 16px;
 }
 
 .feedback-sidebar {
-  flex: 2 1 0;
+  flex: 1 1 0;
   position: sticky;
-  top: 100px;
+  top: 120px;
   width: 100%;
+  z-index: 1;
 }

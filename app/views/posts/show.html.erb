@@ -35,37 +35,41 @@
       <% end %>
 
   </div>
-  <div class="upvote-and-comments">
+    <!-- Feedback Sidebar -->
+  <div class="feedback-sidebar">
+    <div class="upvote-and-comments">
+      <!-- Upvote -->
+      <div class="upvote-block large" data-controller="upvote" data-upvote-url-value="<%= upvote_post_path(@post) %>">
+        <button class="upvote-btn" data-action="click->upvote#upvote">
+          <i class="fa-regular fa-circle-up"></i>
+        </button>
+        <div class="upvote-count" data-upvote-target="count">
+          <%= @post.upvotes %>
+        </div>
+      </div>
 
-    <!-- Upvote -->
-    <div class="upvote-block large" data-controller="upvote" data-upvote-url-value="<%= upvote_post_path(@post) %>">
-      <button class="upvote-btn" data-action="click->upvote#upvote">
-        <i class="fa-regular fa-circle-up"></i>
-      </button>
-      <div class="upvote-count" data-upvote-target="count">
-        <%= @post.upvotes %>
+      <!-- Comments -->
+      <div class="upvote-block large">
+        <button class="upvote-btn">
+            <i class="fa-solid fa-comments"></i>
+        </button>
+        <div class="upvote-count">
+          <%= @post.feedbacks.count %>
+        </div>
       </div>
     </div>
 
-    <!-- Comments -->
+    <!-- New Comment -->
     <div class="upvote-block large">
-      <button class="upvote-btn" data-bs-toggle="offcanvas" data-bs-target="#feedbackSidebar" aria-controls="feedbackSidebar">
-          <i class="fa-solid fa-comment"></i>
+      <button class="upvote-btn">
+          <i class="fa-solid fa-comment-medical"></i>
       </button>
       <div class="upvote-count">
-        <%= @post.feedbacks.count %>
+        Add feedback
       </div>
     </div>
 
-  </div>
-
-  <!-- Feedback Sidebar -->
-  <div class="feedback-sidebar offcanvas offcanvas-end" tabindex="-1" id="feedbackSidebar" aria-labelledby="feedbackSidebarLabel" data-bs-scroll="true" data-bs-backdrop="false">
     <div>
-      <h3>Feedback</h3>
-
-      <h5>Add your feedback: </h5>
-
       <%= simple_form_for [@post, @feedback], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |f| %>
         <div class="form-group">
           <%= f.input :content, label: false, placeholder: "Leave feedback here..." %>
@@ -74,14 +78,15 @@
           <%= f.button :submit, "Add Feedback", class: "btn btn-primary" %>
         </div>
       <% end %>
-
-      <%= turbo_stream_from "post_#{@post.id}_feedbacks" %>
-      <div id="feedbacks">
-        <% @post.feedbacks.each do |feedback| %>
-          <%= render 'feedbacks/feedback', feedback: feedback %>
-        <% end %>
-      </div>
-
     </div>
+  </div>
+</div>
+<div class="mt-3">
+  <h3>Feedbacks</h3>
+  <%= turbo_stream_from "post_#{@post.id}_feedbacks" %>
+  <div id="feedbacks">
+    <% @post.feedbacks.each do |feedback| %>
+      <%= render 'feedbacks/feedback', feedback: feedback %>
+    <% end %>
   </div>
 </div>

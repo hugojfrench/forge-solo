@@ -25,7 +25,7 @@
     <!-- Form to add a reply -->
     <%= simple_form_for [feedback, Reply.new], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |f| %>
       <div class="form-group">
-        <%= f.input :content, label: false, placeholder: "Leave reply here..." %>
+        <%= f.input :content, label: false, placeholder: "Leave reply here...", input_html: { data: { toggle_replies_target: "input" } } %>
       </div>
       <div class="form-actions">
         <%= f.button :submit, "Add Reply", class: "btn btn-primary" %>

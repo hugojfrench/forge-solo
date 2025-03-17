@@ -3,6 +3,11 @@
     <!-- Post Show Card -->
     <div class="post-show-card">
         <div class="post-header">
+          <div>
+            <!-- Post Title -->
+            <h1><%= @post.title %></h1>
+          </div>
+          
           <!-- Avatar and Name Wrapper -->
           <div class="avatar-container">
             <% if @post.idea.user.avatar.attached? %>
@@ -11,11 +16,6 @@
               <%= image_tag "Avatar_placeholder.png", width: 50, height: 50, class: "avatar-med", alt: "User avatar placeholder" %>
             <% end %>
             <div class="avatar-name"><%= @post.idea.user.first_name %></div>
-          </div>
-
-          <div>
-            <!-- Post Title -->
-            <h1><%= @post.title %></h1>
           </div>
         </div>
         <h3><%= @post.tagline %></h3>

@@ -12,9 +12,9 @@
     <p><strong><%= feedback.user.first_name %>:</strong> <%= feedback.content %></p>
   </div>
 
-
   <!-- Replies -->
   <%= turbo_stream_from "feedback_#{feedback.id}_replies" %>
+  <button class="btn btn-primary">Show Replies</button>
   <div id="replies-<%= feedback.id %>">
     <% feedback.replies.each do |reply| %>
       <%= render 'replies/reply', reply: reply %>

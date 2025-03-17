@@ -23,8 +23,15 @@ p {
   gap: 12px;
 }
 
-.hidden {
+.hidden-replies {
   display: none;
+}
+
+.see-replies-btn {
+  background: none;
+  border: none;
+  color: $danger;
+  cursor: pointer;
 }
 
 .reply-form {

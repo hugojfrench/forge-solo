@@ -14,8 +14,13 @@
 
   <!-- Replies -->
   <%= turbo_stream_from "feedback_#{feedback.id}_replies" %>
-  <button class="btn btn-primary" data-action="click->toggle-replies#toggle" data-toggle-replies-target="button">Show Replies</button>
-  <div class="hidden" data-toggle-replies-target="replies">
+  <button class="see-replies-btn"
+  data-action="click->toggle-replies#toggle"
+  data-toggle-replies-target="button"
+  data-label="<i class='fa-solid fa-reply'></i> <%= pluralize(feedback.replies.count, 'Reply') %>">
+    <i class="fa-solid fa-reply"></i> <%= pluralize(feedback.replies.count, "Reply") %>
+  </button>
+  <div class="hidden-replies" data-toggle-replies-target="replies">
     <div id="replies-<%= feedback.id %>">
       <% feedback.replies.each do |reply| %>
         <%= render 'replies/reply', reply: reply %>

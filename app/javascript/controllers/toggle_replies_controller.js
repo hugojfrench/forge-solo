@@ -9,9 +9,9 @@ export default class extends Controller {
   }
 
   toggle() {
-    this.repliesTarget.classList.toggle("hidden");
-    if (this.repliesTarget.classList.contains("hidden")) {
-      this.buttonTarget.innerText = "See replies"
+    this.repliesTarget.classList.toggle("hidden-replies");
+    if (this.repliesTarget.classList.contains("hidden-replies")) {
+      this.buttonTarget.innerHTML = this.buttonTarget.dataset.label;
     } else {
       this.buttonTarget.innerText = "Hide replies"
       this.inputTarget.focus();

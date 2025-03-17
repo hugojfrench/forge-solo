@@ -1,12 +1,25 @@
-.post-header {
+.post-and-feedback-wrapper {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  align-items: start;
+  gap: 16px;
+
+  // MOBILE responsive: Stack on mobile
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
+
 
 .upvote-and-comments {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
+}
+
+.feedback-sidebar {
+  flex: 2 1 0;
+  position: sticky;
+  top: 100px;
+  width: 100%;
 }

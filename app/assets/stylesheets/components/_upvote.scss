@@ -41,6 +41,8 @@
     transition: transform 0.1s ease;
     color: $danger;
     padding: 0;
+    line-height: 1;
+    vertical-align: middle;
 
     &:hover {
       transform: translateY(-2px);

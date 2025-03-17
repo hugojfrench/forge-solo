@@ -1,44 +1,41 @@
 <h1>Find your inspiration now</h1>
-
-
-
 <%= form_with(url: "/initial_questions", method: "post") do |form| %>
   <div class="custom-form">
+
     <div class="custom-form-bubble">
       <%= form.label :i_am_a, "I am a..." %>
-      <%= form.text_field :i_am_a, placeholder: "Web Developer, street photographer, student journalist" %>
+      <%= form.text_field :i_am_a, placeholder: "Web Developer, street photographer, student journalist..." %>
     </div>
 
     <div class="custom-form-bubble">
-      <%= form.label :ideation_framework, "Ideation Framework:" %>
+      <%= form.label :seeking_inspiration_for, "Seeking inspiration for..." %>
+      <%= form.text_field :seeking_inspiration_for, placeholder: "A webapp, photo project, long form article..." %>
+    </div>
+
+    <%# TODO - Create an autocomplete of tags/options? %>
+    <div class="custom-form-bubble">
+      <%= form.label :i_am_interested_in, "I am interested in..." %>
+      <%= form.text_field :i_am_interested_in, placeholder: "Tech, food, community driven platforms, London at night, student politics... " %>
+    </div>
+
+    <div class="custom-form-bubble">
+      <%= form.label :ideation_framework, "Project type:" %>
       <%= form.select :ideation_framework, options_for_select([
-        ['Standard Ideation', 'standard_ideation'],
-        ['Business Startup', 'business_startup'],
-        ['Creative Project', 'creative_project'],
-        ['Scientific Research', 'scientific_research']
-      ]), { prompt: "Select Options", required: true } %>
+        ['💡 Standard Idea', 'standard_ideation'],
+        ['💸 Business Startup', 'business_startup'],
+        ['🎨 Creative Project', 'creative_project'],
+        ['🧪 Scientific Research', 'scientific_research']
+      ]), { prompt: "Select your project type...", required: true } %>
     </div>
 
     <div class="custom-form-bubble">
-      <%= form.label :i_am_interested_in, "I am interested in:" %>
-      <%= form.text_field :i_am_interested_in, placeholder: "Webapp, photo project, long form article..." %>
-    </div>
-
-    <div class="custom-form-bubble">
-      <%= form.label :seeking_inspiration_for, "Seeking inspiration for:" %>
-      <%= form.text_field :seeking_inspiration_for, placeholder: "Tech, food, community driven platforms, London at night, student politics... " %>
-    </div>
-
-    <div class="custom-form-bubble">
-      <%= form.label :additional_info, "Additional info:" %>
-      <%= form.text_area :additional_info, placeholder: "My project needs to be completed in X weeks
-I am working in a team of X
-I am an experienced professional, student, complete noviceksslsllslslslsls
+      <%= form.label :additional_info, "Additional info..." %>
+      <%= form.text_area :additional_info, placeholder: "My project needs to be completed in X weeks...
+I am working alone/in a team of X...
+I am an experienced professional, student, complete novice...
 I will be using a film camera, Figma, Ruby on Rails..." %>
     </div>
 
-    <div>
-      <%= form.submit "Generate", class: "btn btn-primary"%>
-    </div>
+    <%= form.submit "Generate", class: "btn btn-primary"%>
   </div>
 <% end %>

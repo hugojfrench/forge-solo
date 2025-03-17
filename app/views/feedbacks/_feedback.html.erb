@@ -15,7 +15,7 @@
   <!-- Replies -->
   <%= turbo_stream_from "feedback_#{feedback.id}_replies" %>
   <button class="btn btn-primary">Show Replies</button>
-  <div class="replies">
+  <div class="hidden">
     <div id="replies-<%= feedback.id %>" class="hidden">
       <% feedback.replies.each do |reply| %>
         <%= render 'replies/reply', reply: reply %>

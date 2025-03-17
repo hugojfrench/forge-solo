@@ -1,0 +1,22 @@
+
+
+  .modal-dialog-left {
+    margin: 0;
+    margin-right: auto;
+    height: 100%;
+  }
+
+  .modal-dialog-left .modal-content {
+    height: 100vh;
+    border-radius: 0;
+    border-left: none;
+  }
+
+  .modal.fade .modal-dialog-left {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+  }
+
+  .modal.show .modal-dialog-left {
+    transform: translateX(0);
+  }

@@ -11,19 +11,22 @@ class IdeasController < ApplicationController
   end
 
   def create
-    @idea = Idea.new(idea_params)  # have to set the params of title, tagline, and summary here
+    @idea = Idea.new(idea_params) # have to set the params of title, tagline, and summary here
     @idea.user = current_user
     if @idea.save
-      redirect_to edit_idea_path(@idea)  #redirect to the idea edit page
+      redirect_to edit_idea_path(@idea) # redirect to the idea edit page
     else
       render :index, status: :unprocessable_entity
     end
   end
 
-
   def update
     @idea.update(idea_params)
     @idea.user.initial_questions.destroy_all
+    # there are 2 submit buttons on the form ('save' and 'share')
+    if params[:pressed_button] == "share"
+      redirect_to new_idea_post_path(@idea)
+    end
   end
 
   private
@@ -33,6 +36,11 @@ class IdeasController < ApplicationController
   end
 
   def idea_params
-    params.require(:idea).permit(:title, :tagline, :summary, idea_sections_attributes: %i[id heading content])
+    params.require(:idea).permit(
+      :title,
+      :tagline,
+      :summary,
+      idea_sections_attributes: %i[id heading content]
+    )
   end
 end

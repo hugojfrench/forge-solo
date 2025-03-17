@@ -96,3 +96,15 @@
 .btn-no-border {
   border: none;
 }
+
+@media (max-width: 1300px) {
+  .custom-card-container {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .custom-card-container {
+    grid-template-columns: auto;
+  }
+}

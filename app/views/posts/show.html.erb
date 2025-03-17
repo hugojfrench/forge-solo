@@ -35,23 +35,29 @@
       <% end %>
 
   </div>
+  <div class="upvote-and-comments">
+
+    <!-- Upvote -->
+    <div class="upvote-block large" data-controller="upvote" data-upvote-url-value="<%= upvote_post_path(@post) %>">
+      <button class="upvote-btn" data-action="click->upvote#upvote">
+        <i class="fa-regular fa-circle-up"></i>
+      </button>
+      <div class="upvote-count" data-upvote-target="count">
+        <%= @post.upvotes %>
+      </div>
+    </div>
+
+    <!-- Comments -->
+    <div class="upvote-block large">
+      <button class="upvote-btn">
+          <i class="fa-solid fa-comment"></i>
+      </button>
+    </div>
+
+  </div>
 
   <!-- Feedback Sidebar -->
   <div class="feedback-sidebar">
-      <div class="avatar-and-upvote">
-
-        <!-- Upvote -->
-        <div class="upvote-block large" data-controller="upvote" data-upvote-url-value="<%= upvote_post_path(@post) %>">
-          <button class="upvote-btn" data-action="click->upvote#upvote">
-            <i class="fa-regular fa-circle-up"></i>
-          </button>
-          <div class="upvote-count" data-upvote-target="count">
-            <%= @post.upvotes %>
-          </div>
-        </div>
-
-
-      </div>
     <div>
       <h3>Feedback</h3>
 

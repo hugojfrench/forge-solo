@@ -12,6 +12,8 @@
     <p><strong><%= feedback.user.first_name %>:</strong> <%= feedback.content %></p>
   </div>
 
+
+  <!-- TODO: Move the top reply out of hidden and say "X more replies" -->
   <!-- Replies -->
   <%= turbo_stream_from "feedback_#{feedback.id}_replies" %>
   <button class="see-replies-btn"

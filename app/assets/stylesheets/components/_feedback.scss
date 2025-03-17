@@ -16,7 +16,6 @@ p {
   line-break: anywhere;
 }
 
-
 .content-with-upvote {
   display: flex;
   align-items: center;
@@ -32,6 +31,7 @@ p {
   border: none;
   color: $danger;
   cursor: pointer;
+  border-bottom: 1px solid $danger;
 }
 
 .reply-form {
@@ -69,11 +69,11 @@ p {
 
     i {
       font-size: 1.5rem;
-      color: var(--your-icon-color, #333); // Set to match design
+      color: $danger
     }
 
     &:hover i {
-      color: var(--your-hover-color, #000); // Darker on hover
+      transform: translateY(-2px);
     }
   }
 }

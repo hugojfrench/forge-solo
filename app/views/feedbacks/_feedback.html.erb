@@ -15,11 +15,13 @@
   <!-- Replies -->
   <%= turbo_stream_from "feedback_#{feedback.id}_replies" %>
   <button class="btn btn-primary">Show Replies</button>
-  <div id="replies-<%= feedback.id %>">
-    <% feedback.replies.each do |reply| %>
-      <%= render 'replies/reply', reply: reply %>
-    <% end %>
-  </div>
+  <div class="replies">
+    <div id="replies-<%= feedback.id %>" class="hidden">
+      <% feedback.replies.each do |reply| %>
+        <%= render 'replies/reply', reply: reply %>
+      <% end %>
+    </div>
+
     <!-- Form to add a reply -->
     <%= simple_form_for [feedback, Reply.new], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |f| %>
       <div class="form-group">
@@ -29,4 +31,5 @@
         <%= f.button :submit, "Add Reply", class: "btn btn-primary" %>
       </div>
     <% end %>
+  </div>
 </div>

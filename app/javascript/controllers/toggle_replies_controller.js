@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="toggle-replies"
 export default class extends Controller {
-  static targets = ["replies", "button", "input"]
+  static targets = ["replies", "button", "input", "form"]
 
   connect() {
     console.log("ToggleReplies controller connected");
@@ -15,6 +15,13 @@ export default class extends Controller {
     } else {
       this.buttonTarget.innerText = "Hide replies"
       this.inputTarget.focus();
+    }
+  }
+
+  submitWithEnter(event) {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault(); // Prevent adding a newline
+      this.formTarget.requestSubmit(); // Submits the form properly
     }
   }
 }

@@ -1,40 +1,73 @@
-<h1>Choose your favorite:</h1>
 
-<div class="card-container">
+<div data-controller="initial-questions-sidebar">
 
-  <%= button_to ideas_path, action: "create", params: {idea: { title: @initial_question.title1, tagline: @initial_question.tagline1, summary: @initial_question.summary1} } do %>
-   <div class="ideas-card">
-    <h3><%= @initial_question.title1 %></h3>
-    <h5><%= @initial_question.tagline1 %></h5>
-    <p><%= @initial_question.summary1 %></p>
-   </div>
-   <% end %>
 
-  <%= button_to ideas_path, action: "create", params: {idea: { title: @initial_question.title2, tagline: @initial_question.tagline2, summary: @initial_question.summary2} } do %>
-    <div class="ideas-card" >
-    <h3><%= @initial_question.title2 %></h3>
-    <h5><%= @initial_question.tagline2 %></h5>
-    <p><%= @initial_question.summary2 %></p>
+<h1 data-initial-questions-sidebar-target="title">Choose your favorite:</h1>
+
+
+  <div class="card-container" data-initial-questions-sidebar-target="flexbox" >
+
+    <%= button_to ideas_path, action: "create", params: {idea: { title: @initial_question.title1, tagline: @initial_question.tagline1, summary: @initial_question.summary1} } do %>
+    <div class="ideas-card">
+      <h3><%= @initial_question.title1 %></h3>
+      <h5><%= @initial_question.tagline1 %></h5>
+      <p><%= @initial_question.summary1 %></p>
     </div>
     <% end %>
 
-  <%= button_to ideas_path, action: "create", params: {idea: { title: @initial_question.title3, tagline: @initial_question.tagline3, summary: @initial_question.summary3} } do %>
-   <div class="ideas-card">
-    <h3><%= @initial_question.title3 %></h3>
-    <h5><%= @initial_question.tagline3 %></h5>
-    <p><%= @initial_question.summary3%></p>
-   </div>
-   <% end %>
+    <%= button_to ideas_path, action: "create", params: {idea: { title: @initial_question.title2, tagline: @initial_question.tagline2, summary: @initial_question.summary2} } do %>
+      <div class="ideas-card" >
+      <h3><%= @initial_question.title2 %></h3>
+      <h5><%= @initial_question.tagline2 %></h5>
+      <p><%= @initial_question.summary2 %></p>
+      </div>
+      <% end %>
+
+    <%= button_to ideas_path, action: "create", params: {idea: { title: @initial_question.title3, tagline: @initial_question.tagline3, summary: @initial_question.summary3} } do %>
+    <div class="ideas-card">
+      <h3><%= @initial_question.title3 %></h3>
+      <h5><%= @initial_question.tagline3 %></h5>
+      <p><%= @initial_question.summary3%></p>
+    </div>
+    <% end %>
   </div>
 
+  <%# Button to open sidebar --> %>
+  <button type="button" class="btn btn-primary" data-action="click->initial-questions-sidebar#toggleSidebar">
+    <i class="fa-solid fa-repeat"></i>
+  </button>
 
-   <%= form_with(url: "/initial_questions", method: "post") do |form| %>
-   <div class="custom-form">
-      <div class="custom-form-bubble">
-        <%= form.label :changes, "Any Changes" %>
-        <%= form.text_field :changes, placeholder: "I'm really looking to do something which has some interesting challenges to tackle on the backend of development..." %>
+  <!-- Sidebar -->
+  <div id="questionSidebar" class="sidebar hidden" data-initial-questions-sidebar-target="sidebar">
+    <div class="sidebar-content">
+      <div class="sidebar-header">
+
+        <button type="button" class="sidebar-close" data-action="click->initial-questions-sidebar#toggleSidebar">
+            <i class="fa-solid fa-x"></i>
+        </button>
+        <h5 class="sidebar-title">Want to see some different ideas?</h5>
       </div>
-      <div>
-        <%= form.submit "Re-generate", class: "btn btn-primary"%>
+
+      <div class="sidebar-body">
+        <!-- Guidance text within sidebar -->
+        <ul class="list-unstyled mb-3">
+          <div class="spacing-element"></div>
+          <li class="mb-1"><i class="fa-solid fa-lightbulb"></i> Top tip: The more specific you can be the better the response.</li>
+          <div class="spacing-element"></div>
+        </ul>
+
+        <!-- Regeneration form -->
+        <%= form_with(url: "/initial_questions", method: "post") do |form| %>
+          <div class="custom-form">
+            <div class="custom-form-bubble">
+              <%= form.text_area :changes, placeholder: "I'm really looking to do something which has some interesting challenges to tackle on the backend of development...", class: "form-control", rows: 5 %>
+            </div>
+            <div class="mt-3">
+              <%= form.submit "Re-generate", class: "btn btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
- <% end %>
+  </div>
+</div>

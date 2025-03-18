@@ -68,7 +68,7 @@
     align-self: center;
     font-size: 2rem;
   }
-  
+
   // Remove Chrome's autofill styling
   input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px mix($secondary, white, 95%) inset;
@@ -93,37 +93,49 @@
 
 .edit-form-inputs {
   flex-grow: 1;
+  margin: 8px;
+  box-shadow:
+  4px 4px 8px rgba(0, 0, 0, 0.1),
+  -4px 4px 8px rgba(0, 0, 0, 0.1),
+  4px -4px 8px rgba(0, 0, 0, 0.1),
+  -4px -4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .edit-form-input {
   border: 0;
-  background-color: $primary;
+  background-color: color-mix(in oklab, $primary 10%, white);
   padding-left: 8px;
 
   &:focus {
     outline: none;
+    background-color: color-mix(in oklab, $primary 1%, white);
   }
 }
 
 .edit-form-title {
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 56px;
+  font-weight: 900;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
 
 .edit-form-heading {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: bold;
 }
 
 .edit-form-tagline {
-  font-size: 20px;
+  font-size: 32px;
   font-weight: 600;
+  font-style: italic;
 }
 
 .edit-form-summary {
-  font-size: 14px;
+  font-size: 24px;
+}
+
+.edit-form-content {
+  font-size: 16px;
 }
 
 .edit-form-buttons {

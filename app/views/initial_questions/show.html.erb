@@ -1,34 +1,52 @@
-
 <div data-controller="initial-questions-sidebar">
-
-
-<h1 data-initial-questions-sidebar-target="title">Choose your favorite:</h1>
-
-  <div class="card-container" data-initial-questions-sidebar-target="flexbox" >
+  <h1 data-initial-questions-sidebar-target="title">Choose your favorite:</h1>
+  <div class="idea-card-container" data-initial-questions-sidebar-target="flexbox" data-controller="flip">
 
     <%= button_to ideas_path, action: "create", params: {idea: { title: @initial_question.title1, tagline: @initial_question.tagline1, summary: @initial_question.summary1} } do %>
-    <div class="ideas-card">
-      <h3><%= @initial_question.title1 %></h3>
-      <h5><%= @initial_question.tagline1 %></h5>
-      <p><%= @initial_question.summary1 %></p>
-    </div>
+      <div class="flip-card flip-card-row" data-initial-questions-sidebar-target="card">
+        <div class="flip-card-inner" data-flip-target="card">
+          <div class="flip-card-front flip-card-row" data-initial-questions-sidebar-target="card">
+            💡
+          </div>
+          <div class="flip-card-back flip-card-row" data-initial-questions-sidebar-target="card">
+            <h3><%= @initial_question.title1 %></h3>
+            <h5><%= @initial_question.tagline1 %></h5>
+            <p><%= @initial_question.summary1 %></p>
+          </div>
+        </div>
+      </div>
     <% end %>
 
     <%= button_to ideas_path, action: "create", params: {idea: { title: @initial_question.title2, tagline: @initial_question.tagline2, summary: @initial_question.summary2} } do %>
-      <div class="ideas-card" >
-      <h3><%= @initial_question.title2 %></h3>
-      <h5><%= @initial_question.tagline2 %></h5>
-      <p><%= @initial_question.summary2 %></p>
+      <div class="flip-card flip-card-row" data-initial-questions-sidebar-target="card">
+        <div class="flip-card-inner" data-flip-target="card">
+          <div class="flip-card-front flip-card-row" data-initial-questions-sidebar-target="card">
+            💡
+          </div>
+          <div class="flip-card-back flip-card-row" data-initial-questions-sidebar-target="card">
+            <h3><%= @initial_question.title2 %></h3>
+            <h5><%= @initial_question.tagline2 %></h5>
+            <p><%= @initial_question.summary2 %></p>
+          </div>
+        </div>
       </div>
       <% end %>
 
     <%= button_to ideas_path, action: "create", params: {idea: { title: @initial_question.title3, tagline: @initial_question.tagline3, summary: @initial_question.summary3} } do %>
-    <div class="ideas-card">
-      <h3><%= @initial_question.title3 %></h3>
-      <h5><%= @initial_question.tagline3 %></h5>
-      <p><%= @initial_question.summary3%></p>
-    </div>
+      <div class="flip-card flip-card-row" data-initial-questions-sidebar-target="card">
+        <div class="flip-card-inner" data-flip-target="card">
+          <div class="flip-card-front flip-card-row" data-initial-questions-sidebar-target="card">
+            💡
+          </div>
+          <div class="flip-card-back flip-card-row" data-initial-questions-sidebar-target="card">
+            <h3><%= @initial_question.title3 %></h3>
+            <h5><%= @initial_question.tagline3 %></h5>
+            <p><%= @initial_question.summary3 %></p>
+          </div>
+        </div>
+      </div>
     <% end %>
+
   </div>
 
   <%# Button to open sidebar --> %>
@@ -40,7 +58,6 @@
   <div id="questionSidebar" class="sidebar hidden" data-initial-questions-sidebar-target="sidebar">
     <div class="sidebar-content">
       <div class="sidebar-header">
-
         <button type="button" class="sidebar-close" data-action="click->initial-questions-sidebar#toggleSidebar">
             <i class="fa-solid fa-x"></i>
         </button>
@@ -51,7 +68,7 @@
         <!-- Guidance text within sidebar -->
         <ul class="list-unstyled mb-3">
           <div class="spacing-element"></div>
-          <li class="mb-1"><i class="fa-solid fa-lightbulb"></i> Top tip: The more specific you can be the better the response.</li>
+            <li class="mb-1"><i class="fa-solid fa-lightbulb"></i> Top tip: The more specific you can be the better the response.</li>
           <div class="spacing-element"></div>
         </ul>
 

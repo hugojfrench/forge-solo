@@ -203,14 +203,19 @@
 }
 
 .new-form-check {
-  justify-content: flex-end;
+  // justify-content: flex-end;
   display: flex;
+  margin-top: 16px;
+  align-items: center;
 }
 .new-form-post-image {
   width: 25%;
   aspect-ratio: 1 / 1;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .new-avatar-large {
@@ -266,7 +271,7 @@
 }
 
 .custom-file-upload-button {
-  margin-top: 120px;
+  // margin-top: 120px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -278,7 +283,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-size: 14px;
-  margin-left: 75px;
+  
 
   &:hover {
     background-color: mix($primary, black, 90%);

@@ -32,7 +32,7 @@
              <!-- Image Upload Section -->
             <div class="new-form-post-image">
               <%= form_post.file_field :image, id: "file-upload", class: "hidden-file-input" %>
-              <label for="file-upload" class="custom-file-upload-button">
+              <label for="file-upload"    class="custom-file-upload-button">
                 <i class="fa-solid fa-upload"></i> Upload Image
               </label>
             </div>
@@ -43,19 +43,22 @@
 
           <!-- Post Sections -->
         <%= form_post.fields_for :post_sections do |post_section_fields| %>
-            <div class="new-form-check form-switch">
-              <input class="form-check-input remove-section-switch" type="checkbox" id="flexSwitchCheckDefault" data-action="section-remove#toggle">
+          <div data-controller="section-remove" data-section-remove-target="wrapper" class="post-section-wrapper">
+            <div class="new-form-check">
+              <%= post_section_fields.text_field :heading, class: "new-form-input edit-form-heading", placeholder: "Section Heading", readonly: true %>
+              <div class="form-switch">
+                <input class="form-check-input remove-section-switch" type="checkbox" id="flexSwitchCheckDefault" data-action="section-remove#toggle" checked>
+              </div>
             </div>
-            <%= post_section_fields.text_field :heading, class: "new-form-input edit-form-heading", placeholder: "Section Heading", readonly: true %>
+
             <%= post_section_fields.text_area :content, class: "new-form-input edit-form-summary", rows: 5, placeholder: "Section Content", readonly: true %>
-
-
+          </div>
         <% end %>
 
 
         <!-- Instead of the feedback form, displaying the Submit button in the same column -->
 
-          <div class="btn btn-primary">
+          <div class="mt-3 btn btn-primary">
             <%= form_post.button "<i class='fa-solid fa-paper-plane'></i> Submit".html_safe, type: "submit", class: "new-button" %>
           </div>
       <% end %>

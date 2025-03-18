@@ -4,6 +4,7 @@
   <%# Show a search box for tags %>
   <%= form_with url: posts_path, method: :get, data: { turbo_frame: 'filtered_posts', filter_tags_target: 'form' } do |form| %>
     <div class="tags-search-container">
+      <div class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
       <%= form.select :tags_id, options_from_collection_for_select(@tags, :id, :name),
         {}, { multiple: true, data: { filter_tags_target: 'select' } } %>
       <div class="tags-selected-container" data-filter-tags-target="currentTags"></div>

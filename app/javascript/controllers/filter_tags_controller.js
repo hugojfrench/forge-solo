@@ -8,8 +8,9 @@ export default class extends Controller {
   connect() {
     this.selectTags = new TomSelect(this.selectTarget, {
       maxItems: 3,
+      placeholder: "Search...",
       onChange: () => this.submitForm(),
-      onItemAdd: (value, $item) => this.addTag($item),
+      onItemAdd: (value, $item) => this.itemAdded($item),
       render: {
         item: function(data, escape) {
           // hide the filter from the search box with 'd-none'
@@ -19,7 +20,19 @@ export default class extends Controller {
     });
   }
 
-  addTag(tag) {
+  itemAdded(tag) {
+    this.insertTag(tag);
+    this.updateSelectTags();
+  }
+
+  updateSelectTags() {
+    if (this.selectTags.settings.maxItems === this.selectTags.items.length) {
+      this.selectTags.settings.placeholder = "Remove a filter";
+      this.selectTags.blur();
+    }
+  }
+
+  insertTag(tag) {
     const newTag = `<div class='tag small'>${tag.innerHTML}</div>`
     this.currentTagsTarget.insertAdjacentHTML("beforeend", newTag);
   }

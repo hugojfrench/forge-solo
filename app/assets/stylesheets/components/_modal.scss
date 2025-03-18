@@ -12,8 +12,17 @@
   display: flex;
   align-items: center;
   padding: 0 35px;
+  transition: transform 0.2s ease-in; /* Add transition for transform property */
+  transform: translateX(0);
 
 }
+
+.sidebar.hidden {
+  transform: translateX(-100%); /* Move completely off-screen to the left */
+  display: block; /* Keep display so transition works */
+  transition: transform 0s;
+}
+
 
 .sidebar-close{
 margin-top: 150px;
@@ -73,8 +82,4 @@ flex-wrap: wrap;
   .sidebar {
     width: 100% !important; /* Override JS width setting on small screens */
   }
-}
-
-.hidden {
-  display: none;
 }

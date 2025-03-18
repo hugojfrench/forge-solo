@@ -1,51 +1,56 @@
-<div class="post-and-feedback-wrapper">
-  <div class="post-header">
-    <h1>Create your post</h1>
-    <div class="avatar-container">
-      <% if @post.idea.user.avatar.attached? %>
-        <%= cl_image_tag @post.idea.user.avatar.key, width: 100, height: 100, crop: :thumb, gravity: :face, class: "avatar-large", alt: "User avatar" %>
-      <% else %>
-        <%= image_tag "Avatar_placeholder.png", width: 100, height: 100, class: "avatar-large", alt: "User avatar placeholder" %>
-      <% end %>
-      <div class="avatar-name"><%= @post.idea.user.first_name %></div>
+<div class="container mt-4"> 
+  <div class="post-and-feedback-wrapper">
+    <div class="post-header">
+      <h1>Create your post</h1>
+      <div class="avatar-container">
+        <% if @post.idea.user.avatar.attached? %>
+          <%= cl_image_tag @post.idea.user.avatar.key, width: 100, height: 100, crop: :thumb, gravity: :face, class: "avatar-large", alt: "User avatar" %>
+        <% else %>
+          <%= image_tag "Avatar_placeholder.png", width: 100, height: 100, class: "avatar-large", alt: "User avatar placeholder" %>
+        <% end %>
+        <div class="avatar-name"><%= @post.idea.user.first_name %></div>
+      </div>
     </div>
-  </div>
 
-  <%= form_with model: [@idea, @post], class: "edit-form", data: { controller: "form-filter", action: "submit->form-filter#prepare" } do |form_post| %>
-    <!-- Post Content -->
-    <div class="post-content">
-      <div class="post-summary">
-        <%= form_post.text_field :title, class: "new-form-input edit-form-title", placeholder: "Post Title", readonly: true %>
-        <%= form_post.text_field :tagline, class: "new-form-input edit-form-tagline", placeholder: "Post Tagline", readonly: true %>
-        <%= form_post.text_area :summary, class: "new-form-input edit-form-summary", rows: 5, placeholder: "Post Summary", readonly: true %>
-      </div>
-
-      <!-- Image Upload Section (positioned where the image box is in show page) -->
-      <div class="post-image">
-        <%= form_post.file_field :image, id: "file-upload", class: "hidden-file-input" %>
-        <label for="file-upload" class="custom-file-upload-button">
-          <i class="fa-solid fa-upload"></i> Upload Image
-        </label>
-      </div>
- <!-- Post Sections -->
-      <%= form_post.fields_for :post_sections do |post_section_fields| %>
-        <div class="section-container">
-          <div class="form-check form-switch">
-            <input class="form-check-input remove-section-switch" type="checkbox" id="flexSwitchCheckDefault" data-action="section-remove#toggle">
-          </div>
-          <%= post_section_fields.text_field :heading, class: "new-form-input edit-form-input edit-form-heading", placeholder: "Section Heading", readonly: true %>
-          <%= post_section_fields.text_area :content, class: "new-form-input edit-form-input edit-form-summary", rows: 5, placeholder: "Section Content", readonly: true %>
+    <%= form_with model: [@idea, @post], class: "edit-form", data: { controller: "form-filter", action: "submit->form-filter#prepare" } do |form_post| %>
+      <!-- Post Content -->
+      <div class="post-content">
+        <div class="post-summary">
+          <%= form_post.text_field :title, class: "new-form-input edit-form-title", placeholder: "Post Title", readonly: true %>
+          <%= form_post.text_field :tagline, class: "new-form-input edit-form-tagline", placeholder: "Post Tagline", readonly: true %>
+          <%= form_post.text_area :summary, class: "new-form-input edit-form-summary", rows: 5, placeholder: "Post Summary", readonly: true %>
         </div>
+
+        <!-- Image Upload Section (positioned where the image box is in show page) -->
+        <div class="post-image">
+          <%= form_post.file_field :image, id: "file-upload", class: "hidden-file-input" %>
+          <label for="file-upload" class="custom-file-upload-button">
+            <i class="fa-solid fa-upload"></i> Upload Image
+          </label>
+        </div>
+  <!-- Post Sections -->
+        <%= form_post.fields_for :post_sections do |post_section_fields| %>
+          <div class="section-container">
+            <div class="form-check form-switch">
+              <input class="form-check-input remove-section-switch" type="checkbox" id="flexSwitchCheckDefault" data-action="section-remove#toggle">
+            </div>
+            <%= post_section_fields.text_field :heading, class: "new-form-input edit-form-input edit-form-heading", placeholder: "Section Heading", readonly: true %>
+            <%= post_section_fields.text_area :content, class: "new-form-input edit-form-input edit-form-summary", rows: 5, placeholder: "Section Content", readonly: true %>
+          </div>
+        <% end %>
+
+        <!-- Submit Button -->
+          <div class="post-footer">
+            <div class="edit-form-buttons">
+              <%= form_post.button "<i class='fa-solid fa-paper-plane'></i> Submit".html_safe, type: "submit" %>
+            </div>
+          </div>
       <% end %>
-   </div>
-
-    <!-- Submit Button -->
-    <div class="post-footer">
-      <div class="edit-form-buttons">
-        <%= form_post.button "<i class='fa-solid fa-paper-plane'></i> Submit".html_safe, type: "submit" %>
-      </div>
     </div>
-  <% end %>
 
-  <%= link_to "Back to idea", edit_idea_path(@idea) %>
+
+
+
+    <%= link_to "Back to idea", edit_idea_path(@idea) %>
+  </div>
 </div>

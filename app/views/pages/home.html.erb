@@ -23,6 +23,8 @@
 
 
   <div>
-    <%= link_to "Get Started Now", "/users/sign_up", class: "btn btn-primary" %>
+    <%= link_to "Get Started Now",
+          (user_signed_in? ? new_initial_question_path : new_user_session_path),
+          class: "btn btn-primary" %>
   </div>
 </div>

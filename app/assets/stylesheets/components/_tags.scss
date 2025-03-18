@@ -50,10 +50,15 @@
   border-radius: 50px;
   height: 50px;
   width: 200px;
+
+  input {
+    font-size: large;
+  }
 }
 
-.ts-dropdown {
+.ts-dropdown-content {
   background-color: $primary;
+  font-size: larger;
 
   .active {
     background-color: $light-gray;

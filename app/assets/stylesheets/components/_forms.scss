@@ -80,6 +80,7 @@
 
 
 // Form for Ideas#edit
+
 .edit-form {
   display: flex;
   flex-direction: row;
@@ -183,11 +184,48 @@
 }
 
 // ---- POSTS#NEW ----
+.new-form-container {
+  padding: 32px;
+  border: 2px solid $secondary;
+  border-radius: 16px;
+  background-color: #f9aeaa;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.new-form-image-summary-wrapper {
+  display:flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.new-post-summary {
+  flex-grow: 1;
+}
+
+.new-form-check {
+  justify-content: flex-end;
+  display: flex;
+}
+.new-form-post-image {
+  width: 25%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.new-avatar-large {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  // TODO: Fix box shadow - it creates a border at the same time?!
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 .new-form-input {
   border: 0;
   background-color: mix($success, white, 50%);
   padding-left: 8px;
-
+  width: 100%;
   &:focus {
     outline: none;
   }

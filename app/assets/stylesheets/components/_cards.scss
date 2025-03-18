@@ -61,6 +61,20 @@
   justify-content: center;
 }
 
+
+// ------ Initial Questions Show Cards ------
+.idea-card-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-between;
+
+  button {
+    all: unset;
+  }
+}
+
+
+// CURRENTLY UNUSED
 // initial question show cards
 .ideas-card {
   text-decoration: none;
@@ -85,18 +99,71 @@
     text-align:left;
     margin: 0;
   }
+
+  // Change hover effect
+  &:hover {
+    transform: scale(1.02);
+    transition: transform 0.6s ease;
+  }
 }
 
-.ideas-card:hover {
-  transform: scale(1.02);
-  transition: transform 0.6s ease;
+// ------ Flip Card ------ CURRENTLY IN USE
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  background-color: transparent;
+  width: 25dvw;
+  height: 55dvh;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  text-decoration: none;
+  color: $body-color;
+  border-radius: 16px;
+  background-color: mix(white, $primary, 50%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid mix(white, $secondary, 50%);
+  padding: 16px;
+  overflow: scroll;
+  position: absolute;
+  height: 55dvh;
+  width: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 120px;
+}
+
+/* Style the back side */
+.flip-card-back {
+  transform: rotateY(180deg);
 }
 
 
-.btn-no-border {
-  border: none;
-}
 
+// ------ Responsive Design ------
 @media (max-width: 1300px) {
   .custom-card-container {
     grid-template-columns: auto auto;

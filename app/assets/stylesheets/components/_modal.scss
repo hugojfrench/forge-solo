@@ -21,8 +21,14 @@ margin-left: 25%;
 position: fixed;
 top: 0;
 left: 0;
-background-color: $light-orange;
+background-color: $lighter-orange;
+border: none;
+}
 
+.sidebar-close:hover {
+
+  transform: scale(1.5); /* Slightly enlarge on hover */
+  transition: 0.5s;
 }
 
 .title {

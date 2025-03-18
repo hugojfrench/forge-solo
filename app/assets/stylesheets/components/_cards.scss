@@ -61,19 +61,6 @@
   justify-content: center;
 }
 
-
-// ------ Initial Questions Show Cards ------
-.idea-card-container {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  justify-content: space-between;
-
-  button {
-    all: unset;
-  }
-}
-
-
 // CURRENTLY UNUSED
 // initial question show cards
 .ideas-card {
@@ -108,15 +95,24 @@
 }
 
 // ------ Flip Card ------ CURRENTLY IN USE
-/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.idea-card-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-between;
+
+  button {
+    all: unset;
+  }
+}
+
+// The flip card container
 .flip-card {
   background-color: transparent;
   width: 25dvw;
   height: 55dvh;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  perspective: 1000px;
 }
-
-/* This container is needed to position the front and back side */
+// This container is needed to position the front and back side
 .flip-card-inner {
   position: relative;
   width: 100%;
@@ -126,7 +122,7 @@
   transform-style: preserve-3d;
 }
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
+// Do an horizontal flip when you move the mouse over the flip box container
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }

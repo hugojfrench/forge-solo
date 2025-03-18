@@ -6,7 +6,7 @@
   z-index: 100; /* Higher than Bootstrap default modal z-index */
   top: 0;
   left: 0;
-  background-color: $light-gray; /* Cream background from screenshot */
+  background-color: $lighter-orange; /* Cream background from screenshot */
   box-shadow: 2px 0 10px rgba(0,0,0,0.1);
   opacity: 1;
   display: flex;
@@ -21,7 +21,7 @@ margin-left: 25%;
 position: fixed;
 top: 0;
 left: 0;
-background-color: $light-gray;
+background-color: $light-orange;
 
 }
 

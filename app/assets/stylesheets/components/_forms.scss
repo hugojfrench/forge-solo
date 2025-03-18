@@ -230,6 +230,7 @@
   all: unset;
 }
 
+// POSTS#NEW
 .new-form-input {
   border: 0;
   background-color: mix($success, white, 50%);
@@ -283,7 +284,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-size: 14px;
-  
+
 
   &:hover {
     background-color: mix($primary, black, 90%);

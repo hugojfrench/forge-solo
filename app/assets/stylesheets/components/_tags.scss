@@ -31,3 +31,15 @@
   border: 4px solid $success;
   min-width: 120px;
 }
+
+.tags-search-container {
+  display: flex;
+  direction: row;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.tags-selected-container {
+  display: flex;
+  gap: 20px;
+}

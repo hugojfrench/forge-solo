@@ -8,9 +8,11 @@ class PostsController < ApplicationController
     # filter the @posts based on the tags selected
     tags_id = params[:tags_id]&.reject(&:blank?)
     if tags_id.present?
+      # DISTINCT is only required because we don't have validation in the model and we
+      # allow duplicate tags on one post
       @posts = Post.joins(:tags)
                    .where(tags: { id: tags_id })
-                   .group('posts.id').having('COUNT(tags.id) = ?', tags_id.count)
+                   .group('posts.id').having('COUNT(DISTINCT tags.id) = ?', tags_id.count)
                    .order(upvotes: :desc)
     end
   end

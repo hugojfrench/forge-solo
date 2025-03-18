@@ -7,49 +7,86 @@ class InitialQuestion < ApplicationRecord
   def content
     client = OpenAI::Client.new
     initial_chatgpt_response = client.chat(parameters: {
-      model: "gpt-4o-mini",
-      messages: refreshed_question # pass the results array here - previous -> [{ role: "user", content: self.user_question }]
+      model: "gpt-4o-mini", # Use a model that supports Structured Outputs
+      messages: refreshed_question,
+      response_format: {
+        type: "json_schema",
+        json_schema: {
+          name: "idea_generator_response",
+          schema: {
+            type: "object",
+            properties: {
+              title1: { type: "string" },
+              tagline1: { type: "string" },
+              summary1: { type: "string" },
+              title2: { type: "string" },
+              tagline2: { type: "string" },
+              summary2: { type: "string" },
+              title3: { type: "string" },
+              tagline3: { type: "string" },
+              summary3: { type: "string" }
+            },
+            required: [
+              "title1", "tagline1", "summary1",
+              "title2", "tagline2", "summary2",
+              "title3", "tagline3", "summary3"
+            ],
+            additionalProperties: false
+          },
+          strict: true
+        }
+      }
     })
+    p initial_chatgpt_response
     new_content = initial_chatgpt_response["choices"][0]["message"]["content"]
-    array_new_content = new_content.split("###").reject { |c| c == "" }  #split the new content into an array and remove empty strings
-    p new_content
-    p array_new_content
-    update(title1: array_new_content[0])
-    update(tagline1: array_new_content[1])
-    update(summary1: array_new_content[2])
-    update(title2: array_new_content[3])
-    update(tagline2: array_new_content[4])
-    update(summary2: array_new_content[5])
-    update(title3: array_new_content[6])
-    update(tagline3: array_new_content[7])
-    update(summary3: array_new_content[8])
-
-    #set title tagline summary for each generated idea 1-3
-
+    parsed_content = JSON.parse(new_content)
+    update(title1: parsed_content["title1"])
+    update(tagline1: parsed_content["tagline1"])
+    update(summary1: parsed_content["summary1"])
+    update(title2: parsed_content["title2"])
+    update(tagline2: parsed_content["tagline2"])
+    update(summary2: parsed_content["summary2"])
+    update(title3: parsed_content["title3"])
+    update(tagline3: parsed_content["tagline3"])
+    update(summary3: parsed_content["summary3"])
     return self
-
   end
 
   private
 
-
   def refreshed_question
     initial_questions = user.initial_questions
     results = []
-    results << { role: "system", content: "You are an assistant for an idea generator platform. Generate exactly three ideas. For each idea, output a 2 word ### title, a ### tagline, and a two-sentence ### summary. Separate the title, tagline, and summary for each section using ### (three hash symbols) with no extra text or labels. Only include the content in your output. Make sure to seperate each section by ###" }
+    results << { role: "system", content:
+    <<~INSTRUCTION.strip
+
+    Generate three distinct ideas for an idea generator website.
+    Your response must be a single JSON object matching this schema:
+    {
+      "title1": "string",
+      "tagline1": "string",
+      "summary1": "string",
+      "title2": "string",
+      "tagline2": "string",
+      "summary2": "string",
+      "title3": "string",
+      "tagline3": "string",
+      "summary3": "string"
+    }
+    Do not include any extra text or delimiters.
+    INSTRUCTION
+}
+
     initial_questions.each do |question|
       results << { role: "user", content: question.user_question }
-      results << { role: "assistant", content: self.title1 || "" }
-      results << { role: "assistant", content: self.tagline1 || "" }
-      results << { role: "assistant", content: self.summary1 || "" }
-      results << { role: "assistant", content: self.title2 || "" }
-      results << { role: "assistant", content: self.tagline2 || "" }
-      results << { role: "assistant", content: self.summary2 || "" }
-      results << { role: "assistant", content: self.title3 || "" }
-      results << { role: "assistant", content: self.tagline3 || "" }
-      results << { role: "assistant", content: self.summary3 || "" }    # ai_answers 1,2,3
+      # You can include past assistant responses if needed:
+      results << { role: "assistant", content: "Previous idea: #{question.title1}" } if question.title1.present?
+      results << { role: "assistant", content: "Previous idea: #{question.title2}" } if question.title2.present?
+      results << { role: "assistant", content: "Previous idea: #{question.title3}" } if question.title3.present?
     end
+
     return results
+
   end
 
 end

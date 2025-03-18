@@ -20,7 +20,12 @@
       </div>
 
       <!-- right side of card (avatar) -->
-      <div>
+      <div class="post-card-right">
+        <div class="post-tags">
+          <% post.tags.each do |tag| %>
+            <span class="tag small"><%= tag.name %></span>
+          <% end %>
+        </div>
         <% if post.idea.user.avatar.attached? %>
           <%= cl_image_tag post.idea.user.avatar.key, width: 50, height: 50, crop: :thumb, gravity: :face, class: "avatar-med", alt: "User avatar" %>
         <% else %>

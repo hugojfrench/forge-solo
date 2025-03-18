@@ -11,14 +11,64 @@
   margin-left: 24px;
 }
 
-p {
-  margin: 0;
-  line-break: anywhere;
-}
-
-
 .content-with-upvote {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.hidden-replies {
+  display: none;
+}
+
+.see-replies-btn {
+  background: none;
+  border: none;
+  color: $danger;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.reply-form {
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+  gap: 8px;
+
+  .mb-3 {
+    margin-bottom: 0 !important; // Force remove Bootstrap's margin
+  }
+
+  .form-group {
+    flex-grow: 1;
+    margin-bottom: 0;
+  }
+
+  textarea {
+    border-radius: 8px;
+    border: 1px solid $secondary;
+    max-height: 1.5rem;
+    resize: none;
+    margin-bottom: 0;
+  }
+
+  .btn-icon {
+    background: none;
+    border: none;
+    padding: 4px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    i {
+      font-size: 1.5rem;
+      color: $danger
+    }
+
+    &:hover i {
+      transform: translateY(-2px);
+    }
+  }
 }

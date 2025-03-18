@@ -1,16 +1,5 @@
-.post-and-feedback-wrapper {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  align-items: start;
-  gap: 16px;
-
-  // MOBILE responsive: Stack on mobile
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
-}
-
 .post-show-card {
+  flex: 3 1 0;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -21,9 +10,22 @@
   background: linear-gradient(135deg, $secondary, $success);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 
-  h1, h3 {
-    margin: 0;
+  .post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  h1 {
     text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  h3 {
+    margin: 0;
+    text-align: start;
     padding: 0;
   }
 
@@ -56,17 +58,5 @@
         line-height: 1.6;
       }
     }
-  }
-}
-
-.feedback-sidebar {
-  position: sticky;
-  top: 100px;
-  width: 100%;
-
-  .avatar-and-upvote {
-    display: flex;
-    align-items: center;
-    gap: 24px;
   }
 }

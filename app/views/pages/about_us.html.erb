@@ -1,33 +1,26 @@
-<h1>About us:</h1>
-<h1></h1>
-<h2 class="cutom-card-container" > We the boys who built this beuty </h2>
-<h1></h1>
-<h1></h1>
+<h1 class="text-4xl font-bold text-center mt-10 text-indigo-600">
+  Meet Our Team 🚀
+</h1>
 
+<p class="text-lg text-center text-gray-600 mt-3">
+  Passionate innovators, dreamers, and doers behind the scenes!
+</p>
 
-<div class="custom-card-container" data-initial-questions-sidebar-target="flexbox">
-  <div class="custom-card">
-    <h3><%= "Hugo" %></h3>
-    <h5><%= "I am the card twizling master" %></h5>
-    <p><%= "." %></p>
-  </div>
+<div class="card-container flex justify-center gap-6 p-10">
+  <% team_members = [
+      { name: "Hugo", role: "Lead Engineer", desc: "Le Wagon batch-1920-london", img: "https://via.placeholder.com/150" },
+      { name: "Milenco", role: "Engineer", desc: "Le Wagon batch-1920-london", img: "https://via.placeholder.com/150" },
+      { name: "Bertie", role: "Engineer", desc: "Le Wagon batch-1920-london", img: "https://via.placeholder.com/150" },
+      { name: "Tony", role: "Engineer", desc: "Le Wagon batch-1920-london", img: "https://via.placeholder.com/150" }
+    ]
+  %>
 
-  <div class="custom-card">
-    <h3><%= "Milenco" %></h3>
-    <h5><%= "Hi, i am the back end boss" %></h5>
-    <p><%= "." %></p>
-  </div>
-
-  <div class="custom-card">
-    <h3><%= "Bertie" %></h3>
-    <h5><%= "I made a modal" %></h5>
-    <p><%= "." %></p>
-  </div>
-
-  <div class="custom-card">
-    <h3><%= "Tony" %></h3>
-    <h5><%= "Hi, i am the ai king" %></h5>
-    <p><%= "." %></p>
-  </div>
-
+  <% team_members.each do |member| %>
+    <div class="ideas-card bg-white shadow-lg rounded-xl p-6 text-center transform transition-all hover:scale-105 hover:shadow-xl w-64">
+      <img src="<%= member[:img] %>" alt="<%= member[:name] %>" class="w-24 h-24 mx-auto rounded-full border-4 border-indigo-500">
+      <h3 class="text-xl font-semibold mt-4 text-indigo-600"><%= member[:name] %></h3>
+      <h5 class="text-gray-500 font-medium"><%= member[:role] %></h5>
+      <p class="text-gray-700 mt-2"><%= member[:desc] %></p>
+    </div>
+  <% end %>
 </div>

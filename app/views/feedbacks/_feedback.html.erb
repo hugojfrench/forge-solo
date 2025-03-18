@@ -1,4 +1,4 @@
-<div class="feedback-card">
+<div class="feedback-card" data-controller="toggle-replies">
   <div class="content-with-upvote">
     <div class="upvote-block" data-controller="upvote" data-upvote-url-value="<%= upvote_feedback_path(feedback) %>">
       <button class="upvote-btn" data-action="click->upvote#upvote"> <i class="fa-regular fa-circle-up"></i></button>
@@ -12,20 +12,41 @@
     <p><strong><%= feedback.user.first_name %>:</strong> <%= feedback.content %></p>
   </div>
 
+
+  <!-- TODO: Move the top reply out of hidden and say "X more replies" -->
   <!-- Replies -->
   <%= turbo_stream_from "feedback_#{feedback.id}_replies" %>
-  <div id="replies-<%= feedback.id %>">
-    <% feedback.replies.each do |reply| %>
-      <%= render 'replies/reply', reply: reply %>
+  <button class="see-replies-btn"
+  data-action="click->toggle-replies#toggle"
+  data-toggle-replies-target="button"
+  data-label="<i class='fa-solid fa-reply'></i> <%= pluralize(feedback.replies.count, 'Reply') %>">
+    <i class="fa-solid fa-reply"></i> <%= pluralize(feedback.replies.count, "Reply") %>
+  </button>
+  <div class="hidden-replies" data-toggle-replies-target="replies">
+    <div id="replies-<%= feedback.id %>">
+      <% feedback.replies.each do |reply| %>
+        <%= render 'replies/reply', reply: reply %>
+      <% end %>
+    </div>
+
+    <!-- Form to add a reply -->
+    <%= simple_form_for [feedback, Reply.new],
+      html: { data: { toggle_replies_target: "form", controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } } do |f| %>
+      <div class="reply-form">
+        <% if feedback.user.avatar.attached? %>
+          <%= cl_image_tag current_user.avatar.key, width: 30, height: 30, crop: :thumb, gravity: :face, class: "avatar-small", alt: "User avatar" %>
+        <% else %>
+          <%= image_tag "Avatar_placeholder.png", width: 30, height: 30, class: "avatar-small", alt: "User avatar placeholder" %>
+        <% end %>
+        <div class="form-group">
+          <%= f.input :content, label: false, placeholder: "Leave reply here...", input_html: { data: { toggle_replies_target: "input", action: "keydown->toggle-replies#submitWithEnter" } } %>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-icon">
+            <i class="fa-solid fa-comment-medical"></i>
+          </button>
+        </div>
+      </div>
     <% end %>
   </div>
-    <!-- Form to add a reply -->
-    <%= simple_form_for [feedback, Reply.new], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |f| %>
-      <div class="form-group">
-        <%= f.input :content, label: false, placeholder: "Leave reply here..." %>
-      </div>
-      <div class="form-actions">
-        <%= f.button :submit, "Add Reply", class: "btn btn-primary" %>
-      </div>
-    <% end %>
 </div>

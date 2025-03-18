@@ -1,0 +1,37 @@
+.post-and-feedback-wrapper {
+  display: flex;
+  align-items: start;
+  gap: 16px;
+}
+
+.upvote-and-comments {
+  display: flex;
+  align-items: start;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.buttons-and-feedback {
+  flex: 1 1 0;
+  position: sticky;
+  top: 120px;
+  width: 100%;
+  z-index: 1;
+}
+
+.feedback-form {
+  textarea {
+    min-height: 200px;
+    border-radius: 8px;
+    border: 1px solid $secondary;
+  }
+
+  h3 {
+    font-weight: bold;
+    font-size: 32px;
+  }
+}
+
+.feedbacks {
+  margin-top: 24px;
+}

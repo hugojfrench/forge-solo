@@ -61,5 +61,7 @@ Rails.application.routes.draw do
   get "ui_kit", to: "pages#ui_kit", as: :ui_kit
 
   resources :ideas, only: %i[index edit update create]
+  get 'about_us', to: 'pages#about_us'
+
 
 end

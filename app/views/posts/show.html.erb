@@ -1,29 +1,49 @@
-<div class="post-and-feedback-wrapper">
-  <div class="post-show-card">
-      <h1><%= @post.title %></h1>
-      <h3><%= @post.tagline %></h3>
-      <div class="image-summary-wrapper">
-        <% if @post.image.attached? %>
-          <%= cl_image_tag @post.image.key, class: "post-image", alt: "#{@post.title} image" %>
+<div data-controller="scroll">
+  <div class="post-and-feedback-wrapper">
+    <!-- Post Show Card -->
+    <div class="post-show-card">
+        <div class="post-header">
+          <div>
+            <!-- Post Title -->
+            <h1><%= @post.title %></h1>
+          </div>
+
+          <!-- Avatar and Name Wrapper -->
+          <div class="avatar-container">
+            <% if @post.idea.user.avatar.attached? %>
+              <%= cl_image_tag @post.idea.user.avatar.key, width: 100, height: 100, crop: :thumb, gravity: :face, class: "avatar-large", alt: "User avatar" %>
+            <% else %>
+              <%= image_tag "Avatar_placeholder.png", width: 100, height: 100, class: "avatar-large", alt: "User avatar placeholder" %>
+            <% end %>
+            <div class="avatar-name"><%= @post.idea.user.first_name %></div>
+          </div>
+        </div>
+        <h3><%= @post.tagline %></h3>
+        <div class="image-summary-wrapper">
+          <% if @post.image.attached? %>
+            <%= cl_image_tag @post.image.key, class: "post-image", alt: "#{@post.title} image" %>
+          <% end %>
+          <div class="post-summary">
+            <p><%= @post.summary %></p>
+          </div>
+        </div>
+
+        <% @post.post_sections.each do |section| %>
+          <div>
+            <h3><%= section.heading %></h3>
+            <p><%= section.content %></p>
+          </div>
         <% end %>
-        <div class="post-summary">
-          <p><%= @post.summary %></p>
+        <div class="post-tags">
+          <% @post.tags.each do |tag| %>
+            <span class="tag-static"><%= tag.name %></span>
+          <% end %>
         </div>
-      </div>
+    </div>
 
-      <% @post.post_sections.each do |section| %>
-        <div>
-          <h3><%= section.heading %></h3>
-          <p><%= section.content %></p>
-        </div>
-      <% end %>
-
-  </div>
-
-  <!-- Feedback section -->
-  <div class="feedback-sidebar">
-      <div class="avatar-and-upvote">
-
+    <!-- Sticky buttons and feedback form -->
+    <div class="buttons-and-feedback">
+      <div class="upvote-and-comments">
         <!-- Upvote -->
         <div class="upvote-block large" data-controller="upvote" data-upvote-url-value="<%= upvote_post_path(@post) %>">
           <button class="upvote-btn" data-action="click->upvote#upvote">
@@ -34,34 +54,48 @@
           </div>
         </div>
 
-        <!-- Avatar -->
-        <% if @post.idea.user.avatar.attached? %>
-          <%= cl_image_tag @post.idea.user.avatar.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar-large", alt: "User avatar" %>
+        <!-- Comments -->
+        <div class="upvote-block large" >
+          <button class="upvote-btn" data-action="click->scroll#scrollToFeedbacks">
+              <i class="fa-solid fa-comments"></i>
+          </button>
+          <div class="upvote-count">
+            <%= @post.feedbacks.count %>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Feedback Form -->
+      <div class="feedback-form">
+        <% if @post.feedbacks.count == 0 %>
+          <h3>Be the first to leave feedback</h3>
         <% else %>
-          <%= image_tag "Avatar_placeholder.png", width: 150, height: 150, class: "avatar-large", alt: "User avatar placeholder" %>
+          <h3>Leave feedback</h3>
+        <% end %>
+        <%= simple_form_for [@post, @feedback], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |f| %>
+          <div class="form-group">
+            <%= f.input :content, label: false, placeholder: "Leave feedback here:
+• I love the title, so catchy!
+• I think you could do with a snappier tagline" %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Add Feedback", class: "btn btn-primary" %>
+          </div>
         <% end %>
       </div>
-    <div>
-      <h3>Feedback</h3>
+    </div>
+  </div>
 
-      <h5>Add your feedback: </h5>
 
-      <%= simple_form_for [@post, @feedback], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |f| %>
-        <div class="form-group">
-          <%= f.input :content, label: false, placeholder: "Leave feedback here..." %>
-        </div>
-        <div class="form-actions">
-          <%= f.button :submit, "Add Feedback", class: "btn btn-primary" %>
-        </div>
+  <div class="feedbacks" data-scroll-target="feedbacks">
+    <% if @post.feedbacks.any? %>
+      <h3>Feedbacks</h3>
+    <% end %>
+    <%= turbo_stream_from "post_#{@post.id}_feedbacks" %>
+    <div id="feedbacks">
+      <% @post.feedbacks.each do |feedback| %>
+        <%= render 'feedbacks/feedback', feedback: feedback %>
       <% end %>
-
-      <%= turbo_stream_from "post_#{@post.id}_feedbacks" %>
-      <div id="feedbacks">
-        <% @post.feedbacks.each do |feedback| %>
-          <%= render 'feedbacks/feedback', feedback: feedback %>
-        <% end %>
-      </div>
-
     </div>
   </div>
 </div>

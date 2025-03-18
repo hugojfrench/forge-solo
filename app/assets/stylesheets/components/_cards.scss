@@ -61,6 +61,9 @@
   justify-content: center;
 }
 
+
+// ------ Initial Question Show Cards ------
+
 // CURRENTLY UNUSED
 // initial question show cards
 .ideas-card {
@@ -128,7 +131,7 @@
 
     &:hover {
       transform: scale(1.02);
-      transition: transform 0.6s ease;
+      transition: rotateY(30deg);
     }
   }
 
@@ -187,17 +190,15 @@
   }
 }
 
+// ------ Responsive Design ------
+@media (max-width: 1300px) {
+  .idea-card-container {
+    grid-template-columns: auto auto;
+  }
+}
 
-
-// // ------ Responsive Design ------
-// @media (max-width: 1300px) {
-//   .idea-card-container {
-//     grid-template-columns: auto auto;
-//   }
-// }
-
-// @media (max-width: 900px) {
-//   .idea-card-container {
-//     grid-template-columns: auto;
-//   }
-// }
+@media (max-width: 900px) {
+  .idea-card-container {
+    grid-template-columns: auto;
+  }
+}

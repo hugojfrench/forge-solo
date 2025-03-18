@@ -13,13 +13,25 @@
   padding: 0 35px;
 }
 
+.sidebar.hidden {
+  transform: translateX(-100%); /* Move completely off-screen to the left */
+  display: block; /* Keep display so transition works */
+  transition: transform 0s;
+}
+
 .sidebar-close {
-  margin-top: 150px;
-  margin-left: 25%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: $light-orange;
+margin-top: 150px;
+margin-left: 25%;
+position: fixed;
+top: 0;
+left: 0;
+background-color: $lighter-orange;
+border: none;
+}
+
+.sidebar-close:hover {
+  transform: scale(1.5); /* Slightly enlarge on hover */
+  transition: 0.5s;
 }
 
 .title {
@@ -58,8 +70,4 @@
   .sidebar {
     width: 100% !important; /* Override JS width setting on small screens */
   }
-}
-
-.hidden {
-  display: none;
 }

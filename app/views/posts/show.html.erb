@@ -65,31 +65,45 @@
         </div>
       </div>
 
-      <!-- Add Feedback Form -->
-      <div class="feedback-form">
+      <% if current_user == @post.idea.user %>
         <% if @post.feedbacks.count == 0 %>
-          <h3>Be the first to leave feedback</h3>
+          <h3>No feedbacks yet, stay tuned!</h3>
         <% else %>
-          <h3>Leave feedback</h3>
+          <h3>See what people have been saying below!</h3>
         <% end %>
-        <%= simple_form_for [@post, @feedback], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |f| %>
-          <div class="form-group">
-            <%= f.input :content, label: false, placeholder: "Leave feedback here:
-• I love the title, so catchy!
-• I think you could do with a snappier tagline" %>
-          </div>
-          <div class="form-actions">
-            <%= f.button :submit, "Add Feedback", class: "btn btn-primary" %>
-          </div>
-        <% end %>
-      </div>
+
+      <% else %>
+        <!-- Add Feedback Form -->
+        <div class="feedback-form">
+          <% if @post.feedbacks.count == 0 %>
+            <h3>Be the first to leave feedback</h3>
+          <% else %>
+            <h3>Leave feedback</h3>
+          <% end %>
+          <%= simple_form_for [@post, @feedback], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |f| %>
+            <div class="form-group">
+              <%= f.input :content, label: false, placeholder: "Leave feedback here:
+  • I love the title, so catchy!
+  • I think you could do with a snappier tagline" %>
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit, "Add Feedback", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 
 
   <div class="feedbacks" data-scroll-target="feedbacks">
-    <% if @post.feedbacks.any? %>
-      <h3>Feedbacks</h3>
+    <h3>Feedbacks</h3>
+    <% if @post.feedbacks.count == 0 %>
+      <% if current_user == @post.idea.user %>
+        <h5>Feedback section is empty for now—check back later!</h5>
+      <% else %>
+        <h5>Feedback section is currently empty. You can change that!</h5>
+      <% end %>
     <% end %>
     <%= turbo_stream_from "post_#{@post.id}_feedbacks" %>
     <div id="feedbacks">

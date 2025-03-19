@@ -9,7 +9,7 @@ export default class extends Controller {
     this.selectTags = new TomSelect(this.selectTarget, {
       maxItems: 3,
       placeholder: "Search...",
-      onChange: () => this.submitForm(),
+      onChange: () => this.onChange(),
       onItemAdd: (value, $item) => this.itemAdded($item),
       render: {
         item: function(data, escape) {
@@ -26,9 +26,16 @@ export default class extends Controller {
   }
 
   updateSelectTags() {
+    // remove the search term
+    this.selectTags.setTextboxValue("");
+    // check if we need to change the placeholder text
     if (this.selectTags.settings.maxItems === this.selectTags.items.length) {
       this.selectTags.settings.placeholder = "Remove a filter";
-      this.selectTags.blur();
+      this.selectTags.disable();
+    } else {
+      this.selectTags.settings.placeholder = "Search...";
+      this.selectTags.enable();
+      this.selectTags.focus();
     }
   }
 
@@ -40,7 +47,8 @@ export default class extends Controller {
     this.currentTagsTarget.insertAdjacentHTML("beforeend", newTag);
   }
 
-  submitForm() {
+  onChange() {
+    this.updateSelectTags();
     this.formTarget.requestSubmit();
   }
 

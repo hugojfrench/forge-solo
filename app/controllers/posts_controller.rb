@@ -40,7 +40,7 @@ class PostsController < ApplicationController
   def create
     @post = @idea.posts.build(post_params) # associate idea directly
     if @post.save
-      redirect_to @post, notice: 'Post was successfully created.'
+      redirect_to @post, notice: 'Your idea has been posted!'
     else
       render :new, status: :unprocessable_entity
     end

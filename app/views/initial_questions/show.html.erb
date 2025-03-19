@@ -76,7 +76,8 @@
         <%= form_with(url: "/initial_questions", method: "post") do |form| %>
           <div class="custom-form">
             <div class="custom-form-bubble">
-              <%= form.text_area :changes, placeholder: "I'm really looking to do something which has some interesting challenges to tackle on the backend of development...", class: "form-control", rows: 5 %>
+              <%= form.text_area :changes, placeholder: "I'm really looking to do something which has some interesting challenges to tackle on the backend of development...",
+                class: "form-control", rows: 1, data: { controller: 'resize-textarea', action: 'input->resize-textarea#resize' } %>
             </div>
             <div class="mt-3">
               <%= form.submit "Re-generate", class: "btn btn-primary" %>

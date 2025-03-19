@@ -5,7 +5,8 @@
     <%# Display the fields from Post model (copied from Idea) %>
     <%= form_post.text_field :title, class: "new-form-input edit-form-title", readonly: true %>
     <%= form_post.text_field :tagline, class: "new-form-input edit-form-tagline", readonly: true %>
-    <%= form_post.text_area :summary, class: "new-form-input edit-form-summary", rows: 5, readonly: true %>
+    <%= form_post.text_area :summary, class: "new-form-input edit-form-summary", rows: 1,
+      data: { controller: 'resize-textarea', action: 'input->resize-textarea#resize' }, readonly: true %>
 
     <%# Display the fields from PostSections model (copied from IdeaSections) %>
     <%= form_post.fields_for :post_sections do |post_section_fields| %>
@@ -20,7 +21,8 @@
           </div>
 
         <%= post_section_fields.text_field :heading, class: "new-form-input edit-form-input edit-form-heading", readonly: true %>
-        <%= post_section_fields.text_area :content, class: "new-form-input edit-form-input edit-form-summary #{'edit-form-last' if last_input}", rows: 5, readonly: true %>
+        <%= post_section_fields.text_area :content, class: "new-form-input edit-form-input edit-form-summary #{'edit-form-last' if last_input}", rows: 1,
+          data: { controller: 'resize-textarea', action: 'input->resize-textarea#resize' }, readonly: true %>
       </div>
 
     <% end %>
@@ -32,7 +34,7 @@
         <i class="fa-solid fa-upload"></i> Upload Image
       </label>
     </div>
-    
+
   </div>
 
   <%# Add share button %>

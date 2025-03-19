@@ -14,11 +14,19 @@
             <h3><%= idea.title %></h3>
             <h5><%= idea.tagline %></h5>
           </div>
-          <div class="upvote-block static post-upvote">
-            <button class="upvote-btn" disabled>
-              <i class="fa-regular fa-circle-up"></i>
-            </button>
-            <div class="upvote-count"><%= idea.upvotes %></div>
+          <div class="post-upvote">
+            <div class="upvote-block static">
+              <button class="upvote-btn">
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+              <div class="upvote-count"><%= idea.posts.count %></div>
+            </div>
+            <div class="upvote-block static">
+              <button class="upvote-btn" disabled>
+                <i class="fa-regular fa-circle-up"></i>
+              </button>
+              <div class="upvote-count"><%= idea.upvotes %></div>
+            </div>
           </div>
         </div>
         <p><%= idea.summary %></p>

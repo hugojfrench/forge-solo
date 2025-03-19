@@ -118,23 +118,23 @@
 }
 
 .edit-form-title {
-  font-size: 56px;
+  font-size: $font-size-title;
   font-weight: 900;
 }
 
 .edit-form-heading {
-  font-size: 32px;
+  font-size: $font-size-heading;
   font-weight: bold;
 }
 
 .edit-form-tagline {
-  font-size: 32px;
+  font-size: $font-size-tagline;
   font-weight: 600;
   font-style: italic;
 }
 
 .edit-form-summary {
-  font-size: 24px;
+  font-size: $font-size-summary;
   resize: none;
 }
 
@@ -145,7 +145,7 @@
 }
 
 .edit-form-content {
-  font-size: 16px;
+  font-size: $font-size-content;
   resize: none;
 }
 

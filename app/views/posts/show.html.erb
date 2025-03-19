@@ -15,7 +15,7 @@
             <% else %>
               <%= image_tag "Avatar_placeholder.png", width: 100, height: 100, class: "avatar-large", alt: "User avatar placeholder" %>
             <% end %>
-            <div class="avatar-name"><%= @post.idea.user.first_name %></div>
+            <div class="avatar-name"><%= @post.idea.user.first_name.capitalize %></div>
           </div>
         </div>
         <h3><%= @post.tagline %></h3>

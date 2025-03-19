@@ -11,6 +11,6 @@
     <% else %>
       <%= image_tag "Avatar_placeholder.png", width: 20, height: 20, class: "avatar-mini", alt: "User avatar placeholder" %>
     <% end %>
-    <p><strong><%= reply.user.first_name %>:</strong> <%= reply.content %></p>
+    <p><strong><%= reply.user.first_name.capitalize %>:</strong> <%= reply.content %></p>
   </div>
 </div>

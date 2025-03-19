@@ -24,7 +24,7 @@
     select,
     textarea {
       flex: 1;
-      background: $primary;
+      background: $light-primary;
       border: none;
       border-radius: 12px;
       color: $body-color;
@@ -72,8 +72,8 @@
 
   // Remove Chrome's autofill styling
   input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px $primary inset;
-    box-shadow: 0 0 0px 1000px $primary inset;
+    -webkit-box-shadow: 0 0 0px 1000px $light-primary inset;
+    box-shadow: 0 0 0px 1000px $light-primary inset;
     -webkit-text-fill-color: $body-color;
     transition: background-color 5000s ease-in-out 0s;
   }
@@ -157,16 +157,22 @@
 .post-edit-form-buttons {
   height: 100%;
   position: sticky;
-  top: 100px;
-  margin-top: 20px; // account for the navbar being sticky as well
+  top: 130px;
 }
 
 .arrow-edit-form-buttons {
   height: 100%;
   position: sticky;
-  top: 100px;
+  top: 130px;
   padding-top: 30px;
-   // account for the navbar being sticky as well
+
+  a {
+    color: black;
+  }
+
+  i {
+    font-size: 64px;
+  }
 }
 
 // this is required to be able to show description next to button
@@ -295,6 +301,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  label {
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .new-form-post-image img {

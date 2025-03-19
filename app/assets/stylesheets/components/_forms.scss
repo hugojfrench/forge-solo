@@ -3,10 +3,10 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1.25rem;
 
   .custom-form-bubble {
-    background: $primary;
+    background: mix($secondary, white, 95%);
     border-radius: 16px;
     border: 8px solid $success;
     display: flex; // ✅ Make it flex
@@ -24,7 +24,7 @@
     select,
     textarea {
       flex: 1;
-      background: mix($secondary, white, 95%);
+      background: $primary;
       border: none;
       border-radius: 8px;
       color: $body-color;
@@ -67,12 +67,13 @@
   .btn {
     align-self: center;
     font-size: 2rem;
+    margin-top: 15px;
   }
 
   // Remove Chrome's autofill styling
   input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px mix($secondary, white, 95%) inset;
-    box-shadow: 0 0 0px 1000px mix($secondary, white, 95%) inset;
+    -webkit-box-shadow: 0 0 0px 1000px $primary inset;
+    box-shadow: 0 0 0px 1000px $primary inset;
     -webkit-text-fill-color: $body-color;
     transition: background-color 5000s ease-in-out 0s;
   }

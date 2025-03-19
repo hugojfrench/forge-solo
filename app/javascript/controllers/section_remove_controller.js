@@ -6,6 +6,7 @@ export default class extends Controller {
 
   toggle(event) {
     event.preventDefault()
+    // event.currentTarget.checked = !event.currentTarget.checked
     this.wrapperTarget.classList.toggle("excluded") // Add/remove 'excluded' class
   }
 }

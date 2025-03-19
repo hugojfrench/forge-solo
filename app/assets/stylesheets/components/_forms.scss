@@ -80,6 +80,7 @@
 
 
 // Form for Ideas#edit
+
 .edit-form {
   display: flex;
   flex-direction: row;
@@ -151,6 +152,12 @@
   position: relative;
 }
 
+.new-edit-form-button {
+  padding-top: 50px;
+  padding-left: 20px;
+}
+
+
 .edit-form-button-description {
   position: absolute;
   left: 50px;
@@ -173,6 +180,39 @@
   opacity: 1;
 }
 
+
+
+
+.new-edit-form-button-description {
+
+    position: absolute;
+    left: 50px;
+    // top: 0px;
+    opacity: 0;
+    transition: 0.2s linear;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    // quick transition when finished hovering
+    &:not(:hover) {
+      transition: 0.2s ease-out;
+    }
+  }
+
+  // change the opacity of the description when we hover the buton
+  .edit-form-button:hover .new-edit-form-button-description {
+    opacity: 1;
+  }
+
+
+
+
+
+
+
+
 .edit-form button {
   border: 0;
   background-color: inherit;
@@ -185,11 +225,75 @@
 }
 
 // ---- POSTS#NEW ----
+.new-form-container {
+  padding: 32px;
+  border: 2px solid $secondary;
+  border-radius: 16px;
+  background-color: #f9aeaa;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.new-form-header {
+  justify-content: center;
+  position: relative;
+
+  a {
+    position: absolute;
+    left: 0;
+  }
+
+  h1 {
+    width: auto;
+  }
+}
+
+.new-form-image-summary-wrapper {
+  display:flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.new-post-summary {
+  flex-grow: 1;
+}
+
+.new-form-check {
+  // justify-content: flex-end;
+  display: flex;
+  margin-top: 16px;
+  align-items: center;
+}
+.new-form-post-image {
+  width: 25%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-avatar-large {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  // TODO: Fix box shadow - it creates a border at the same time?!
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.new-button {
+  all: unset;
+  margin-top: 30px;
+}
+
+// POSTS#NEW
 .new-form-input {
   border: 0;
   background-color: mix($success, white, 50%);
   padding-left: 8px;
-
+  width: 100%;
   &:focus {
     outline: none;
   }
@@ -226,7 +330,7 @@
 }
 
 .custom-file-upload-button {
-  margin-top: 16px;
+  // margin-top: 120px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -238,6 +342,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-size: 14px;
+
 
   &:hover {
     background-color: mix($primary, black, 90%);

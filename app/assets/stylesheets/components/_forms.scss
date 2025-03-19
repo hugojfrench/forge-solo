@@ -8,7 +8,7 @@
   .custom-form-bubble {
     background: $primary;
     border-radius: 16px;
-    border: 8px solid $success;
+    border: 4px solid $success;
     display: flex; // ✅ Make it flex
     align-items: stretch;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -26,7 +26,7 @@
       flex: 1;
       background: mix($secondary, white, 95%);
       border: none;
-      border-radius: 8px;
+      border-radius: 12px;
       color: $body-color;
       font-weight: 400; // Heavier weight
       padding: 8px 16px;

@@ -172,6 +172,39 @@
   opacity: 1;
 }
 
+
+
+
+.new-edit-form-button-description {
+
+    position: absolute;
+    left: 50px;
+    // top: 0px;
+    opacity: 0;
+    transition: 0.2s linear;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    // quick transition when finished hovering
+    &:not(:hover) {
+      transition: 0.2s ease-out;
+    }
+  }
+
+  // change the opacity of the description when we hover the buton
+  .edit-form-button:hover .new-edit-form-button-description {
+    opacity: 1;
+  }
+
+
+
+
+
+
+
+
 .edit-form button {
   border: 0;
   background-color: inherit;
@@ -244,6 +277,7 @@
 
 .new-button {
   all: unset;
+  margin-top: 30px;
 }
 
 // POSTS#NEW

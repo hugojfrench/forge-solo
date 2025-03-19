@@ -68,8 +68,8 @@
 
         <!-- Instead of the feedback form, displaying the Submit button in the same column -->
 
-          <div class="mt-3 btn btn-primary">
-            <%= form_post.button "<i class='fa-solid fa-paper-plane'></i> Submit".html_safe, type: "submit", class: "new-button" %>
+          <div class="edit-form-button">
+            <%= form_post.button "<i class='fa-solid fa-paper-plane', style='font-size: 32px;' ></i> <span class='new-edit-form-button-description', style='font-size: 32px;'>Post</span> ".html_safe, type: "submit", class: "new-button" %>
           </div>
       <% end %>
     </div>

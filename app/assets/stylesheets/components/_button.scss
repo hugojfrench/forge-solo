@@ -18,12 +18,15 @@
   top: 130px;
   margin-top: 8px;
   gap: 16px;
+  min-width: 130px;
 
   .icon-button {
     padding: 16px 16px;
     justify-content: center;
     display: flex;
     position: relative;
+    width: 65%;
+    aspect-ratio: 1 / 1;
 
     i{
       font-size: 48px;
@@ -38,8 +41,8 @@
 
   .icon-button-description {
     position: absolute;
-    left: 100px;
-    top: 20px;
+    left: 90px;
+    top: 16px;
     opacity: 0;
     transition: 0.2s linear;
 

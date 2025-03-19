@@ -229,7 +229,7 @@
   padding: 32px;
   border: 2px solid $secondary;
   border-radius: 16px;
-  background-color: #f9aeaa;
+  background-color: $pinksheet;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   margin-left: 24px;
   margin-right: 24px;
@@ -291,7 +291,7 @@
 // POSTS#NEW
 .new-form-input {
   border: 0;
-  background-color: mix($success, white, 50%);
+  background-color: $pinksheet;
   padding-left: 8px;
   width: 100%;
   &:focus {

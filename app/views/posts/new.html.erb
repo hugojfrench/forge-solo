@@ -14,7 +14,7 @@
 
     <!-- Post Show Card -->
     <div class="new-form-container">
-    
+
       <%= form_with model: [@idea, @post], data: { controller: "form-filter", action: "submit->form-filter#prepare" }, html: { multipart: true } do |form_post| %>
 
       <div class="d-flex">
@@ -47,7 +47,7 @@
               <img id="image_preview" data-image-preview-target="preview" alt="", class="d-none" />
             </div>
           <div class="new-post-summary">
-            <%= form_post.text_area :summary, class: "new-form-input edit-form-summary", placeholder: "Post Summary", rows: 1,
+            <%= form_post.text_area :summary, class: "new-form-input new-edit-form-summary", placeholder: "Post Summary", rows: 1,
               data: { controller: 'resize-textarea', action: 'input->resize-textarea#resize' }, readonly: true %>
           </div>
         </div>

@@ -33,9 +33,9 @@
   margin-left: 48px;
   margin-top: 8px;
   padding: 12px;
-  background-color: $pinksheet;
+  background-color: mix($feedback-orange, white, 80%);
   border-radius: 12px;
-  border: $border-width-sm solid $secondary;
+  border: $border-width-sm solid $success;
 
   .feedback-reply {
     margin-bottom: 4px;
@@ -57,15 +57,15 @@
 
     textarea {
       border-radius: 8px;
-      border: $border-width-sm solid $secondary;
+      border: $border-width-sm solid $success;
       max-height: 1.5rem;
       resize: none;
       margin-bottom: 0;
-      background-color: mix($feedback-orange, white, 20%);
+      background-color: mix($feedback-orange, white, 40%);
 
       &:focus {
-        border: $border-width-sm solid $secondary;
-        background-color: mix($feedback-orange, white, 20%);
+        border: $border-width-sm solid $success;
+        background-color: mix($feedback-orange, white, 40%);
       }
     }
 

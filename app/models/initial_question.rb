@@ -60,7 +60,7 @@ class InitialQuestion < ApplicationRecord
     results << { role: "system", content:
     <<~INSTRUCTION.strip
 
-    Generate three distinct ideas for an idea generator website.
+    Generate three distinct ideas for an idea generator website. For the title, make it a catchy name. The title CANNOT be more than 2-3 words. The tagline CANNOT be more than 7 words. The summary HAS to be 1 sentence long and that sentence should be 20-30 words.
     Your response must be a single JSON object matching this schema:
     {
       "title1": "string",

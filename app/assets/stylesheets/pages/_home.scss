@@ -62,14 +62,6 @@
   }
 }
 
-
-.login-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 1rem; // Replicates Bootstrap's m-3
-}
-
 // Media query for smaller screens - stack vertically
 @media (max-width: 768px) {
   .steps-container {

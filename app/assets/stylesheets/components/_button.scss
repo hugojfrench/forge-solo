@@ -23,6 +23,7 @@
     padding: 16px 16px;
     justify-content: center;
     display: flex;
+    position: relative;
 
     i{
       font-size: 48px;
@@ -38,7 +39,7 @@
   .icon-button-description {
     position: absolute;
     left: 100px;
-    top: 16px;
+    top: 20px;
     opacity: 0;
     transition: 0.2s linear;
 

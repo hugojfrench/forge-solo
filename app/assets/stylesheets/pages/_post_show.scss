@@ -24,13 +24,13 @@
   textarea {
     min-height: 200px;
     border-radius: 8px;
-    border: $border-width-med solid $secondary;
-    background-color: mix($pinksheet, white, 40%);
+    border: $border-width-sm solid $success;
+    background-color: mix($feedback-orange, white, 20%);
     resize: none;
 
     &:focus {
-      border: $border-width-med solid $secondary;
-      background-color: mix($pinksheet, white, 40%);
+      border: $border-width-sm solid $success;
+      background-color: mix($feedback-orange, white, 20%);
     }
   }
 

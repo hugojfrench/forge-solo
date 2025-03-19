@@ -12,16 +12,17 @@
 .navbar-title {
   position: absolute;
   left: 50%;
-  top: 25%;
+  top: 10%;
   transform: translateX(-50%);
-  font-size: 2rem;
+  font-size: 4rem;
   font-weight: bold;
   color: $maroon;
   margin: 0;
 }
 
-.navbar-brand{
-  flex-grow: 1;
+.navbar-title-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 body {
@@ -29,7 +30,7 @@ body {
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 80px;
 }
 
 .flex-box {

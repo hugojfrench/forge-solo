@@ -190,6 +190,22 @@
   border-radius: 16px;
   background-color: #f9aeaa;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.new-form-header {
+  justify-content: center;
+  position: relative;
+
+  a {
+    position: absolute;
+    left: 0;
+  }
+
+  h1 {
+    width: auto;
+  }
 }
 
 .new-form-image-summary-wrapper {

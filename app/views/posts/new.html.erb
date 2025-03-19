@@ -1,7 +1,15 @@
  <!-- Style link to and improve positioning -->
-<%= link_to "Back to idea", edit_idea_path(@idea) %>
 
-<h1>Create your post</h1>
+<div class="new-form-header">
+  <div class="edit-form-button">
+    <%= link_to edit_idea_path(@idea) do %>
+      <i class="fa-solid fa-arrow-left-long" style="font-size: 48px;"></i>
+      <span class="edit-form-button-description", style="font-size: 32px;">Edit</span>
+    <% end %>
+  </div>
+
+  <h1>Create your post</h1>
+</div>
 
 <div data-controller="scroll">
   <%# <div class="post-and-feedback-wrapper"> %>
@@ -67,5 +75,3 @@
     </div>
   </div>
 </div>
-
-  <%= link_to "Back to idea", edit_idea_path(@idea) %>

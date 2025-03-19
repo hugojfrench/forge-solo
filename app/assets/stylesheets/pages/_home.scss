@@ -14,22 +14,22 @@
   align-items: center;     /* horizontal centering */
 
   h1 {
-    font-size: 6.5rem;      // Similar to display-3
+    font-size: 4.5rem;      // Similar to display-3
     font-weight: 700;       // fw-bold
     margin-bottom: 1.0rem;  // mb-4
   }
 
   h3 {
-  font-size: 3rem;
-  font-weight: 700;       // fw-bold
-  margin-bottom: 2.0rem;  // mb-2
+    font-weight: 700;       // fw-bold
+    margin-bottom: 2.0rem;  // mb-2
   }
+
 
   .steps-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 6rem;
+    gap: 4rem;
     margin-bottom: 2rem;
     max-width: 80%;
     flex-wrap: wrap; // Wrap the steps if they overflow the container
@@ -39,7 +39,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      max-width: 300px;
+      max-width: 280px;
 
       .step-number {
         background: $success;
@@ -58,7 +58,7 @@
   }
 
   .btn {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 }
 

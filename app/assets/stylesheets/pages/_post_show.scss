@@ -2,6 +2,7 @@
   display: flex;
   align-items: start;
   gap: 16px;
+  margin-top: 64px;
 }
 
 .upvote-and-comments {
@@ -23,12 +24,24 @@
   textarea {
     min-height: 200px;
     border-radius: 8px;
-    border: 1px solid $secondary;
+    border: $border-width-med solid $success;
+    background-color: mix($feedback-orange, white, 20%);
+    resize: none;
+
+    &:focus {
+      border: $border-width-med solid $success;
+      background-color: mix($feedback-orange, white, 20%);
+    }
   }
 
   h3 {
     font-weight: bold;
     font-size: 32px;
+  }
+
+  .btn {
+    width: 100%;
+    font-size: $btn-font-size;
   }
 }
 

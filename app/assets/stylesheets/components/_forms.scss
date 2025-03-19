@@ -166,7 +166,14 @@
   position: sticky;
   top: 100px;
   padding-top: 30px;
-   // account for the navbar being sticky as well
+
+  a {
+    color: black;
+  }
+
+  i {
+    font-size: 64px;
+  }
 }
 
 // this is required to be able to show description next to button

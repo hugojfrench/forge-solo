@@ -12,7 +12,7 @@
     <%= form_idea.fields_for :idea_sections, @idea.sections do |idea_section_fields| %>
       <% last_input = idea_section_fields.object == @last_section %>
       <%= idea_section_fields.text_field :heading, class: "edit-form-input edit-form-heading" %>
-      <%= idea_section_fields.text_area :content, class: "edit-form-input edit-form-content #{'edit-form-last' if last_input}", rows: 1,
+      <%= idea_section_fields.text_area :content, class: "edit-form-input edit-form-content", rows: 1,
         data: { controller: 'resize-textarea', action: 'input->resize-textarea#resize' } %>
     <% end %>
   </div>

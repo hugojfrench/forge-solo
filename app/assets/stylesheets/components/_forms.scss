@@ -96,6 +96,9 @@
 .edit-form-inputs {
   flex-grow: 1;
   margin: 8px;
+  border-radius: 16px;
+  padding: 32px;
+  background-color: color-mix(in oklab, $primary 10%, white);
   box-shadow:
   4px 4px 8px rgba(0, 0, 0, 0.1),
   -4px 4px 8px rgba(0, 0, 0, 0.1),
@@ -108,6 +111,10 @@
   background-color: color-mix(in oklab, $primary 10%, white);
   padding-left: 8px;
 
+  &:hover {
+    background-color: color-mix(in oklab, $primary 1%, white);
+  }
+
   &:focus {
     outline: none;
     background-color: color-mix(in oklab, $primary 1%, white);
@@ -115,25 +122,23 @@
 }
 
 .edit-form-title {
-  font-size: 56px;
+  font-size: $font-size-title;
   font-weight: 900;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
 }
 
 .edit-form-heading {
-  font-size: 32px;
+  font-size: $font-size-heading;
   font-weight: bold;
 }
 
 .edit-form-tagline {
-  font-size: 32px;
+  font-size: $font-size-tagline;
   font-weight: 600;
   font-style: italic;
 }
 
 .edit-form-summary {
-  font-size: 24px;
+  font-size: $font-size-summary;
   resize: none;
 }
 
@@ -144,7 +149,7 @@
 }
 
 .edit-form-content {
-  font-size: 16px;
+  font-size: $font-size-content;
   resize: none;
 }
 
@@ -245,11 +250,6 @@
   border: 0;
   background-color: inherit;
   font-size: xx-large;
-}
-
-.edit-form-last {
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
 }
 
 // ---- POSTS#NEW ----

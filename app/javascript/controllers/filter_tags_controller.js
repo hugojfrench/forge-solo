@@ -31,10 +31,11 @@ export default class extends Controller {
     // check if we need to change the placeholder text
     if (this.selectTags.settings.maxItems === this.selectTags.items.length) {
       this.selectTags.settings.placeholder = "Remove a filter";
-      this.selectTags.disable();
+      this.selectTags.blur();
+      this.selectTags.lock();
     } else {
       this.selectTags.settings.placeholder = "Search...";
-      this.selectTags.enable();
+      this.selectTags.unlock();
       this.selectTags.focus();
     }
   }

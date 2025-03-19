@@ -10,3 +10,51 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); // stronger shadow
   }
 }
+
+.icon-button-container {
+  height: 100%
+}
+
+.icon-button {            // icon button styling on New/Edit/Post idea pages
+  height: 100%;
+  position: sticky;
+  top: 100px;
+  margin-top: 20px;
+  padding: 16px 16px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+  i{
+    font-size: 48px;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+
+.icon-button-description {
+  position: absolute;
+  left: 100px;
+  top: 16px;
+  opacity: 0;
+  transition: 0.2s linear;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  // quick transition when finished hovering
+  &:not(:hover) {
+    transition: 0.2s ease-out;
+  }
+}
+
+
+.icon-button:hover .icon-button-description {
+  opacity: 1;
+}

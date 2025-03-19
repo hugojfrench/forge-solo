@@ -147,6 +147,20 @@
   top: 100px; // account for the navbar being sticky as well
 }
 
+.post-edit-form-buttons {
+  height: 100%;
+  position: sticky;
+  top: 100px;
+  margin-top: 20px; // account for the navbar being sticky as well
+}
+
+.arrow-edit-form-buttons {
+  height: 100%;
+  position: sticky;
+  top: 100px;
+  padding-top: 30px; // account for the navbar being sticky as well
+}
+
 // this is required to be able to show description next to button
 .edit-form-button {
   position: relative;
@@ -285,7 +299,10 @@
 
 .new-button {
   all: unset;
-  margin-top: 30px;
+  margin-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 5px;
+  padding-top: 3px;
 }
 
 // POSTS#NEW

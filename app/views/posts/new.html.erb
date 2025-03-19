@@ -12,11 +12,11 @@
 </div>
 
 <div data-controller="scroll">
-  <%# <div class="post-and-feedback-wrapper"> %>
+
     <!-- Post Show Card -->
     <div class="new-form-container">
 
-      <%= form_with model: [@idea, @post], class: "", data: { controller: "form-filter", action: "submit->form-filter#prepare" }, html: { multipart: true } do |form_post| %>
+      <%= form_with model: [@idea, @post], data: { controller: "form-filter", action: "submit->form-filter#prepare" }, html: { multipart: true } do |form_post| %>
 
       <div class="d-flex">
         <div class="edit-form-header">
@@ -35,7 +35,6 @@
         </div>
       </div>
 
-
         <!-- Post Content -->
       <div class="post-content">
         <div class="new-form-image-summary-wrapper">
@@ -47,7 +46,8 @@
               </label>
             </div>
           <div class="new-post-summary">
-            <%= form_post.text_area :summary, class: "new-form-input edit-form-summary", rows: 5, placeholder: "Post Summary", readonly: true %>
+            <%= form_post.text_area :summary, class: "new-form-input edit-form-summary", placeholder: "Post Summary", rows: 1,
+              data: { controller: 'resize-textarea', action: 'input->resize-textarea#resize' }, readonly: true %>
           </div>
         </div>
 
@@ -61,17 +61,17 @@
               </div>
             </div>
 
-            <%= post_section_fields.text_area :content, class: "new-form-input edit-form-summary", rows: 5, placeholder: "Section Content", readonly: true %>
+            <%= post_section_fields.text_area :content, class: "new-form-input edit-form-summary", placeholder: "Section Content", rows: 1,
+              data: { controller: 'resize-textarea', action: 'input->resize-textarea#resize' }, readonly: true %>
           </div>
         <% end %>
 
-
         <!-- Instead of the feedback form, displaying the Submit button in the same column -->
-
-          <div class="edit-form-button">
-            <%= form_post.button "<i class='fa-solid fa-paper-plane', style='font-size: 32px;' ></i> <span class='new-edit-form-button-description', style='font-size: 32px;'>Post</span> ".html_safe, type: "submit", class: "new-button" %>
-          </div>
+        <div class="edit-form-button">
+          <%= form_post.button "<i class='fa-solid fa-paper-plane', style='font-size: 32px;' ></i> <span class='new-edit-form-button-description', style='font-size: 32px;'>Post</span> ".html_safe, type: "submit", class: "new-button" %>
+        </div>
+      </div>
       <% end %>
-    </div>
+
   </div>
 </div>

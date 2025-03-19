@@ -1,38 +1,18 @@
 <h1>Posts</h1>
-<% @posts.each do |post| %>
-  <%= link_to post_path(post), class: "post-card-link" do %> <!-- Make whole card clickable -->
-    <div class="post-card">
 
-      <!-- left side of card (upvotes + title + tagline) -->
-      <div class="post-card-left">
-        <div class="upvote-block vertical"
-            data-controller="upvote"
-            data-upvote-url-value="<%= upvote_post_path(post) %>">
-          <button class="upvote-btn" data-action="click->upvote#upvote">
-            <i class="fa-regular fa-circle-up"></i>
-          </button>
-          <div class="upvote-count" data-upvote-target="count"><%= post.upvotes %></div>
-        </div>
-        <div class="post-info">
-          <h5 class="post-title"><%= post.title %></h5>
-          <p class="post-tagline"><%= post.tagline %></p>
-        </div>
-      </div>
-
-      <!-- right side of card (avatar) -->
-      <div class="post-card-right">
-        <div class="post-tags">
-          <% post.tags.each do |tag| %>
-            <span class="tag small"><%= tag.name %></span>
-          <% end %>
-        </div>
-        <% if post.idea.user.avatar.attached? %>
-          <%= cl_image_tag post.idea.user.avatar.key, width: 50, height: 50, crop: :thumb, gravity: :face, class: "avatar-med", alt: "User avatar" %>
-        <% else %>
-          <%= image_tag "Avatar_placeholder.png", width: 50, height: 50, class: "avatar-med", alt: "User avatar placeholder" %>
-        <% end %>
-      </div>
-
+<div data-controller="filter-tags">
+  <%# Show a search box for tags %>
+  <%= form_with url: posts_path, method: :get, data: { turbo_frame: 'filtered_posts', filter_tags_target: 'form' } do |form| %>
+    <div class="tags-search-container">
+      <div class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+      <%= form.select :tags_id, options_from_collection_for_select(@tags, :id, :name),
+        {}, { multiple: true, data: { filter_tags_target: 'select' } } %>
+      <div class="tags-selected-container" data-filter-tags-target="currentTags"></div>
     </div>
   <% end %>
-<% end %>
+
+  <%# Displays the posts %>
+  <%= turbo_frame_tag :filtered_posts do %>
+    <%= render "posts", posts: @posts %>
+  <% end %>
+</div>

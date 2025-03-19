@@ -1,0 +1,37 @@
+<% posts.each do |post| %>
+  <%= link_to post_path(post), { class: "post-card-link", data: { turbo_frame: "_top" } } do %> <!-- Make whole card clickable -->
+    <div class="post-card">
+
+      <!-- left side of card (upvotes + title + tagline) -->
+      <div class="post-card-left">
+        <div class="upvote-block vertical"
+            data-controller="upvote"
+            data-upvote-url-value="<%= upvote_post_path(post) %>">
+          <button class="upvote-btn" data-action="click->upvote#upvote">
+            <i class="fa-regular fa-circle-up"></i>
+          </button>
+          <div class="upvote-count" data-upvote-target="count"><%= post.upvotes %></div>
+        </div>
+        <div class="post-info">
+          <h5 class="post-title"><%= post.title %></h5>
+          <p class="post-tagline"><%= post.tagline %></p>
+        </div>
+      </div>
+
+      <!-- right side of card (avatar) -->
+      <div class="post-card-right">
+        <div class="post-tags">
+          <% post.tags.each do |tag| %>
+            <span class="tag small"><%= tag.name %></span>
+          <% end %>
+        </div>
+        <% if post.idea.user.avatar.attached? %>
+          <%= cl_image_tag post.idea.user.avatar.key, width: 50, height: 50, crop: :thumb, gravity: :face, class: "avatar-med", alt: "User avatar" %>
+        <% else %>
+          <%= image_tag "Avatar_placeholder.png", width: 50, height: 50, class: "avatar-med", alt: "User avatar placeholder" %>
+        <% end %>
+      </div>
+
+    </div>
+  <% end %>
+<% end %>

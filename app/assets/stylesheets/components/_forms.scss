@@ -157,16 +157,22 @@
 .post-edit-form-buttons {
   height: 100%;
   position: sticky;
-  top: 100px;
-  margin-top: 20px; // account for the navbar being sticky as well
+  top: 130px;
 }
 
 .arrow-edit-form-buttons {
   height: 100%;
   position: sticky;
-  top: 100px;
+  top: 130px;
   padding-top: 30px;
-   // account for the navbar being sticky as well
+
+  a {
+    color: black;
+  }
+
+  i {
+    font-size: 64px;
+  }
 }
 
 // this is required to be able to show description next to button
@@ -295,6 +301,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  label {
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .new-form-post-image img {

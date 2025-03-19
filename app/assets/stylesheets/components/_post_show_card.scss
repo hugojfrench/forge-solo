@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 32px;
-  border: 4px solid $secondary;
+  border: $border-width-med solid $secondary;
   border-radius: 16px;
   background: linear-gradient(135deg, $pinksheet, mix($success, white, 90%));
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);

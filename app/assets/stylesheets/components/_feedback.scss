@@ -1,6 +1,6 @@
 .feedback-card {
-  background-color: mix(white, $secondary, 30%);
-  border: 1px solid $success;
+  background-color: $feedback-orange;
+  border: $border-width-med solid $success;
   border-radius: 12px;
   padding: 8px;
   margin-bottom: 8px;

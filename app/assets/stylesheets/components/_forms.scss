@@ -96,6 +96,9 @@
 .edit-form-inputs {
   flex-grow: 1;
   margin: 8px;
+  border-radius: 16px;
+  padding: 32px;
+  background-color: color-mix(in oklab, $primary 10%, white);
   box-shadow:
   4px 4px 8px rgba(0, 0, 0, 0.1),
   -4px 4px 8px rgba(0, 0, 0, 0.1),
@@ -117,8 +120,6 @@
 .edit-form-title {
   font-size: 56px;
   font-weight: 900;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
 }
 
 .edit-form-heading {
@@ -239,11 +240,6 @@
   border: 0;
   background-color: inherit;
   font-size: xx-large;
-}
-
-.edit-form-last {
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
 }
 
 // ---- POSTS#NEW ----

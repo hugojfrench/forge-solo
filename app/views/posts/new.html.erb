@@ -14,7 +14,7 @@
 
     <!-- Post Show Card -->
     <div class="new-form-container">
-
+    
       <%= form_with model: [@idea, @post], data: { controller: "form-filter", action: "submit->form-filter#prepare" }, html: { multipart: true } do |form_post| %>
 
       <div class="d-flex">

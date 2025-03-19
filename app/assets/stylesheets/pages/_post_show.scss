@@ -25,6 +25,7 @@
     border-radius: 8px;
     border: $border-width-med solid $success;
     background-color: mix($feedback-orange, white, 20%);
+    resize: none;
   }
 
   h3 {
@@ -32,6 +33,10 @@
     font-size: 32px;
   }
 
+  .btn {
+    width: 100%;
+    font-size: $btn-font-size;
+  }
 }
 
 .feedbacks {

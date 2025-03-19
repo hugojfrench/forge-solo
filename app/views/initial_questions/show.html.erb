@@ -1,5 +1,5 @@
 <div data-controller="initial-questions-sidebar">
-  <h1 data-initial-questions-sidebar-target="title">Choose your favorite:</h1>
+  <h1 data-initial-questions-sidebar-target="title">Make your choice:</h1>
   <div class="idea-card-container" data-initial-questions-sidebar-target="flexbox" data-controller="flip">
 
     <%= button_to ideas_path, action: "create", params: {idea: { title: @initial_question.title1, tagline: @initial_question.tagline1, summary: @initial_question.summary1} } do %>

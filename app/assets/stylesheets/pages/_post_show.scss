@@ -27,6 +27,11 @@
     border: $border-width-med solid $success;
     background-color: mix($feedback-orange, white, 20%);
     resize: none;
+
+    &:focus {
+      border: $border-width-med solid $success;
+      background-color: mix($feedback-orange, white, 20%);
+    }
   }
 
   h3 {

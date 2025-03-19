@@ -22,7 +22,7 @@
   data-label="<i class='fa-solid fa-reply'></i> <%= pluralize(feedback.replies.count, 'Reply') %>">
     <i class="fa-solid fa-reply"></i> <%= pluralize(feedback.replies.count, "Reply") %>
   </button>
-  <div class="hidden-replies" data-toggle-replies-target="replies">
+  <div class="hidden-replies replies-with-form" data-toggle-replies-target="replies">
     <div id="replies-<%= feedback.id %>">
       <% feedback.replies.each do |reply| %>
         <%= render 'replies/reply', reply: reply %>

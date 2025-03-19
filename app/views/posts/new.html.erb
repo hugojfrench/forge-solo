@@ -4,14 +4,14 @@
   <div class="edit-form-button">
     <%= link_to edit_idea_path(@idea) do %>
       <i class="fa-solid fa-arrow-left-long" style="font-size: 48px;"></i>
-      <span class="edit-form-button-description", style="font-size: 32px;">Edit</span>
+
     <% end %>
   </div>
 
   <h1>Create your post</h1>
 </div>
 
-<div data-controller="scroll">
+<div data-controller="scroll", class="edit-form">
   <%# <div class="post-and-feedback-wrapper"> %>
     <!-- Post Show Card -->
     <div class="new-form-container">
@@ -67,11 +67,12 @@
 
 
         <!-- Instead of the feedback form, displaying the Submit button in the same column -->
-
-          <div class="edit-form-button">
-            <%= form_post.button "<i class='fa-solid fa-paper-plane', style='font-size: 32px;' ></i> <span class='new-edit-form-button-description', style='font-size: 32px;'>Post</span> ".html_safe, type: "submit", class: "new-button" %>
-          </div>
-      <% end %>
     </div>
   </div>
+        <div class="flex-column edit-form-buttons">
+           <div class="edit-form-button">
+            <%= form_post.button "<i class='fa-solid fa-paper-plane', style='font-size: 32px;' ></i> <span class='new-edit-form-button-description', style='font-size: 32px;'>Post</span> ".html_safe, type: "submit", class: "new-button" %>
+          </div>
+        
+      <% end %>
 </div>

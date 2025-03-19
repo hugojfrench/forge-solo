@@ -13,56 +13,53 @@
   justify-content: center; /* vertical centering */
   align-items: center;     /* horizontal centering */
 
-}
-.home h1 {
-  font-size: 4.5rem;      // Similar to display-3
-  font-weight: 700;       // fw-bold
-  margin-bottom: 1.0rem;  // mb-4
-}
+  h1 {
+    font-size: 4.5rem;      // Similar to display-3
+    font-weight: 700;       // fw-bold
+    margin-bottom: 1.0rem;  // mb-4
+  }
 
-.home h3 {
-  font-weight: 700;       // fw-bold
-  margin-bottom: 2.0rem;  // mb-2
-}
+  h3 {
+    font-weight: 700;       // fw-bold
+    margin-bottom: 2.0rem;  // mb-2
+  }
 
-.login-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 1rem; // Replicates Bootstrap's m-3
-}
 
-.steps-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 3rem;
-  margin-bottom: 2rem;
-  max-width: 80%;
-  flex-wrap: wrap; // Wrap the steps if they overflow the container
-}
+  .steps-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4rem;
+    margin-bottom: 2rem;
+    max-width: 80%;
+    flex-wrap: wrap; // Wrap the steps if they overflow the container
 
-.step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 250px;
-}
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 280px;
 
-// Circle styling for the step number
-.step-number {
-  background: $success;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.5rem;
-  margin-bottom: 0.75rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+      .step-number {
+        background: $success;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+
+  .btn {
+    font-size: 2rem;
+  }
 }
 
 // Media query for smaller screens - stack vertically

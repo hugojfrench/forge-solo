@@ -1,15 +1,16 @@
 <div class="new-form-header">
-  <div class="edit-form-button">
-    <%= link_to edit_idea_path(@idea) do %>
-      <i class="fa-solid fa-arrow-left-long" style="font-size: 48px;"></i>
-
-    <% end %>
-  </div>
 
   <h1>Share your idea</h1>
 </div>
 
 <div data-controller="scroll", class="edit-form">
+
+  <div class="arrow-edit-form-buttons">
+    <%= link_to edit_idea_path(@idea) do %>
+      <i class="fa-solid fa-arrow-left-long"  style="font-size: 64px;" style="color: white;"></i>
+
+    <% end %>
+  </div>
 
     <!-- Post Show Card -->
     <div class="new-form-container">
@@ -25,9 +26,9 @@
 
         <div class="avatar-container">
           <% if @post.idea.user.avatar.attached? %>
-                  <%= cl_image_tag @post.idea.user.avatar.key, width: 200, height: 200, crop: :thumb, gravity: :face, class: "new-avatar-large", alt: "User avatar" %>
+                  <%= cl_image_tag @post.idea.user.avatar.key, width: 100, height: 100, crop: :thumb, gravity: :face, class: "new-avatar-large", alt: "User avatar" %>
           <% else %>
-                  <%= image_tag "Avatar_placeholder.png", width: 200, height: 200, class: "new-avatar-large", alt: "User avatar placeholder" %>
+                  <%= image_tag "Avatar_placeholder.png", width: 100, height: 100, class: "new-avatar-large", alt: "User avatar placeholder" %>
           <% end %>
           <div class="avatar-name"><%= @post.idea.user.first_name.capitalize %></div>
         </div>
@@ -37,14 +38,16 @@
       <div class="post-content">
         <div class="new-form-image-summary-wrapper">
              <!-- Image Upload Section -->
-            <div class="new-form-post-image">
-              <%= form_post.file_field :image, id: "file-upload", class: "hidden-file-input" %>
-              <label for="file-upload"    class="custom-file-upload-button">
+            <div class="new-form-post-image" data-controller="image-preview">
+              <%= form_post.file_field :image, id: "file-upload", class: "hidden-file-input", data: { action: "change->image-preview#preview", image_preview_target: "input" } %>
+              <label data-image-preview-target="label" for="file-upload"    class="custom-file-upload-button">
                 <i class="fa-solid fa-upload"></i> Upload Image
               </label>
+              <!-- Image Preview -->
+              <img id="image_preview" data-image-preview-target="preview" alt="", class="d-none" />
             </div>
           <div class="new-post-summary">
-            <%= form_post.text_area :summary, class: "new-form-input edit-form-summary", placeholder: "Post Summary", rows: 1,
+            <%= form_post.text_area :summary, class: "new-form-input new-edit-form-summary", placeholder: "Post Summary", rows: 1,
               data: { controller: 'resize-textarea', action: 'input->resize-textarea#resize' }, readonly: true %>
           </div>
         </div>
@@ -68,9 +71,9 @@
     </div>
 
     <!-- Instead of the feedback form, displaying the Submit button in the same column -->
-    <div class="flex-column edit-form-buttons">
-        <div class="edit-form-button">
-        <%= form_post.button "<i class='fa-solid fa-paper-plane', style='font-size: 32px;' ></i> <span class='new-edit-form-button-description', style='font-size: 32px;'>Post</span> ".html_safe, type: "submit", class: "new-button" %>
+    <div class="btn btn-primary flex-column post-edit-form-buttons">
+        <div>
+        <%= form_post.button "<i class='fa-solid fa-paper-plane', style='font-size: 48px;' ></i> ".html_safe, type: "submit", class: "new-button" %>
       </div>
     </div>
 

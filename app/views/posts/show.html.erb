@@ -19,6 +19,11 @@
           </div>
         </div>
         <h3><%= @post.tagline %></h3>
+        <div class="post-tags">
+          <% @post.tags.each do |tag| %>
+            <span class="tag-static"><%= tag.name %></span>
+          <% end %>
+        </div>
         <div class="image-summary-wrapper">
           <% if @post.image.attached? %>
             <%= cl_image_tag @post.image.key, class: "post-image", alt: "#{@post.title} image" %>
@@ -34,11 +39,6 @@
             <p><%= section.content %></p>
           </div>
         <% end %>
-        <div class="post-tags">
-          <% @post.tags.each do |tag| %>
-            <span class="tag-static"><%= tag.name %></span>
-          <% end %>
-        </div>
     </div>
 
     <!-- Sticky buttons and feedback form -->

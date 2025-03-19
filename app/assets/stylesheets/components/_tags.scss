@@ -1,3 +1,4 @@
+//not used
 .tag {
   display: inline-block;
   padding: 10px 20px;
@@ -13,6 +14,7 @@
 .tag.pressed {
   box-shadow: inset 0 6px 6px rgba(0, 0, 0, 0.4); // Adds a shadow to simulate depth
 }
+// ^^ not used
 
 .tag.small {
   padding: 5px 10px;
@@ -30,6 +32,7 @@
   text-align: center;
   border: $border-width-sm solid $secondary;
   min-width: 120px;
+  margin: 8px;
 }
 
 .tags-search-container {

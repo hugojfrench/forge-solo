@@ -301,6 +301,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  label {
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .new-form-post-image img {

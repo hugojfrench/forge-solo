@@ -33,7 +33,7 @@
     <%= simple_form_for [feedback, Reply.new],
       html: { data: { toggle_replies_target: "form", controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } } do |f| %>
       <div class="reply-form">
-        <% if feedback.user.avatar.attached? %>
+        <% if current_user.avatar.attached? %>
           <%= cl_image_tag current_user.avatar.key, width: 30, height: 30, crop: :thumb, gravity: :face, class: "avatar-small", alt: "User avatar" %>
         <% else %>
           <%= image_tag "Avatar_placeholder.png", width: 30, height: 30, class: "avatar-small", alt: "User avatar placeholder" %>

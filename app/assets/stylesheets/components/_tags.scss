@@ -1,9 +1,8 @@
-//not used
 .tag {
   display: inline-block;
   padding: 10px 20px;
   border-radius: 30px;  // Creates the pill shape
-  background-color: $primary;
+  background-color: $lightish-orange;
   color: inherit;  // Inherit the text color from the parent
   font-size: 20px;
   text-align: center;
@@ -26,7 +25,7 @@
   display: inline-block;
   padding: 10px 20px;
   border-radius: 30px;  // Creates the pill shape
-  background-color: $primary;
+  background-color: $lightish-orange;
   color: inherit;  // Inherit the text color from the parent
   font-size: 20px;
   text-align: center;
@@ -57,7 +56,7 @@
 
 // overriding style from tom select
 .ts-control {
-  background-color: $primary !important;
+  background-color: $lightish-orange !important;
   border-radius: 50px;
   height: 50px;
   width: 300px;
@@ -69,7 +68,7 @@
 }
 
 .ts-dropdown-content {
-  background-color: $primary;
+  background-color: $lightish-orange;
   font-size: larger;
 
   .active {

@@ -46,7 +46,7 @@
 
   textarea {
     border-radius: 8px;
-    border: 1px solid $secondary;
+    border: $border-width-sm solid $secondary;
     max-height: 1.5rem;
     resize: none;
     margin-bottom: 0;

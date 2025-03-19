@@ -6,7 +6,7 @@
   color: inherit;  // Inherit the text color from the parent
   font-size: 20px;
   text-align: center;
-  border: 2px solid $secondary;
+  border: $border-width-sm solid $secondary;
   min-width: 120px;
 }
 
@@ -28,7 +28,7 @@
   color: inherit;  // Inherit the text color from the parent
   font-size: 20px;
   text-align: center;
-  border: 2px solid $secondary;
+  border: $border-width-sm solid $secondary;
   min-width: 120px;
 }
 

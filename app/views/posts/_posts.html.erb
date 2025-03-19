@@ -1,5 +1,5 @@
 <% posts.each do |post| %>
-  <%= link_to post_path(post), class: "post-card-link" do %> <!-- Make whole card clickable -->
+  <%= link_to post_path(post), { class: "post-card-link", data: { turbo_frame: "_top" } } do %> <!-- Make whole card clickable -->
     <div class="post-card">
 
       <!-- left side of card (upvotes + title + tagline) -->

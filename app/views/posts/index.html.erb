@@ -1,6 +1,6 @@
 <h1>The Foundry</h1>
 
-<div data-controller="filter-tags">
+<div data-controller="filter-tags" data-filter-tags-placeholder-value="Search by tags...">
   <%# Show a search box for tags %>
   <%= form_with url: posts_path, method: :get, data: { turbo_frame: 'filtered_posts', filter_tags_target: 'form' } do |form| %>
     <div class="tags-search-container">

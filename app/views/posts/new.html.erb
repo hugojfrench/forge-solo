@@ -2,19 +2,18 @@
   <h1>Share your idea</h1>
 </div>
 
-<div data-controller="scroll", class="edit-form">
+<%= form_with model: [@idea, @post], data: { controller: "form-filter", action: "submit->form-filter#prepare" }, html: { multipart: true } do |form_post| %>
 
-  <div class="arrow-edit-form-buttons">
-    <%= link_to edit_idea_path(@idea) do %>
-      <i class="fa-solid fa-arrow-left-long"></i>
-    <% end %>
-  </div>
+  <div class="edit-form">
+
+    <div class="arrow-edit-form-buttons">
+      <%= link_to edit_idea_path(@idea) do %>
+        <i class="fa-solid fa-arrow-left-long"></i>
+      <% end %>
+    </div>
 
     <!-- Post Show Card -->
     <div class="new-form-container">
-
-      <%= form_with model: [@idea, @post], data: { controller: "form-filter", action: "submit->form-filter#prepare" }, html: { multipart: true } do |form_post| %>
-
       <div class="d-flex">
         <div class="edit-form-header">
           <%= form_post.text_field :title, class: "new-form-input edit-form-title", placeholder: "Post Title", readonly: true %>
@@ -41,10 +40,10 @@
         </div>
       </div>
 
-        <!-- Post Content -->
+      <!-- Post Content -->
       <div class="post-content">
         <div class="new-form-image-summary-wrapper">
-             <!-- Image Upload Section -->
+            <!-- Image Upload Section -->
             <div class="new-form-post-image" data-controller="image-preview">
               <%= form_post.file_field :image, id: "file-upload", class: "hidden-file-input", data: { action: "change->image-preview#preview", image_preview_target: "input" } %>
               <label data-image-preview-target="label" for="file-upload"    class="custom-file-upload-button">
@@ -74,7 +73,6 @@
           </div>
         <% end %>
       </div>
-
     </div>
 
     <div class="flex-column icon-button-container">
@@ -85,4 +83,5 @@
         <% end %>
       </div>
     </div>
-    <% end %>
+
+<% end %>

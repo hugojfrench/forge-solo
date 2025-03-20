@@ -35,6 +35,7 @@ class PostsController < ApplicationController
         content: idea_section.content
       )
     end
+    @tags = Tag.all
   end
 
   def create

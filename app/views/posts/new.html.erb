@@ -1,6 +1,4 @@
-<div class="new-form-header">
-  <h1>Share your idea</h1>
-</div>
+<h1>Share your idea</h1>
 
 <%= form_with model: [@idea, @post], data: { controller: "form-filter", action: "submit->form-filter#prepare" }, html: { multipart: true } do |form_post| %>
 
@@ -14,62 +12,68 @@
 
     <!-- Post Show Card -->
     <div class="new-form-container">
-      <div class="d-flex">
-        <div class="edit-form-header">
-          <%= form_post.text_field :title, class: "new-form-input edit-form-title", placeholder: "Post Title", readonly: true %>
-          <%= form_post.text_field :tagline, class: "new-form-input edit-form-tagline", placeholder: "Post Tagline", readonly:true %>
 
-          <%# Show a search box for tags %>
-          <div data-controller="filter-tags">
-            <div class="tags-search-container">
-              <div class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-              <%= form_post.select :tag_ids, options_from_collection_for_select(@tags, :id, :name),
-                {}, { multiple: true, data: { filter_tags_target: 'select' } } %>
-              <div class="tags-selected-container" data-filter-tags-target="currentTags"></div>
-            </div>
+      <%= form_with model: [@idea, @post], data: { controller: "form-filter", action: "submit->form-filter#prepare" }, html: { multipart: true } do |form_post| %>
+
+        <div class="new-form-header">
+          <!-- Image Upload Section -->
+          <div class="new-form-post-image" data-controller="image-preview">
+            <%= form_post.file_field :image, id: "file-upload", class: "hidden-file-input", data: { action: "change->image-preview#preview", image_preview_target: "input" } %>
+            <label data-image-preview-target="label" for="file-upload"    class="custom-file-upload-button">
+              <i class="fa-solid fa-upload"></i> Upload Image
+            </label>
+            <!-- Image Preview -->
+            <img id="image_preview" data-image-preview-target="preview" alt="", class="d-none" />
+          </div>
+          <div class="input-header-font">
+            <%= form_post.text_field :title, class: "new-form-input edit-form-title", placeholder: "Post Title", readonly: true %>
+            <%= form_post.text_field :tagline, class: "new-form-input edit-form-tagline", placeholder: "Post Tagline", readonly:true %>
+          </div>
+
+          <div class="avatar-container post-new-avatar">
+            <% if @post.idea.user.avatar.attached? %>
+                    <%= cl_image_tag @post.idea.user.avatar.key, width: 100, height: 100, crop: :thumb, gravity: :face, class: "new-avatar-large", alt: "User avatar" %>
+            <% else %>
+                    <%= image_tag "Avatar_placeholder.png", width: 100, height: 100, class: "new-avatar-large", alt: "User avatar placeholder" %>
+            <% end %>
           </div>
         </div>
 
-        <div class="avatar-container">
-          <% if @post.idea.user.avatar.attached? %>
-                  <%= cl_image_tag @post.idea.user.avatar.key, width: 100, height: 100, crop: :thumb, gravity: :face, class: "new-avatar-large", alt: "User avatar" %>
-          <% else %>
-                  <%= image_tag "Avatar_placeholder.png", width: 100, height: 100, class: "new-avatar-large", alt: "User avatar placeholder" %>
-          <% end %>
-          <div class="avatar-name"><%= @post.idea.user.first_name.capitalize %></div>
+      <%# Show a search box for tags %>
+      <div data-controller="filter-tags">
+        <div class="tags-search-container new-post-tags">
+          <div class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+          <%= form_post.select :tag_ids, options_from_collection_for_select(@tags, :id, :name),
+            {}, { multiple: true, data: { filter_tags_target: 'select' } } %>
+          <div class="tags-selected-container" data-filter-tags-target="currentTags"></div>
         </div>
       </div>
 
       <!-- Post Content -->
       <div class="post-content">
         <div class="new-form-image-summary-wrapper">
-            <!-- Image Upload Section -->
-            <div class="new-form-post-image" data-controller="image-preview">
-              <%= form_post.file_field :image, id: "file-upload", class: "hidden-file-input", data: { action: "change->image-preview#preview", image_preview_target: "input" } %>
-              <label data-image-preview-target="label" for="file-upload"    class="custom-file-upload-button">
-                <i class="fa-solid fa-upload"></i> Upload Image
-              </label>
-              <!-- Image Preview -->
-              <img id="image_preview" data-image-preview-target="preview" alt="", class="d-none" />
-            </div>
-          <div class="new-post-summary">
+
+          <!-- Post Summary -->
+          <div class="new-post-summary input-body-font">
             <%= form_post.text_area :summary, class: "new-form-input new-edit-form-summary", placeholder: "Post Summary", rows: 1,
               data: { controller: 'resize-textarea', action: 'input->resize-textarea#resize' }, readonly: true %>
+            <hr class="mt-4">
           </div>
         </div>
 
           <!-- Post Sections -->
         <%= form_post.fields_for :post_sections do |post_section_fields| %>
           <div data-controller="section-remove" data-section-remove-target="wrapper" class="post-section-wrapper">
-            <div class="new-form-check">
+            <div class="new-form-check input-header-font">
               <%= post_section_fields.text_field :heading, class: "new-form-input edit-form-heading", placeholder: "Section Heading", readonly: true %>
               <div class="form-switch">
                 <input class="form-check-input remove-section-switch" type="checkbox" id="flexSwitchCheckDefault" data-action="section-remove#toggle" checked>
               </div>
             </div>
-
-            <%= post_section_fields.text_area :content, class: "new-form-input edit-form-summary", placeholder: "Section Content", rows: 1,
-              data: { controller: 'resize-textarea', action: 'input->resize-textarea#resize' }, readonly: true %>
+            <div class="input-body-font">
+              <%= post_section_fields.text_area :content, class: "new-form-input edit-form-summary", placeholder: "Section Content", rows: 1,
+                data: { controller: 'resize-textarea', action: 'input->resize-textarea#resize' }, readonly: true %>
+            </div>
           </div>
         <% end %>
       </div>

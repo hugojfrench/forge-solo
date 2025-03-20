@@ -50,7 +50,9 @@ export default class extends Controller {
 
   onChange() {
     this.updateSelectTags();
-    this.formTarget.requestSubmit();
+    if (this.hasFormTarget) {
+      this.formTarget.requestSubmit();
+    }
   }
 
   removeItem(event) {

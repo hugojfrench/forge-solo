@@ -67,6 +67,11 @@
         border: $border-width-sm solid $success;
         background-color: mix($feedback-orange, white, 40%);
       }
+
+      &::placeholder {
+        color: $placeholder;
+        font-weight: 300; // Light placeholder
+      }
     }
 
     .btn-icon {

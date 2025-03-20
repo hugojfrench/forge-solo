@@ -128,16 +128,19 @@
 
 .edit-form-title {
   font-size: $font-size-title;
+  font-family: $headers-font;
   font-weight: 900;
 }
 
 .edit-form-heading {
   font-size: $font-size-heading;
+  font-family: $headers-font;
   font-weight: bold;
 }
 
 .edit-form-tagline {
   font-size: $font-size-tagline;
+  font-family: $headers-font;
   font-weight: 600;
   font-style: italic;
 }
@@ -150,7 +153,7 @@
 .new-edit-form-summary {
   font-size: 24px;
   resize: none;
-  padding-top: 54px;
+  padding-top: 16px;
 }
 
 .edit-form-content {
@@ -268,16 +271,27 @@
 }
 
 .new-form-header {
-  justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
   position: relative;
 
-  a {
-    position: absolute;
-    left: 0;
+  .post-image {
+    width: auto;
+    max-width: 300px;
+    height: auto;
+    flex: 0 0 auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
-  h1 {
-    width: auto;
+  .post-new-avatar {
+    position: absolute;
+    right: -10px;
+    top: -88px;
   }
 }
 
@@ -298,7 +312,7 @@
   align-items: center;
 }
 .new-form-post-image {
-  width: 25%;
+  height: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -384,7 +398,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 16px;
+  padding: 10px 64px;
   background-color: $primary;
   color: $danger;
   font-weight: 600;
@@ -400,5 +414,18 @@
 
   i {
     font-size: 16px;
+  }
+}
+
+.input-header-font {
+  input {
+    font-family: $headers-font;
+  }
+}
+
+.input-body-font {
+  textarea {
+    font-family: $body-font;
+    font-size: 20px;
   }
 }

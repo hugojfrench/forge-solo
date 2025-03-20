@@ -11,6 +11,6 @@ class Feedback < ApplicationRecord
     broadcast_prepend_to "post_#{post.id}_feedbacks",
                         partial: "feedbacks/feedback",
                         target: "feedbacks",
-                        locals: { feedback: self }
+                        locals: { feedback: self, user: self.user }
   end
 end

@@ -35,6 +35,7 @@ class PostsController < ApplicationController
         content: idea_section.content
       )
     end
+    @tags = Tag.all
   end
 
   def create
@@ -42,6 +43,12 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post, notice: 'Your idea has been posted!'
     else
+      # the form requires all the tags for the select to work
+      @tags = Tag.all
+      # show the error messages
+      error_messages = @post.errors.full_messages.map { |error| "<li>#{error}</li>" }
+      formatted_errors = "<ul>#{error_messages.join}</ul>".html_safe
+      flash.now[:alert] = formatted_errors
       render :new, status: :unprocessable_entity
     end
   end
@@ -64,6 +71,7 @@ class PostsController < ApplicationController
       :tagline,
       :summary,
       :image,
+      tag_ids: [],
       post_sections_attributes: %i[id heading content _destroy] # add _destroy for later toggling/deletion
     )
   end

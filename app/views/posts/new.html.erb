@@ -1,5 +1,4 @@
 <div class="new-form-header">
-
   <h1>Share your idea</h1>
 </div>
 
@@ -8,7 +7,6 @@
   <div class="arrow-edit-form-buttons">
     <%= link_to edit_idea_path(@idea) do %>
       <i class="fa-solid fa-arrow-left-long"></i>
-
     <% end %>
   </div>
 
@@ -20,8 +18,17 @@
       <div class="d-flex">
         <div class="edit-form-header">
           <%= form_post.text_field :title, class: "new-form-input edit-form-title", placeholder: "Post Title", readonly: true %>
-
           <%= form_post.text_field :tagline, class: "new-form-input edit-form-tagline", placeholder: "Post Tagline", readonly:true %>
+
+          <%# Show a search box for tags %>
+          <div data-controller="filter-tags">
+            <div class="tags-search-container">
+              <div class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+              <%= form_post.select :tag_ids, options_from_collection_for_select(@tags, :id, :name),
+                {}, { multiple: true, data: { filter_tags_target: 'select' } } %>
+              <div class="tags-selected-container" data-filter-tags-target="currentTags"></div>
+            </div>
+          </div>
         </div>
 
         <div class="avatar-container">

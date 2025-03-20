@@ -37,7 +37,7 @@
         </div>
 
       <%# Show a search box for tags %>
-      <div data-controller="filter-tags">
+      <div data-controller="filter-tags" data-filter-tags-placeholder-value="Add tags...">
         <div class="tags-search-container new-post-tags">
           <div class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
           <%= form_post.select :tag_ids, options_from_collection_for_select(@tags, :id, :name),

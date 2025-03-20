@@ -5,10 +5,14 @@ import TomSelect from "tom-select"
 export default class extends Controller {
   static targets = ["form", "select", "currentTags"]
 
+  static values = {
+    placeholder: String
+  }
+
   connect() {
     this.selectTags = new TomSelect(this.selectTarget, {
       maxItems: 3,
-      placeholder: "Search...",
+      placeholder: this.placeholderValue,
       onChange: () => this.onChange(),
       onItemAdd: (value, $item) => this.itemAdded($item),
       render: {
@@ -34,7 +38,7 @@ export default class extends Controller {
       this.selectTags.blur();
       this.selectTags.lock();
     } else {
-      this.selectTags.settings.placeholder = "Search...";
+      this.selectTags.settings.placeholder = this.placeholderValue;
       this.selectTags.unlock();
       this.selectTags.focus();
     }

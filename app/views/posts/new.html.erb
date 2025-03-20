@@ -77,11 +77,12 @@
 
     </div>
 
-    <!-- Instead of the feedback form, displaying the Submit button in the same column -->
-    <div class="btn btn-primary flex-column post-edit-form-buttons">
-        <div>
-        <%= form_post.button "<i class='fa-solid fa-paper-plane', style='font-size: 48px;' ></i> ".html_safe, type: "submit", class: "new-button" %>
+    <div class="flex-column icon-button-container">
+      <div class="icon-button btn btn-primary">
+        <%= form_post.button type: "submit" do %>
+          <i class='fa-solid fa-paper-plane'></i>
+          <span class="icon-button-description">Publish</span>
+        <% end %>
       </div>
     </div>
-
-      <% end %>
+    <% end %>

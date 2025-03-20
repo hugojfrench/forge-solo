@@ -19,21 +19,38 @@ class Idea < ApplicationRecord
     client = OpenAI::Client.new
     initial_chatgpt_response = client.chat(parameters: {
       model: "gpt-4o-mini",
-      messages: [{ role: "system", content: "You are an assistant for an idea generator platform. Take this idea and expand it into 3 key sections. These sections should allow the user to take their idea and run with it. For each section, output 4 sentences. Seperate each element by ###. Both the section header and content should be seperated by ###. The format should look like, 'Section1 header ### Section1 content ### Section2 header ### Section 2 content ### Section 3 header ### Section 3 content'. Make sure your output follows exactly this structure. Do not include any extra words or phrases." }, { role: "user", content: self.title  + self.tagline + self.summary }]
+      messages: [{ role: "system", content:
+         <<~INSTRUCTION.strip
+
+        You are an assistant for an idea generator platform. Take this idea and expand it into 3 key sections. These sections should allow the user to take their idea and run with it. For each section, output 4 sentences.  Your response must be a single JSON object matching this schema:
+        {
+          "heading1": "string",
+          "content1": "string",
+          "heading2": "string",
+          "content2": "string",
+          "heading3": "string",
+          "content3": "string",
+        }
+        Do not include any extra text or delimiters.
+        INSTRUCTION
+
+    }, { role: "user", content: self.title  + self.tagline + self.summary }]
     })
+
     new_content = initial_chatgpt_response["choices"][0]["message"]["content"]
-    array_new_content = new_content.split("###").reject { |c| c == "" }  #split the new content into an array and remove empty strings
-    array_new_content
-    add_sections(array_new_content)
+
+    parsed_content = JSON.parse(new_content)
+
+    add_sections(parsed_content)
   end
 
-  def add_sections(array)
-     IdeaSection.create(heading: array[0], content: array[1], idea_id: self.id)
-     IdeaSection.create(heading: array[2], content: array[3], idea_id: self.id)
-     IdeaSection.create(heading: array[4], content: array[5], idea_id: self.id)
+  def add_sections(parsed_content)
+     IdeaSection.create(heading: parsed_content["heading1"], content: parsed_content["content1"], idea_id: self.id)
+     IdeaSection.create(heading: parsed_content["heading2"], content: parsed_content["content2"], idea_id: self.id)
+     IdeaSection.create(heading: parsed_content["heading3"], content: parsed_content["content3"], idea_id: self.id)
   end
 
-  def destroy_initial_questions      #destroys all previous initial questions
+  def destroy_initial_questions      
     user.initial_questions.destroy_all
   end
 end

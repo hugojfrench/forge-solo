@@ -16,11 +16,11 @@
           <!-- Image Upload Section -->
           <div class="new-form-post-image" data-controller="image-preview">
             <%= form_post.file_field :image, id: "file-upload", class: "hidden-file-input", data: { action: "change->image-preview#preview", image_preview_target: "input" } %>
-            <label data-image-preview-target="label" for="file-upload"    class="custom-file-upload-button">
+            <label data-image-preview-target="label" for="file-upload" class="custom-file-upload-button">
               <i class="fa-solid fa-upload"></i> Upload Image
             </label>
             <!-- Image Preview -->
-            <img id="image_preview" data-image-preview-target="preview" alt="", class="d-none" />
+            <img id="image_preview" data-image-preview-target="preview" alt="" class="d-none" />
           </div>
           <div class="input-header-font">
             <%= form_post.text_field :title, class: "new-form-input edit-form-title", placeholder: "Post Title", readonly: true %>

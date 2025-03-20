@@ -145,7 +145,7 @@
 .new-edit-form-summary {
   font-size: 24px;
   resize: none;
-  padding-top: 54px;
+  padding-top: 16px;
 }
 
 .edit-form-content {
@@ -380,7 +380,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 16px;
+  padding: 10px 64px;
   background-color: $primary;
   color: $danger;
   font-weight: 600;

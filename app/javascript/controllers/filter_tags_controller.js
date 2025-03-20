@@ -41,9 +41,10 @@ export default class extends Controller {
   }
 
   insertTag(tag) {
-    const newTag = `<div class='tag small'>
-      ${tag.innerHTML}
-      <span data-action='click->filter-tags#removeItem'><i class="fa-solid fa-x"></i></span>
+    const newTag = `<div class='post-tags'>
+        <span class='tag large' data-action='click->filter-tags#removeItem'>
+          ${tag.innerHTML} <i class="fa-solid fa-x"></i>
+        </span>
       </div>`
     this.currentTagsTarget.insertAdjacentHTML("beforeend", newTag);
   }

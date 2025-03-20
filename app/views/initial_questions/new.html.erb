@@ -18,7 +18,7 @@
       <%= form.text_field :i_am_interested_in, placeholder: "Tech, food, community driven platforms, London at night, student politics... " %>
     </div>
 
-    <div class="custom-form-bubble">
+    <div class="custom-form-bubble" id="custom-select">
       <%= form.label :ideation_framework, "Project type:" %>
       <%= form.select :ideation_framework, options_for_select([
         ['💡 Standard Idea', 'standard_ideation'],

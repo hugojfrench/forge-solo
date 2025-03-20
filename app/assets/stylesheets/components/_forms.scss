@@ -10,7 +10,6 @@
     border-radius: 16px;
     border: $border-width-lg solid $success;
     display: flex; // ✅ Make it flex
-    align-items: stretch;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
     label {
@@ -51,6 +50,7 @@
       appearance: none; // Normalize across browsers
       -webkit-appearance: none;
       -moz-appearance: none;
+      min-width: 100%;
 
       // Placeholder effect when nothing selected
       &:invalid {
@@ -60,10 +60,15 @@
       option {
         color: $body-color;
         font-weight: 400;
+        width: 100%;
       }
     }
   }
 
+  #custom-select {
+    overflow: hidden;
+  }
+  
   .btn {
     align-self: center;
     font-size: 2rem;
@@ -262,8 +267,7 @@
   border-radius: 16px;
   background-color: $pinksheet;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-  margin-left: 24px;
-  margin-right: 24px;
+  margin: 8px;
 }
 
 .new-form-header {

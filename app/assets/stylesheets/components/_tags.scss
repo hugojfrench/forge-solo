@@ -8,6 +8,10 @@
   text-align: center;
   border: $border-width-med solid $secondary;
   min-width: 120px;
+
+  i:hover {
+    cursor: pointer;
+  }
 }
 
 .tag.pressed {

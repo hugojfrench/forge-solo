@@ -19,17 +19,17 @@
   </div>
 
   <%# Add submit button %>
-  <div class="flex-column edit-form-buttons">
-    <div class="edit-form-button">
+  <div class="flex-column icon-button-container">
+    <div class="icon-button btn btn-primary">
       <%= form_idea.button type: "submit", name: "pressed_button", value: "save" do %>
         <i class='fa-solid fa-floppy-disk'></i>
-        <span class="edit-form-button-description">Save</span>
+        <span class="icon-button-description">Save</span>
       <% end %>
     </div>
-    <div class="edit-form-button">
+    <div class="icon-button btn btn-primary">
       <%= form_idea.button type: "submit", name: "pressed_button", value: "share" do %>
-        <i class='fa-solid fa-share-from-square'></i>
-        <span class="edit-form-button-description">Share</span>
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <span class="icon-button-description">Share</span>
       <% end %>
     </div>
   </div>

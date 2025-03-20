@@ -25,7 +25,7 @@ class IdeasController < ApplicationController
     @idea.user.initial_questions.destroy_all
     # there are 2 submit buttons on the form ('save' and 'share')
     if params[:pressed_button] == "share"
-      redirect_to new_idea_post_path(@idea)
+      redirect_to new_idea_post_path(@idea), status: :see_other
     end
   end
 

@@ -65,6 +65,7 @@ class PostsController < ApplicationController
       :tagline,
       :summary,
       :image,
+      tag_ids: [],
       post_sections_attributes: %i[id heading content _destroy] # add _destroy for later toggling/deletion
     )
   end

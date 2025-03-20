@@ -75,3 +75,10 @@
     background-color: $lighter-orange;
   }
 }
+
+
+.post-tags {
+  margin: 16px;
+  display: flex;
+  justify-content: space-between;
+}

@@ -11,15 +11,13 @@
             <h1><%= @post.title %></h1>
             <h3><%= @post.tagline %></h3>
           </div>
-
           <!-- Avatar and Name Wrapper -->
-          <div class="avatar-container">
+          <div class="avatar-container post-show-avatar">
             <% if @post.idea.user.avatar.attached? %>
               <%= cl_image_tag @post.idea.user.avatar.key, width: 100, height: 100, crop: :thumb, gravity: :face, class: "avatar-large", alt: "User avatar" %>
             <% else %>
               <%= image_tag "Avatar_placeholder.png", width: 100, height: 100, class: "avatar-large", alt: "User avatar placeholder" %>
             <% end %>
-            <div class="avatar-name"><%= @post.idea.user.first_name.capitalize %></div>
           </div>
         </div>
 
@@ -31,6 +29,8 @@
         <div class="post-summary">
           <p><%= @post.summary %></p>
         </div>
+
+        <hr>
 
         <% @post.post_sections.each do |section| %>
           <div>
@@ -81,7 +81,7 @@
           <% end %>
           <%= simple_form_for [@post, @feedback], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |f| %>
             <div class="form-group">
-              <%= f.input :content, label: false, placeholder: "Leave feedback here:
+              <%= f.input :content, label: false, placeholder: "Leave feedback for #{@post.idea.user.first_name}:
   • I love the title, so catchy!
   • I think you could do with a snappier tagline" %>
             </div>

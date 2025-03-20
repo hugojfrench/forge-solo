@@ -10,3 +10,53 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); // stronger shadow
   }
 }
+
+// icon button styling on New/Edit/Post idea pages
+.icon-button-container {
+  height: 100%;
+  position: sticky;
+  top: 130px;
+  margin-top: 8px;
+  gap: 16px;
+  min-width: 130px;
+
+  .icon-button {
+    padding: 16px 16px;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    width: 65%;
+    aspect-ratio: 1 / 1;
+
+    i{
+      font-size: 48px;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .icon-button-description {
+    position: absolute;
+    left: 90px;
+    top: 16px;
+    opacity: 0;
+    transition: 0.2s linear;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    // quick transition when finished hovering
+    &:not(:hover) {
+      transition: 0.2s ease-out;
+    }
+  }
+
+  .icon-button:hover .icon-button-description {
+    opacity: 1;
+  }
+}

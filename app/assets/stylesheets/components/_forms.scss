@@ -123,16 +123,19 @@
 
 .edit-form-title {
   font-size: $font-size-title;
+  font-family: $headers-font;
   font-weight: 900;
 }
 
 .edit-form-heading {
   font-size: $font-size-heading;
+  font-family: $headers-font;
   font-weight: bold;
 }
 
 .edit-form-tagline {
   font-size: $font-size-tagline;
+  font-family: $headers-font;
   font-weight: 600;
   font-style: italic;
 }

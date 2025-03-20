@@ -17,8 +17,7 @@
       <div class="d-flex">
         <div class="edit-form-header">
           <%= form_post.text_field :title, class: "new-form-input edit-form-title", placeholder: "Post Title", readonly: true %>
-          <%= form_post.text_field :tagline, class: "new-form-input edit-form-tagline", placeholder: "Post Tagline", readonly:true %>
-
+          <%= form_post.text_field :tagline, class: "new-form-input edit-form-tagline", placeholder: "Post Tagline", value: "\"#{@post.tagline}\"", readonly: true %>
           <%# Show a search box for tags %>
           <div data-controller="filter-tags">
             <div class="tags-search-container">

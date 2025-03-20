@@ -18,7 +18,7 @@
             <div class="avatar-name"><%= @post.idea.user.first_name.capitalize %></div>
           </div>
         </div>
-        <h3><%= @post.tagline %></h3>
+        <h3><em>"<%= @post.tagline %>"</em></h3>
         <div class="post-tags">
           <% @post.tags.each do |tag| %>
             <span class="tag-static"><%= tag.name %></span>

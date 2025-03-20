@@ -9,7 +9,7 @@
           <div>
             <!-- Post Title -->
             <h1><%= @post.title %></h1>
-            <h3><%= @post.tagline %></h3>
+            <h3><em>"<%= @post.tagline %>"</em></h3>
           </div>
           <!-- Avatar and Name Wrapper -->
           <div class="avatar-container post-show-avatar">
@@ -20,7 +20,6 @@
             <% end %>
           </div>
         </div>
-
         <div class="post-tags">
           <% @post.tags.each do |tag| %>
             <span class="tag-static"><%= tag.name %></span>

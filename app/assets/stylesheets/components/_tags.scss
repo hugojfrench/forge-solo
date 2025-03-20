@@ -82,12 +82,13 @@
 
 
 .post-tags {
-  margin: 16px;
   display: flex;
   justify-content: space-between;
 }
 
 .new-post-tags {
-  margin-top: 32px;
+  margin-top: 24px;
   margin-bottom: 16px;
+  align-items: start;
+
 }

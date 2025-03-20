@@ -8,7 +8,7 @@
   border-radius: 16px;
   background-color: mix(white, $primary, 50%);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border: $border-width-med solid $success;
+  border: $border-width-sm solid $success;
   padding: 24px;
   margin: 16px;
   width: 400px;
@@ -103,7 +103,7 @@
 
   &.flexwrap {
     flex-direction: column;
-    align-items: center;
+    align-items: end;
   }
 
   button {
@@ -115,10 +115,12 @@
 
     h3 {
       font-weight: bold;
+      text-align: start;
     }
 
     h5 {
       font-style: italic;
+      text-align: start;
     }
 
     p {
@@ -134,15 +136,17 @@
 
   // FIXED HEIGHT AND WIDTH
   .flip-card-row {
-    height: 50dvh;
-    width: 23dvw;
+    height: 40dvh;
+    width: 28dvw;
     overflow: hidden;
   }
 
   .flip-card-column {
-    height: 20dvh;
-    width: 63dvw;
-    overflow: scroll;
+    height: 21dvh;
+    width: 58dvw;
+    overflow: hidden;
+    padding: 0px;
+    font-size: 1.1rem;
   }
   // The flip card container
   // This container is needed to position the front and back side
@@ -166,7 +170,7 @@
     border-radius: 16px;
     background-color: mix(white, $primary, 50%);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    border: $border-width-med solid $success;
+    border: $border-width-sm solid $success;
     padding: 16px;
     position: absolute;
     -webkit-backface-visibility: hidden; /* Safari */
@@ -187,6 +191,10 @@
   }
 }
 
+.title-with-icon {
+  display: flex;
+  justify-content: space-between;
+}
 
 
 // // ------ Responsive Design ------

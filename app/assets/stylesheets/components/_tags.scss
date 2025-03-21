@@ -83,12 +83,11 @@
 
 .post-tags {
   display: flex;
-  justify-content: space-between;
+  gap: 8px;
 }
 
 .new-post-tags {
   margin-top: 24px;
   margin-bottom: 16px;
   align-items: start;
-
 }

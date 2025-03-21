@@ -1,14 +1,13 @@
 <div data-controller="initial-questions-sidebar">
   <h1 data-initial-questions-sidebar-target="title">Strike your path:</h1>
-  <div class="idea-card-container" data-initial-questions-sidebar-target="flexbox" data-controller="flip">
+  <div class="l-card-container" data-initial-questions-sidebar-target="flexbox" data-controller="flip">
 
-    <%= button_to ideas_path, action: "create", params: {idea: { title: @initial_question.title1, tagline: @initial_question.tagline1, summary: @initial_question.summary1} } do %>
-      <div class="flip-card flip-card-row" data-initial-questions-sidebar-target="card">
-        <div class="flip-card-inner" data-flip-target="card">
-          <div class="flip-card-front flip-card-row" data-initial-questions-sidebar-target="card">
+      <%= button_to ideas_path, action: "create", params: { idea: { title: @initial_question.title1, tagline: @initial_question.tagline1, summary: @initial_question.summary1} }, class: "l-card", data: { initial_questions_sidebar_target:"card", flip_target: ""}  do %>
+        <div class="l-card-inner" data-flip-target="card">
+          <div class="l-card-front" data-initial-questions-sidebar-target="card">
             💡
           </div>
-          <div class="flip-card-back flip-card-row" data-initial-questions-sidebar-target="card">
+          <div class="l-card-back" data-initial-questions-sidebar-target="card">
             <div class="title-with-icon">
               <h3><%= @initial_question.title1 %></h3>
               <h3>💡</h3>
@@ -16,17 +15,14 @@
             <h5>"<%= @initial_question.tagline1 %>"</h5>
             <p><%= @initial_question.summary1 %></p>
           </div>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
 
-    <%= button_to ideas_path, action: "create", params: {idea: { title: @initial_question.title2, tagline: @initial_question.tagline2, summary: @initial_question.summary2} } do %>
-      <div class="flip-card flip-card-row" data-initial-questions-sidebar-target="card">
-        <div class="flip-card-inner" data-flip-target="card">
-          <div class="flip-card-front flip-card-row" data-initial-questions-sidebar-target="card">
+      <%= button_to ideas_path, action: "create", params: { idea: { title: @initial_question.title2, tagline: @initial_question.tagline2, summary: @initial_question.summary2} }, class: "l-card", data: { initial_questions_sidebar_target:"card", flip_target: ""}  do %>
+        <div class="l-card-inner" data-flip-target="card">
+          <div class="l-card-front" data-initial-questions-sidebar-target="card">
             💡
           </div>
-          <div class="flip-card-back flip-card-row" data-initial-questions-sidebar-target="card">
+          <div class="l-card-back" data-initial-questions-sidebar-target="card">
             <div class="title-with-icon">
               <h3><%= @initial_question.title2 %></h3>
               <h3>💡</h3>
@@ -34,17 +30,14 @@
             <h5>"<%= @initial_question.tagline2 %>"</h5>
             <p><%= @initial_question.summary2 %></p>
           </div>
-        </div>
-      </div>
       <% end %>
 
-    <%= button_to ideas_path, action: "create", params: {idea: { title: @initial_question.title3, tagline: @initial_question.tagline3, summary: @initial_question.summary3} } do %>
-      <div class="flip-card flip-card-row" data-initial-questions-sidebar-target="card">
-        <div class="flip-card-inner" data-flip-target="card">
-          <div class="flip-card-front flip-card-row" data-initial-questions-sidebar-target="card">
+      <%= button_to ideas_path, action: "create", params: { idea: { title: @initial_question.title3, tagline: @initial_question.tagline3, summary: @initial_question.summary3} }, class: "l-card", data: { initial_questions_sidebar_target:"card", flip_target: ""}  do %>
+        <div class="l-card-inner" data-flip-target="card">
+          <div class="l-card-front" data-initial-questions-sidebar-target="card">
             💡
           </div>
-          <div class="flip-card-back flip-card-row" data-initial-questions-sidebar-target="card">
+          <div class="l-card-back" data-initial-questions-sidebar-target="card">
             <div class="title-with-icon">
               <h3><%= @initial_question.title3 %></h3>
               <h3>💡</h3>
@@ -52,9 +45,7 @@
             <h5>"<%= @initial_question.tagline3 %>"</h5>
             <p><%= @initial_question.summary3 %></p>
           </div>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
 
   </div>
 

@@ -61,133 +61,102 @@
   justify-content: center;
 }
 
-// CURRENTLY UNUSED
-// initial question show cards
-.ideas-card {
-  text-decoration: none;
-  color: $body-color;
-  border-radius: 16px;
-  background-color: mix(white, $primary, 50%);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border: $border-width-med solid mix(white, $secondary, 50%);
-  padding: 16px;
-  height: 55dvh;
-  overflow: scroll;
-  gap: 20px;
 
-  h3 {
-    font-weight: bold;
-  }
+// UPDATED CSS - CHANGE NAMES WAS PURELY FOR MY DISTINCTION
 
-  h5 {
-    font-style: italic;
-  }
-
-  p {
-    text-align:left;
-    margin: 0;
-  }
-
-  // Change hover effect
-  &:hover {
-    transform: scale(1.02);
-    transition: transform 0.6s ease;
-  }
-}
-
-// ------ Flip Card ------ CURRENTLY IN USE
-.idea-card-container {
+.l-card-container {
+  // flex on container & spacing of cards
   display: flex;
-  justify-content: space-between;
-  gap: 16px;
+  justify-content: center; // Center the cards inside
+  gap: 20px;
+  margin-bottom: 16px;
 
-  &.flexwrap {
-    flex-direction: column;
-    align-items: end;
-  }
-
+  // small styling tweak to hide border on button
   button {
-    all: unset;
+    border: none;
   }
-  .flip-card {
-    background-color: transparent;
-    perspective: 1000px;
 
+  // adding min height and width to form elements to fill container div
+  form {
+    background-color: transparent;
+    min-width: 400px;
+    min-height: 450px; // hard coded min widths unfortunately still needed but now on form element
+    perspective: 1000px;
+  }
+
+  // overriding the height and width on form when we toggle on
+  // l-card-horizontal class (triggered in initial questions sidebar controller)
+  form.l-card-horizontal {
+    min-height: 26dvh;
+    min-width: 60dvw;
+    display: flex;
+    justify-content: end; // Center the inner content
+    align-items: center;
+    // overriding styling on cards to make spacing between elements smaller
     h3 {
+      margin: 0px;
       font-weight: bold;
       text-align: start;
+      padding: 8px;
     }
 
     h5 {
+      margin: 0px;
       font-style: italic;
       text-align: start;
+      padding: 4px 8px;
     }
 
     p {
+      padding: 4px 8px;
       text-align:left;
       margin: 0;
     }
+
+  }
+
+  // height & width of 100% for container of cards
+  .l-card {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
       transform: scale(1.02);
       transition: transform 0.6s ease;
     }
   }
+}
 
-  // FIXED HEIGHT AND WIDTH
-  .flip-card-row {
-    height: 40dvh;
-    width: 28dvw;
-    overflow: hidden;
+.l-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  padding: 16px;
+
+  h3 {
+    font-weight: bold;
+    text-align: start;
+    padding: 8px;
   }
 
-  .flip-card-column {
-    height: 21dvh;
-    width: 58dvw;
-    overflow: hidden;
-    padding: 0px;
-    font-size: 1.1rem;
-  }
-  // The flip card container
-  // This container is needed to position the front and back side
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-
-  .flipped {
-    transform: rotateY(180deg);
-  }
-
-  /* Position the front and back side */
-  .flip-card-front, .flip-card-back {
-    text-decoration: none;
-    color: $body-color;
-    border-radius: 16px;
-    background-color: mix(white, $primary, 50%);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    border: $border-width-sm solid $success;
+  h5 {
+    font-style: italic;
+    text-align: start;
     padding: 16px;
-    position: absolute;
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
   }
 
-  /* Style the front side (fallback if image is missing) */
-  .flip-card-front {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 120px;
-  }
-
-  /* Style the back side */
-  .flip-card-back {
-    transform: rotateY(180deg);
+  p {
+    padding: 8px 8px;
+    text-align:left;
+    margin: 0;
   }
 }
 
@@ -196,16 +165,63 @@
   justify-content: space-between;
 }
 
+.flipped {
+  transform: rotateY(180deg);
+}
 
-// // ------ Responsive Design ------
+.l-card-front, .l-card-back {
+  position: absolute;
+  top: 0px; // these must be here to stop the cards shifting to the left and down
+  left: 0px; // these must be here to stop the cards shifting to the left and down
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.l-card-front {
+  color: $body-color;
+  font-size: 48px;
+  border-radius: 16px;
+  background-color: mix(white, $primary, 50%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: $border-width-sm solid $success;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.l-card-back {
+  color: $body-color;
+  border-radius: 16px;
+  background-color: mix(white, $primary, 50%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: $border-width-sm solid $success;
+  transform: rotateY(180deg);
+  padding: 16px;
+}
+
+// MODAL STYLING::after
+.l-sidebar-active {
+  margin-left: 30%;
+  // max-width: 70%;
+  flex-wrap: wrap;
+}
+
+
+
+/* Responsive Fixes */
 // @media (max-width: 1300px) {
-//   .idea-card-container {
-//     grid-template-columns: auto auto;
+//   .l-card-container {
+//     display: grid;
+//     grid-template-columns: repeat(2, 1fr);
+//     justify-content: center;
 //   }
 // }
 
 // @media (max-width: 900px) {
-//   .idea-card-container {
-//     grid-template-columns: auto;
+//   .l-card-container {
+//     display: grid;
+//     grid-template-columns: 1fr;
 //   }
 // }

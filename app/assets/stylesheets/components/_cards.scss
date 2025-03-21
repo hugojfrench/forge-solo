@@ -67,8 +67,7 @@
 .l-card-container {
   // flex on container & spacing of cards
   display: flex;
-  justify-content: center; // Center the cards inside
-  gap: 20px;
+  justify-content: space-between;
   margin-bottom: 16px;
 
   // small styling tweak to hide border on button
@@ -87,11 +86,9 @@
   // overriding the height and width on form when we toggle on
   // l-card-horizontal class (triggered in initial questions sidebar controller)
   form.l-card-horizontal {
-    min-height: 26dvh;
+    min-height: 23dvh;
     min-width: 60dvw;
-    display: flex;
-    justify-content: end; // Center the inner content
-    align-items: center;
+    margin-bottom: 8px;
     // overriding styling on cards to make spacing between elements smaller
     h3 {
       margin: 0px;
@@ -108,7 +105,7 @@
     }
 
     p {
-      padding: 4px 8px;
+      padding-left: 8px;
       text-align:left;
       margin: 0;
     }
@@ -204,24 +201,144 @@
 // MODAL STYLING::after
 .l-sidebar-active {
   margin-left: 30%;
-  // max-width: 70%;
   flex-wrap: wrap;
 }
 
 
 
-/* Responsive Fixes */
-// @media (max-width: 1300px) {
-//   .l-card-container {
-//     display: grid;
-//     grid-template-columns: repeat(2, 1fr);
-//     justify-content: center;
+// OLD CODE HERE
+
+// CURRENTLY UNUSED
+// initial question show cards
+// .ideas-card {
+//   text-decoration: none;
+//   color: $body-color;
+//   border-radius: 16px;
+//   background-color: mix(white, $primary, 50%);
+//   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+//   border: $border-width-med solid mix(white, $secondary, 50%);
+//   padding: 16px;
+//   height: 55dvh;
+//   overflow: scroll;
+//   gap: 20px;
+
+//   h3 {
+//     font-weight: bold;
+//   }
+
+//   h5 {
+//     font-style: italic;
+//   }
+
+//   p {
+//     text-align:left;
+//     margin: 0;
+//   }
+
+//   // Change hover effect
+//   &:hover {
+//     transform: scale(1.02);
+//     transition: transform 0.6s ease;
 //   }
 // }
 
-// @media (max-width: 900px) {
-//   .l-card-container {
-//     display: grid;
-//     grid-template-columns: 1fr;
+// // ------ Flip Card ------ CURRENTLY IN USE
+// .idea-card-container {
+//   display: flex;
+//   justify-content: space-between;
+//   gap: 16px;
+
+//   &.flexwrap {
+//     flex-direction: column;
+//     align-items: end;
 //   }
+
+//   button {
+//     all: unset;
+//   }
+//   .flip-card {
+//     background-color: transparent;
+//     perspective: 1000px;
+
+//     h3 {
+//       font-weight: bold;
+//       text-align: start;
+//     }
+
+//     h5 {
+//       font-style: italic;
+//       text-align: start;
+//     }
+
+//     p {
+//       text-align:left;
+//       margin: 0;
+//     }
+
+//     &:hover {
+//       transform: scale(1.02);
+//       transition: transform 0.6s ease;
+//     }
+//   }
+
+//   // FIXED HEIGHT AND WIDTH
+//   .flip-card-row {
+//     height: 40dvh;
+//     width: 28dvw;
+//     overflow: hidden;
+//   }
+
+//   .flip-card-column {
+//     height: 21dvh;
+//     width: 58dvw;
+//     overflow: hidden;
+//     padding: 0px;
+//     font-size: 1.1rem;
+//   }
+//   // The flip card container
+//   // This container is needed to position the front and back side
+//   .flip-card-inner {
+//     position: relative;
+//     width: 100%;
+//     height: 100%;
+//     text-align: center;
+//     transition: transform 0.8s;
+//     transform-style: preserve-3d;
+//   }
+
+//   .flipped {
+//     transform: rotateY(180deg);
+//   }
+
+//   /* Position the front and back side */
+//   .flip-card-front, .flip-card-back {
+//     text-decoration: none;
+//     color: $body-color;
+//     border-radius: 16px;
+//     background-color: mix(white, $primary, 50%);
+//     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+//     border: $border-width-sm solid $success;
+//     padding: 16px;
+//     position: absolute;
+//     -webkit-backface-visibility: hidden; /* Safari */
+//     backface-visibility: hidden;
+//   }
+
+//   /* Style the front side (fallback if image is missing) */
+//   .flip-card-front {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     font-size: 120px;
+//   }
+
+//   /* Style the back side */
+//   .flip-card-back {
+//     transform: rotateY(180deg);
+//   }
+// }
+
+// .title-with-icon {
+//   display: flex;
+//   justify-content: space-between;
 // }

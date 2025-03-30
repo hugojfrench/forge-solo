@@ -323,12 +323,16 @@
   label {
     height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
   }
 }
 
 .new-form-post-image img {
-  width: 275;
-  height: 275;
+  width: 275px;
+  height: 275px;
   aspect-ratio: 1 / 1;
   border-radius: 12px;
   // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);

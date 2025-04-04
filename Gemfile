@@ -36,7 +36,7 @@ gem "solid_cable"
 # gem "bcrypt", "~> 3.1.7"
 
 #solid queue
-gem "solid_queue"
+# gem "solid_queue"
 
 # Cloudinary for image uploads [https://cloudinary.com/documentation/rails_integration]
 gem "cloudinary"

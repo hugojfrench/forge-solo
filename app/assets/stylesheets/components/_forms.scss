@@ -323,12 +323,15 @@
   label {
     height: 100%;
     width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
   }
 }
 
 .new-form-post-image img {
-  width: 275;
-  height: 275;
+  width: 275px;
+  height: 275px;
   aspect-ratio: 1 / 1;
   border-radius: 12px;
   // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -398,7 +401,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 64px;
+  padding: 10px 110px;
   background-color: $primary;
   color: $danger;
   font-weight: 600;

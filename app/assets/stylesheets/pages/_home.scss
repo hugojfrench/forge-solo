@@ -1,4 +1,5 @@
 .home {
+  width: 100%;
   padding: 2rem 1rem;
   min-height: 100vh;
   overflow: hidden;
@@ -9,7 +10,7 @@
   align-items: center;
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
   }
@@ -21,21 +22,27 @@
     text-align: center;
   }
 
+  h4 {
+    font-size: 1.125rem;
+    margin: 0;
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 0;
+  }
+
   .steps-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 2rem;
-    margin-bottom: 2rem;
-    max-width: 95%;
+    max-width: 90%;
 
     .step {
       display: flex;
       flex-direction: row;
       align-items: center;
       gap: 1rem;
-      width: 100%;
-      max-width: 100%;
 
       .step-number {
         flex-shrink: 0;
@@ -48,58 +55,71 @@
         justify-content: center;
         font-weight: 700;
         font-size: 1.5rem;
-        margin-bottom: 0; // remove bottom margin
       }
 
       .step-content {
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
-
-        h4 {
-          margin: 0;
-        }
-
-        p {
-          margin: 0;
-        }
       }
     }
   }
 
   .btn {
     font-size: 1.5rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin: 2rem 0;
   }
 }
 
-/* Tablet and up (min-width: 768px) */
+/* Tablet (min-width: 768px) */
 @media (min-width: 768px) {
   .home {
     h1 {
-      font-size: 3.5rem;
+      font-size: 3.25rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    .btn {
+      font-size: 1.75rem;
+    }
+
+    // Step layout remains stacked at this size
+  }
+}
+
+/* Laptop (min-width: 1024px) — switch to row layout */
+@media (min-width: 1024px) {
+  .home {
+    h1 {
+      font-size: 4rem;
     }
 
     h3 {
       font-size: 1.75rem;
     }
 
-    .btn {
-      font-size: 2rem;
+    h4 {
+      font-size: 1.25rem;
+    }
+    p {
+      font-size: 1.125rem;
     }
 
     .steps-container {
       flex-direction: row;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: center;
-      gap: 3rem;
-      max-width: 90%;
+      gap: 4rem;
+      max-width: 80%;
 
       .step {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        width: 60%;
 
         .step-number {
           margin-bottom: 0.75rem;
@@ -110,31 +130,6 @@
         }
       }
     }
-  }
-}
-
-/* Laptop and up (min-width: 1024px) */
-@media (min-width: 1024px) {
-  .home {
-    h1 {
-      font-size: 4.5rem;
-    }
-
-    h3 {
-      font-size: 2rem;
-      text-align: center;
-    }
-
-    .steps-container {
-      gap: 4rem;
-      max-width: 80%;
-      flex-wrap: nowrap;
-
-      .step {
-        flex: 1 1 0;
-        max-width: none;
-      }
-    }
 
     .btn {
       font-size: 2rem;
@@ -142,10 +137,22 @@
   }
 }
 
-/* Very large screens (optional cap) */
+/* XL screens (min-width: 1440px) — soft max width */
 @media (min-width: 1440px) {
   .home {
-    max-width: 1440px;
-    margin: 0 auto;
+    h1 {
+      font-size: 6rem;
+    }
+
+    h3 {
+      font-size: 2.5rem;
+    }
+
+    h4 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
   }
 }

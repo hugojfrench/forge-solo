@@ -1,23 +1,22 @@
 <h1>
-  Meet Our Team 🚀
+  Meet the team 🚀
 </h1>
 
-<p>
+<h2>
   Passionate innovators, dreamers, and doers behind the scenes!
-</p>
+</h2>
+<% team_members = [
+    { name: "Hugo", role: "Project Lead", desc: "Le Wagon batch-1920-london", img: "https://res.cloudinary.com/dealqrctt/image/upload/v1742547148/production/2m5fdi7xhb6eyfknki7fz70cs58o.jpg" },
+    { name: "Milenco", role: "Engineer", desc: "Le Wagon batch-1920-london", img: "https://via.placeholder.com/150" },
+    { name: "Bertie", role: "Engineer", desc: "Le Wagon batch-1920-london", img: "https://via.placeholder.com/150" },
+    { name: "Tony", role: "Engineer", desc: "Le Wagon batch-1920-london", img: "https://via.placeholder.com/150" }
+  ]
+%>
 
-<div>
-  <% team_members = [
-      { name: "Hugo", role: "Lead Engineer", desc: "Le Wagon batch-1920-london", img: "https://via.placeholder.com/150" },
-      { name: "Milenco", role: "Engineer", desc: "Le Wagon batch-1920-london", img: "https://via.placeholder.com/150" },
-      { name: "Bertie", role: "Engineer", desc: "Le Wagon batch-1920-london", img: "https://via.placeholder.com/150" },
-      { name: "Tony", role: "Engineer", desc: "Le Wagon batch-1920-london", img: "https://via.placeholder.com/150" }
-    ]
-  %>
-
+<div class="team-member-container">
   <% team_members.each do |member| %>
-    <div>
-      <img src="<%= member[:img] %>" alt="<%= member[:name] %>" >
+    <div class="team-member-card">
+      <img src="<%= member[:img] %>" alt="<%= member[:name] %>" class="team-avatar">
       <h3><%= member[:name] %></h3>
       <h5><%= member[:role] %></h5>
       <p><%= member[:desc] %></p>

@@ -1,12 +1,12 @@
-<h1 class="text-4xl font-bold text-center mt-10 text-indigo-600">
+<h1>
   Meet Our Team 🚀
 </h1>
 
-<p class="text-lg text-center text-gray-600 mt-3">
+<p>
   Passionate innovators, dreamers, and doers behind the scenes!
 </p>
 
-<div class="card-container flex justify-center gap-6 p-10">
+<div>
   <% team_members = [
       { name: "Hugo", role: "Lead Engineer", desc: "Le Wagon batch-1920-london", img: "https://via.placeholder.com/150" },
       { name: "Milenco", role: "Engineer", desc: "Le Wagon batch-1920-london", img: "https://via.placeholder.com/150" },
@@ -16,11 +16,11 @@
   %>
 
   <% team_members.each do |member| %>
-    <div class="ideas-card bg-white shadow-lg rounded-xl p-6 text-center transform transition-all hover:scale-105 hover:shadow-xl w-64">
-      <img src="<%= member[:img] %>" alt="<%= member[:name] %>" class="w-24 h-24 mx-auto rounded-full border-4 border-indigo-500">
-      <h3 class="text-xl font-semibold mt-4 text-indigo-600"><%= member[:name] %></h3>
-      <h5 class="text-gray-500 font-medium"><%= member[:role] %></h5>
-      <p class="text-gray-700 mt-2"><%= member[:desc] %></p>
+    <div>
+      <img src="<%= member[:img] %>" alt="<%= member[:name] %>" >
+      <h3><%= member[:name] %></h3>
+      <h5><%= member[:role] %></h5>
+      <p><%= member[:desc] %></p>
     </div>
   <% end %>
 </div>

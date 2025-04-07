@@ -6,10 +6,10 @@
   Building cool stuff, one idea at a time.
 </h2>
 <% team_members = [
-    { name: "Hugo", role: "Project Lead", desc: "Le Wagon batch-1920-london", img: "https://res.cloudinary.com/dealqrctt/image/upload/v1742547148/production/2m5fdi7xhb6eyfknki7fz70cs58o.jpg", github: "https://github.com/hugojfrench", linkedin: "https://linkedin.com/in/hugo-j-french" },
-    { name: "Milenco", role: "Engineer", desc: "Le Wagon batch-1920-london", img: "https://via.placeholder.com/150", github: "#", linkedin: "#" },
-    { name: "Bertie", role: "Engineer", desc: "Le Wagon batch-1920-london", img: "https://via.placeholder.com/150", github: "#", linkedin: "#" },
-    { name: "Tony", role: "Engineer", desc: "Le Wagon batch-1920-london", img: "https://via.placeholder.com/150", github: "#", linkedin: "#" }
+    { name: "Hugo", role: "Project Lead", img: "https://res.cloudinary.com/dealqrctt/image/upload/v1742547148/production/2m5fdi7xhb6eyfknki7fz70cs58o.jpg", github: "https://github.com/hugojfrench", linkedin: "https://linkedin.com/in/hugo-j-french" },
+    { name: "Milenco", role: "Engineer", img: "https://via.placeholder.com/150", github: "#", linkedin: "#" },
+    { name: "Bertie", role: "Engineer", img: "https://via.placeholder.com/150", github: "#", linkedin: "#" },
+    { name: "Tony", role: "Engineer", img: "https://via.placeholder.com/150", github: "#", linkedin: "#" }
   ]
 %>
 
@@ -19,7 +19,6 @@
       <img src="<%= member[:img] %>" alt="<%= member[:name] %>" class="team-avatar">
       <h3><%= member[:name] %></h3>
       <h5><%= member[:role] %></h5>
-
       <div class="team-links">
         <a href="<%= member[:github] %>" target="_blank" rel="noopener" aria-label="GitHub">
           <i class="fab fa-github"></i>

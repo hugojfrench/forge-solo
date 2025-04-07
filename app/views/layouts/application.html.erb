@@ -19,16 +19,20 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="<%= 'with-navbar-footer' unless controller_name == 'pages' && action_name == 'home' %>">
      <% unless controller_name == "pages" && action_name == "home" %>   <!-- this ensures the navbar only appears when not on home -->
       <%= render "shared/navbar" %>
     <% end %>
 
     <%= render "shared/flashes" %>
 
-    <div class="container mt-4">
+    <% if controller_name == "pages" && action_name == "home" %>
       <%= yield %>
-    </div>
+    <% else %>
+      <div class="container mt-4">
+        <%= yield %>
+      </div>
+    <% end %>
 
     <% unless controller_name == "pages" && action_name == "home" %>     <!--  ensures footer only appears when not on home-->
       <%= render "shared/footer" %>

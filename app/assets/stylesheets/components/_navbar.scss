@@ -25,10 +25,6 @@
   color: inherit;
 }
 
-body {
-  padding-top: 100px; /* Prevents content from hiding behind the navbar */
-}
-
 .navbar-lewagon .navbar-brand img {
   width: 80px;
 }
@@ -62,4 +58,8 @@ body {
 
 a.avatar.dropdown-toggle::after {
   display: none;
+}
+
+.with-navbar-footer {
+  padding-top: 100px; /* Prevents content from hiding behind the navbar */
 }

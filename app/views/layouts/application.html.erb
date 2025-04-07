@@ -1,5 +1,6 @@
+<% html_class = (controller_name == 'pages' && action_name == 'home') ? 'landing-page' : 'with-navbar-footer' %>
 <!DOCTYPE html>
-<html>
+<html class="<%= html_class %>">
   <head>
     <title><%= content_for(:title) || "Forge" %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,7 +20,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="<%= 'with-navbar-footer' unless controller_name == 'pages' && action_name == 'home' %>">
+  <body>
      <% unless controller_name == "pages" && action_name == "home" %>   <!-- this ensures the navbar only appears when not on home -->
       <%= render "shared/navbar" %>
     <% end %>

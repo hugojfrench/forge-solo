@@ -7,7 +7,7 @@
   // height: 100%;
   min-height: 100vh; /* ensures it covers the full height */
   overflow: hidden;  /* hide any overflow to remove scrollbars */
-  background-image: linear-gradient(to bottom right, $primary, $secondary, $success);
+  // background-image: linear-gradient(to bottom right, $primary, $secondary, $success);
   /* Center all content within this container */
   display: flex;
   flex-direction: column;
@@ -73,5 +73,23 @@
 
   .step {
     max-width: 80%;
+  }
+}
+
+.landing-page {
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, $primary, $secondary, $success);
+    z-index: -1;
+  }
+
+  body {
+    background: transparent;
+    position: relative;
   }
 }

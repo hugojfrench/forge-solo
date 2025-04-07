@@ -1,46 +1,41 @@
 .home {
-  /* Fill the entire viewport, no scrolling */
-  // position: fixed;   /* fixes the container to the viewport */
-  top: 0;
-  left: 0;
-  width: 100%;
-  // height: 100%;
-  min-height: 100vh; /* ensures it covers the full height */
-  overflow: hidden;  /* hide any overflow to remove scrollbars */
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  overflow: hidden;
   background: linear-gradient(to bottom right, $primary, $secondary, $success);
-  /* Center all content within this container */
   display: flex;
   flex-direction: column;
-  justify-content: center; /* vertical centering */
-  align-items: center;     /* horizontal centering */
+  justify-content: center;
+  align-items: center;
 
   h1 {
-    font-size: 4.5rem;      // Similar to display-3
-    font-weight: 700;       // fw-bold
-    margin-bottom: 1.0rem;  // mb-4
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
   }
 
   h3 {
-    font-weight: 700;       // fw-bold
-    margin-bottom: 2.0rem;  // mb-2
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
   }
-
 
   .steps-container {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 4rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
     margin-bottom: 2rem;
-    max-width: 80%;
-    flex-wrap: wrap; // Wrap the steps if they overflow the container
+    width: 100%;
+    max-width: 95%;
 
     .step {
+      max-width: 100%;
+      text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
-      max-width: 280px;
 
       .step-number {
         background: $success;
@@ -59,19 +54,74 @@
   }
 
   .btn {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }
 
-// Media query for smaller screens - stack vertically
-@media (max-width: 768px) {
-  .steps-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
+/* Tablet and up (min-width: 768px) */
+@media (min-width: 768px) {
+  .home {
+    h1 {
+      font-size: 3.5rem;
+    }
 
-  .step {
-    max-width: 80%;
+    h3 {
+      font-size: 1.75rem;
+    }
+
+    .btn {
+      font-size: 2rem;
+    }
+
+    .steps-container {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3rem;
+      max-width: 90%;
+
+      .step {
+        max-width: 45%;
+      }
+    }
+  }
+}
+
+/* Laptop and up (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .home {
+    h1 {
+      font-size: 4.5rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .steps-container {
+      gap: 4rem;
+      max-width: 80%;
+      flex-wrap: nowrap;
+
+      .step {
+        flex: 1 1 0;
+        max-width: none;
+      }
+    }
+
+    .btn {
+      font-size: 2rem;
+    }
+  }
+}
+
+/* Very large screens (optional cap) */
+@media (min-width: 1440px) {
+  .home {
+    max-width: 1440px;
+    margin: 0 auto;
   }
 }

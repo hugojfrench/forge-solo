@@ -26,9 +26,13 @@
 
     <%= render "shared/flashes" %>
 
-    <div class="container mt-4">
+    <% if controller_name == "pages" && action_name == "home" %>
       <%= yield %>
-    </div>
+    <% else %>
+      <div class="container mt-4">
+        <%= yield %>
+      </div>
+    <% end %>
 
     <% unless controller_name == "pages" && action_name == "home" %>     <!--  ensures footer only appears when not on home-->
       <%= render "shared/footer" %>

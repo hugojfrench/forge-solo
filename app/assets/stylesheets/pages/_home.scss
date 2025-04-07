@@ -1,10 +1,11 @@
 .home {
   /* Fill the entire viewport, no scrolling */
-  position: fixed;   /* fixes the container to the viewport */
+  // position: fixed;   /* fixes the container to the viewport */
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  // height: 100%;
+  min-height: 100vh; /* ensures it covers the full height */
   overflow: hidden;  /* hide any overflow to remove scrollbars */
   background-image: linear-gradient(to bottom right, $primary, $secondary, $success);
   /* Center all content within this container */

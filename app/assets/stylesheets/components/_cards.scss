@@ -4,14 +4,19 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
+.custom-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .custom-card {
-  border-radius: 16px;
-  background-color: mix(white, $primary, 50%);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border: $border-width-sm solid $success;
-  padding: 24px;
   width: 100%;
   aspect-ratio: 1 / 1;
+  padding: 24px;
+  border-radius: 16px;
+  background-color: mix(white, $primary, 50%);
+  border: $border-width-sm solid $success;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   overflow-y: auto;
   scrollbar-width: none;
 
@@ -32,24 +37,19 @@
     transform: scale(1.02);
     transition: transform 0.6s ease;
   }
-}
 
-.custom-card-link {
-  text-decoration: none;
-  color: inherit;
-}
+  .custom-card-top {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    position: relative;
 
-.custom-card-top {
-  display: grid;
-  grid-template-columns: 80% 20%;
-  position: relative;
-
-  .post-upvote {
-    justify-self: end;
-    margin: 0;
-    position: absolute;
-    top: 0;
-    right: 0;
+    .post-upvote {
+      justify-self: end;
+      margin: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
   }
 }
 

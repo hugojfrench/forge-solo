@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   background: $lighter-orange;
-  padding: 1.5rem 1.5rem;
+  padding: 1.5rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds shadow for better visibility */
   z-index: 1000; /* Makes the navbar appear above other elements */
 }
@@ -20,6 +20,10 @@
   margin: 0;
   white-space: nowrap;
   padding: 0;
+
+  &:hover {
+    transform: translateX(-52%) translateY(-52%); /* Moves the button slightly */
+  }
 }
 
 .navbar-title-link {
@@ -30,6 +34,10 @@
 .navbar-lewagon .navbar-brand img {
   width: 70px;
   height: 50px;
+
+  &:hover {
+    transform: translateX(-2px) translateY(-2px); /* Moves the button slightly */
+  }
 }
 
 .flex-box {

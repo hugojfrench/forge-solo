@@ -12,14 +12,14 @@
     <div class="flex-box">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item d-none d-lg-inline-block">
-            <%= link_to "Generate", "/initial_questions/new", class: "btn_nav" %>
+          <li class="nav-item align-button">
+            <%= link_to "Generate", "/initial_questions/new", class: "btn_nav d-none d-lg-inline-block" %>
           </li>
-          <li class="nav-item d-none d-lg-inline-block">
-            <%= link_to "Ideas", "/ideas", class: "btn_nav" %>
+          <li class="nav-item align-button">
+            <%= link_to "Ideas", "/ideas", class: "btn_nav d-none d-lg-inline-block" %>
           </li>
-          <li class="nav-item d-none d-lg-inline-block">
-            <%= link_to "Feed", "/posts", class: "btn_nav" %>
+          <li class="nav-item align-button">
+            <%= link_to "Feed", "/posts", class: "btn_nav d-none d-lg-inline-block" %>
           </li>
           <li class="nav-item dropdown">
             <a href="#" class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

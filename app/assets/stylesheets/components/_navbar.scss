@@ -36,11 +36,10 @@
 }
 
 .btn_nav {
-  align-items: right;
   border-radius: 10px;
-  padding: 0.5rem 1rem;     // Smaller default
+  padding: 0.8rem 1rem;
   font-weight: 515;
-  font-size: 0.9rem;        // Smaller default
+  font-size: 1rem;
   background-color: $light-orange;
   color: $maroon;
   text-decoration: none;
@@ -54,6 +53,11 @@
   background-color: $orange; /* Slightly darker shade */
   transform: translateX(-2px) translateY(-2px); /* Moves the button slightly */
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Adds a more pronounced shadow */
+}
+
+.align-button {
+  display: flex;
+  align-items: center;
 }
 
 a.avatar.dropdown-toggle::after {
@@ -79,7 +83,6 @@ a.avatar.dropdown-toggle::after {
 
 @media (min-width: 1200px) {
   .btn_nav {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
   }
 }

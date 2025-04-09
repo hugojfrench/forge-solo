@@ -9,8 +9,8 @@
       <h1 class="navbar-title">FORGE</h1>
     <% end %>
 
-    <div class="flex-box">
-      <ul class="navbar-nav me-auto">
+    <div>
+      <ul class="navbar-nav">
         <% if user_signed_in? %>
           <li class="nav-item align-button">
             <%= link_to "Generate", "/initial_questions/new", class: "btn_nav d-none d-lg-inline-block" %>

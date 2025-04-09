@@ -14,7 +14,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 2.5rem;
+  font-size: 4rem;
   font-weight: bold;
   color: $maroon;
   margin: 0;
@@ -28,7 +28,8 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 80px;
+  width: 70px;
+  height: 50px;
 }
 
 .flex-box {
@@ -66,19 +67,6 @@ a.avatar.dropdown-toggle::after {
 
 .with-navbar-footer {
   padding-top: 100px; /* Prevents content from hiding behind the navbar */
-}
-
-/* Media Queries */
-@media (min-width: 768px) {
-  .navbar-title {
-    font-size: 3rem;
-  }
-}
-
-@media (min-width: 992px) {
-  .navbar-title {
-    font-size: 4rem;
-  }
 }
 
 @media (min-width: 1200px) {

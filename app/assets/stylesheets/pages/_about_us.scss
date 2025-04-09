@@ -1,0 +1,72 @@
+.team-member-container {
+  display: grid;
+  grid-template-columns: 1fr; // Mobile: 1 per row
+  gap: 24px;
+  padding: 2rem;
+
+  @media (min-width: 600px) {
+    grid-template-columns: 1fr 1fr; // Tablet: 2 per row
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr); // Laptop and up: 4 in one row
+  }
+}
+
+.team-member-card {
+  background-color: mix(white, $primary, 50%);
+  border: $border-width-sm solid $success;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.4s ease;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  h3 {
+    font-weight: bold;
+    margin-top: 12px;
+  }
+
+  h5 {
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .team-avatar {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.team-subtitle {
+  text-align: center;
+}
+
+.team-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  a {
+    font-size: 1.5rem;
+    color: inherit;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}

@@ -60,6 +60,9 @@
 /* Laptop (min-width: 1024px) — switch to row layout */
 @media (min-width: 1024px) {
   .home {
+    h1 {
+      font-size: 6rem;
+    }
 
     .steps-container {
       flex-direction: row;
@@ -86,15 +89,6 @@
 
     .btn {
       font-size: 2rem;
-    }
-  }
-}
-
-/* XL screens (min-width: 1440px) — soft max width */
-@media (min-width: 1440px) {
-  .home {
-    h1 {
-      font-size: 6rem;
     }
   }
 }

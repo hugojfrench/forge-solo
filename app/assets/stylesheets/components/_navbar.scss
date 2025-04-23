@@ -4,17 +4,12 @@
   left: 0;
   width: 100%;
   background: $lighter-orange;
-  padding: 1.5rem;
+  padding: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds shadow for better visibility */
   z-index: 1000; /* Makes the navbar appear above other elements */
 }
 
 .navbar-title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 4rem;
   font-weight: bold;
   color: $maroon;
   margin: 0;

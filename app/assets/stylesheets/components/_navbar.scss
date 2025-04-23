@@ -58,6 +58,10 @@ a.avatar.dropdown-toggle::after {
   padding-top: 100px; /* Prevents content from hiding behind the navbar */
 }
 
+.dropdown-menu {
+  position: absolute !important;
+}
+
 @media (min-width: 1200px) {
   .btn_nav {
     padding: 0.8rem 1.5rem;

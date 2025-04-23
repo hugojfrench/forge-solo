@@ -4,17 +4,12 @@
   left: 0;
   width: 100%;
   background: $lighter-orange;
-  padding: 1.5rem;
+  padding: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds shadow for better visibility */
   z-index: 1000; /* Makes the navbar appear above other elements */
 }
 
 .navbar-title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 4rem;
   font-weight: bold;
   color: $maroon;
   margin: 0;
@@ -31,15 +26,6 @@
   color: inherit;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 70px;
-  height: 50px;
-
-  &:hover {
-    transform: translateX(-2px) translateY(-2px); /* Moves the button slightly */
-  }
-}
-
 .btn_nav {
   border-radius: 10px;
   padding: 0.8rem 1rem;
@@ -51,12 +37,12 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
   margin-right: 10px;
-}
 
-.btn_nav:hover {
+  &:hover {
   background-color: $orange; /* Slightly darker shade */
   transform: translateX(-2px) translateY(-2px); /* Moves the button slightly */
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Adds a more pronounced shadow */
+  }
 }
 
 .align-button {

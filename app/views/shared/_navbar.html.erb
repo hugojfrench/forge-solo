@@ -1,8 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "/initial_questions/new", class: "navbar-brand" do %>
-      <%= image_tag "logo.png" %>
-    <% end %>
 
     <!-- Centered FORGE Heading -->
     <%= link_to root_path, class: "navbar-title-link" do %>
@@ -13,13 +10,13 @@
       <ul class="navbar-nav">
         <% if user_signed_in? %>
           <li class="nav-item align-button">
-            <%= link_to "Generate", "/initial_questions/new", class: "btn_nav d-none d-lg-inline-block" %>
+            <%= link_to "Generate", "/initial_questions/new", class: "btn_nav d-none d-md-inline-block" %>
           </li>
           <li class="nav-item align-button">
-            <%= link_to "Ideas", "/ideas", class: "btn_nav d-none d-lg-inline-block" %>
+            <%= link_to "Ideas", "/ideas", class: "btn_nav d-none d-md-inline-block" %>
           </li>
           <li class="nav-item align-button">
-            <%= link_to "Feed", "/posts", class: "btn_nav d-none d-lg-inline-block" %>
+            <%= link_to "Feed", "/posts", class: "btn_nav d-none d-md-inline-block" %>
           </li>
           <li class="nav-item dropdown">
             <a href="#" class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

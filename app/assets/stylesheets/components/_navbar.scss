@@ -10,14 +10,12 @@
 }
 
 .navbar-title {
-  font-weight: bold;
-  color: $maroon;
   margin: 0;
   white-space: nowrap;
   padding: 0;
 
   &:hover {
-    transform: translateX(-52%) translateY(-52%); /* Moves the button slightly */
+    transform: translateX(-2px) translateY(-2px); /* Moves the button slightly */
   }
 }
 

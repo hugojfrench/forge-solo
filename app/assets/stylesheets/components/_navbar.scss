@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   background: $lighter-orange;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds shadow for better visibility */
   z-index: 1000; /* Makes the navbar appear above other elements */
 }
@@ -58,7 +58,29 @@ a.avatar.dropdown-toggle::after {
   padding-top: 100px; /* Prevents content from hiding behind the navbar */
 }
 
+@media (min-width: 768px) {
+  .navbar-lewagon {
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .navbar-lewagon {
+    padding: 1rem 2rem;
+  }
+}
+
 @media (min-width: 1200px) {
+  .navbar-lewagon {
+    padding: 1rem 3rem;
+  }
+
   .btn_nav {
     padding: 0.8rem 1.5rem;
   }

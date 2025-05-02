@@ -1,5 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
+    <%= link_to "/initial_questions/new", class: "d-none d-lg-block me-3" do %>
+      <%= image_tag "logo.png", width: 70, height: 50, alt: "Logo" %>
+    <% end %>
 
     <!-- Centered FORGE Heading -->
     <%= link_to root_path, class: "navbar-title-link" do %>

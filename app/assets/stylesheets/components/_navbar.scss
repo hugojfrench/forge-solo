@@ -9,19 +9,20 @@
   z-index: 1000; /* Makes the navbar appear above other elements */
 }
 
+.navbar-title-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .navbar-title {
   margin: 0;
   white-space: nowrap;
   padding: 0;
+  font-weight: 800;
 
   &:hover {
     transform: translateX(-2px) translateY(-2px); /* Moves the button slightly */
   }
-}
-
-.navbar-title-link {
-  text-decoration: none;
-  color: inherit;
 }
 
 .btn_nav {
